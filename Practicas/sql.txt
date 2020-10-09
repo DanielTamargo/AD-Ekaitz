@@ -1,0 +1,79 @@
+TipoPersonaje #Enum
+-
+id int PK
+tipo string
+# El tipo se guarda como nombre en el personaje y pone unos atributos base ya cargados
+# Guerrero, Mago, Paladín, Arquero, ????
+
+AtributosPersonaje # Tipo del personaje
+-
+id int PK
+nivel int # Hacer estadísticas fijas para los base y dar X puntos a subir para el jugador
+vitalidad int #+50 de vida
+fuerza int #+10 daño físico
+destreza int #+10% probabilidad crítico
+agilidad int #+5% esquivar FK
+poder int #+10 daño mágico
+defensaFis int #+10 defensa física
+defensaMag int #+10 defensa mágica
+
+Arma
+-
+id int PK
+tipo string
+#Arco = +1 destreza
+#Arco curvo = +2 destreza, 
+#Espada = +1 fuerza
+#Espadón = +2 fuerza, +1 vitalidad
+
+Personaje
+-
+id int PK
+nombre string
+arma Arma FK >- Arma.id
+tipo TipoPersonaje FK >- TipoPersonaje.id
+atributos AtributosPersonaje FK >- AtributosPersonaje.id
+
+AtributoEspecialGrupo #Enum | Atributo especial del grupo
+-
+id int PK
+tipo string
+# Inteligencia -> resolver puzles oportunos (aleatorios)
+# Crueldad -> +5% probabilidad de ejecutar al enemigo
+# Sinergía -> estadisticas básicas de aliados +1
+# Curtido -> 10% índice de precisión ???
+
+Grupo
+-
+id int PK
+personajes ArrayList FK >- Personaje.id
+atributo AtributoEspecialGrupo FK >- AtributoEspecialGrupo.id
+
+Enemigo
+-
+id int PK
+nivel int # Influirá en si sabe hacer focus bien o no, podría ser 'inteligente boolean'
+nombre string
+experiencia int # Experiencia que da derrotar al enemigo
+descripcion string
+vitalidad int #+50 de vida
+fuerza int #+10 daño físico
+destreza int #+10% probabilidad crítico
+agilidad int #+5% esquivar FK
+poder int #+10 daño mágico
+defensaFis int #+10 defensa física
+defensaMag int #+10 defensa mágica
+
+Pelea
+-
+id int PK
+grupo Grupo FK >- Grupo.id
+enemigos ArrayList FK >- Enemigo.id
+
+Evento
+-
+id int PK
+descripcion string # Puedes descansar pero cuesta 100 giles, ¿eliges descansar?
+efecto string # Curar | Encontrar un nuevo arma
+# Otro evento: puzle oportuno! (no) reunes los valores necesarios para resolverlo
+# 35% de probabilidades de que aparezca un evento
