@@ -21,6 +21,7 @@ Arma
 -
 id int PK
 tipo string
+imagen string
 #Arco = +1 destreza
 #Arco curvo = +2 destreza, 
 #Espada = +1 fuerza
@@ -30,9 +31,11 @@ Personaje
 -
 id int PK
 nombre string
+descripcion string
 arma Arma FK >- Arma.id
 tipo TipoPersonaje FK >- TipoPersonaje.id
 atributos AtributosPersonaje FK >- AtributosPersonaje.id
+imagen string
 
 AtributoEspecialGrupo #Enum | Atributo especial del grupo
 -
@@ -63,17 +66,27 @@ agilidad int #+5% esquivar FK
 poder int #+10 daño mágico
 defensaFis int #+10 defensa física
 defensaMag int #+10 defensa mágica
+imagen string
 
 Pelea
 -
 id int PK
 grupo Grupo FK >- Grupo.id
 enemigos ArrayList FK >- Enemigo.id
+resultado int # Nota: el resultado se calculará al final de la pelea, empezará en null
 
 Evento
 -
 id int PK
 descripcion string # Puedes descansar pero cuesta 100 giles, ¿eliges descansar?
 efecto string # Curar | Encontrar un nuevo arma
+# Eventos: poder descansar, puzle oportuno, encontrar un nuevo arma, poder mejorar un arma
 # Otro evento: puzle oportuno! (no) reunes los valores necesarios para resolverlo
 # 35% de probabilidades de que aparezca un evento
+
+
+
+
+Poner icono en java:
+private ImageIcon imagenTest = new ImageIcon("assets/Square_200x200.png");
+labelPic.setIcon(imagenTest);
