@@ -7,6 +7,7 @@ public class Partida implements Serializable {
 
     private int id;
     private int ronda;
+    private boolean finalizada;
     private Grupo grupo;
     private ArrayList<Enemigo> enemigosDerrotados = new ArrayList<>();
     private ArrayList<Evento> eventosPasados = new ArrayList<>();
@@ -14,12 +15,24 @@ public class Partida implements Serializable {
     public Partida() {
     }
 
-    public Partida(int id, int ronda, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
+    public Partida(int id, int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
         this.id = id;
+        this.finalizada = finalizada;
         this.ronda = ronda;
         this.grupo = grupo;
         this.enemigosDerrotados = enemigosDerrotados;
         this.eventosPasados = eventosPasados;
+    }
+
+    @Override
+    public String toString() {
+        return "Partida{" +
+                "id=" + id +
+                ", ronda=" + ronda +
+                ", grupo=" + grupo +
+                ", enemigosDerrotados=" + enemigosDerrotados +
+                ", eventosPasados=" + eventosPasados +
+                '}';
     }
 
     public void addEventoPasado(Evento evento) {
@@ -28,6 +41,14 @@ public class Partida implements Serializable {
 
     public void addEnemigoDerrotado(Enemigo enemigo) {
         enemigosDerrotados.add(enemigo);
+    }
+
+    public boolean getFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
     }
 
     public int getId() {

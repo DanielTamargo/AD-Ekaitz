@@ -17,6 +17,15 @@ public class Grupo implements Serializable {
         this.atributoEspecial = atributoEspecial;
     }
 
+    @Override
+    public String toString() {
+        return "Grupo{" +
+                "id=" + id +
+                ", personajes=" + personajes +
+                ", atributoEspecial=" + atributoEspecial +
+                '}';
+    }
+
     public void addPersonaje(Personaje personaje) {
         personajes.add(personaje);
     }

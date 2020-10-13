@@ -18,7 +18,7 @@ public class Evento implements Serializable {
     public String toString() {
         return "Evento{" +
                 "id=" + id +
-                ", descripcion='" + descripcion + '\'' +
+                ", descripcion='" + descripcion.substring(0, 10) + "..." + '\'' +
                 ", efecto=" + efecto +
                 '}';
     }

@@ -1,0 +1,217 @@
+<ListaPartidas>
+  <Partida>
+    <id>1</id>
+    <ronda>4</ronda>
+    <finalizada>true</finalizada>
+    <grupo>
+      <id>1</id>
+      <personajes>
+        <Personaje>
+          <id>1</id>
+          <nombre>Lord Kaplan</nombre>
+          <descripcion>Un guerrero dispuesto a luchar hasta la muerte. Cuando masacraron su aldea y perdió a su familia, nacieron sus ganas de purgar el mal.</descripcion>
+          <arma>
+            <id>1</id>
+            <nombre>Espada Corta</nombre>
+            <tipo>Espada</tipo>
+            <ataqueFis>5</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>espada-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Guerrero</tipo>
+          <atributos>
+            <id>1</id>
+            <nivel>1</nivel>
+            <vitalidad>3</vitalidad>
+            <fuerza>3</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>0</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>3</defensaFis>
+            <defensaMag>1</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>Lord-Kaplan.png</imagen>
+        </Personaje>
+        <Personaje>
+          <id>2</id>
+          <nombre>Lady Sophie</nombre>
+          <descripcion>Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.</descripcion>
+          <arma>
+            <id>2</id>
+            <nombre>Arco Ligero</nombre>
+            <tipo>Arco</tipo>
+            <ataqueFis>5</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>arco-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Mago</tipo>
+          <atributos>
+            <id>2</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>0</fuerza>
+            <poderMagico>4</poderMagico>
+            <destreza>0</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>2</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>Lady-Sophie.png</imagen>
+        </Personaje>
+        <Personaje>
+          <id>5</id>
+          <nombre>KillJoy</nombre>
+          <descripcion>A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco.</descripcion>
+          <arma>
+            <id>5</id>
+            <nombre>Dagas</nombre>
+            <tipo>Cuchillas</tipo>
+            <ataqueFis>6</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>cuchillas-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Asesino</tipo>
+          <atributos>
+            <id>5</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>4</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>2</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>0</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>KillJoy.png</imagen>
+        </Personaje>
+      </personajes>
+      <atributoEspecial>3</atributoEspecial>
+    </grupo>
+    <enemigosDerrotados>
+      <Enemigo>
+        <id>1</id>
+        <nombre>Lobo</nombre>
+        <experiencia>20</experiencia>
+        <descripcion>Lobo que ha mutado debido a las pésimas circustancias del mundo, ahora es agresivo y peligroso.</descripcion>
+        <atributos>
+          <id>6</id>
+          <nivel>1</nivel>
+          <vitalidad>1</vitalidad>
+          <fuerza>3</fuerza>
+          <poderMagico>0</poderMagico>
+          <destreza>0</destreza>
+          <agilidad>0</agilidad>
+          <defensaFis>1</defensaFis>
+          <defensaMag>0</defensaMag>
+        </atributos>
+        <imagen>FFIX-Lobo.png</imagen>
+        <nivelInicial>1</nivelInicial>
+      </Enemigo>
+      <Enemigo>
+        <id>2</id>
+        <nombre>Duende</nombre>
+        <experiencia>20</experiencia>
+        <descripcion>El enemigo más pesado y utilizado al inicio en la saga de los Final Fnatasy. Siempre estará ahí para luchar contigo.</descripcion>
+        <atributos>
+          <id>7</id>
+          <nivel>1</nivel>
+          <vitalidad>1</vitalidad>
+          <fuerza>2</fuerza>
+          <poderMagico>0</poderMagico>
+          <destreza>1</destreza>
+          <agilidad>1</agilidad>
+          <defensaFis>1</defensaFis>
+          <defensaMag>0</defensaMag>
+        </atributos>
+        <imagen>FFIX-Duende.png</imagen>
+        <nivelInicial>1</nivelInicial>
+      </Enemigo>
+      <Enemigo reference="../Enemigo"/>
+    </enemigosDerrotados>
+    <eventosPasados>
+      <Evento>
+        <id>1</id>
+        <descripcion>¿Nueva arma? ¡Nueva arma! Espero que te sirva de algo, si no... sh*t happens :/</descripcion>
+        <efecto>1</efecto>
+      </Evento>
+    </eventosPasados>
+  </Partida>
+  <Partida>
+    <id>2</id>
+    <ronda>5</ronda>
+    <finalizada>true</finalizada>
+    <grupo>
+      <id>1</id>
+      <personajes>
+        <Personaje reference="../../../../Partida/grupo/personajes/Personaje"/>
+        <Personaje reference="../../../../Partida/grupo/personajes/Personaje[2]"/>
+        <Personaje reference="../../../../Partida/grupo/personajes/Personaje[3]"/>
+      </personajes>
+      <atributoEspecial>3</atributoEspecial>
+    </grupo>
+    <enemigosDerrotados>
+      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo"/>
+      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo[2]"/>
+      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo"/>
+      <Enemigo>
+        <id>3</id>
+        <nombre>Boom</nombre>
+        <experiencia>40</experiencia>
+        <descripcion>En los Final Fnatasy &apos;reales&apos;, tiende a explotar tras recibir daño unas cuantas veces. Aquí no.</descripcion>
+        <atributos>
+          <id>8</id>
+          <nivel>2</nivel>
+          <vitalidad>4</vitalidad>
+          <fuerza>1</fuerza>
+          <poderMagico>1</poderMagico>
+          <destreza>0</destreza>
+          <agilidad>0</agilidad>
+          <defensaFis>2</defensaFis>
+          <defensaMag>2</defensaMag>
+        </atributos>
+        <imagen>FFIX-Boom.png</imagen>
+        <nivelInicial>2</nivelInicial>
+      </Enemigo>
+      <Enemigo>
+        <id>4</id>
+        <nombre>Flan</nombre>
+        <experiencia>50</experiencia>
+        <descripcion>Su forma gelatinosa hace que derrotarlo a base de espadazos y flechazos sea un coñazo. Mejor utilizar daño mágico...</descripcion>
+        <atributos>
+          <id>9</id>
+          <nivel>2</nivel>
+          <vitalidad>4</vitalidad>
+          <fuerza>0</fuerza>
+          <poderMagico>1</poderMagico>
+          <destreza>0</destreza>
+          <agilidad>0</agilidad>
+          <defensaFis>4</defensaFis>
+          <defensaMag>0</defensaMag>
+        </atributos>
+        <imagen>FFIX-Flan.png</imagen>
+        <nivelInicial>2</nivelInicial>
+      </Enemigo>
+    </enemigosDerrotados>
+    <eventosPasados>
+      <Evento reference="../../../Partida/eventosPasados/Evento"/>
+    </eventosPasados>
+  </Partida>
+</ListaPartidas>

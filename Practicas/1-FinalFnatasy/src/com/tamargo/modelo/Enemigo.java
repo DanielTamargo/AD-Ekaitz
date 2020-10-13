@@ -28,7 +28,6 @@ public class Enemigo implements Serializable {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", experiencia=" + experiencia +
-                ", descripcion='" + descripcion + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", nivelInicial=" + nivelInicial +
                 '}';

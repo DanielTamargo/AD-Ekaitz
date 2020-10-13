@@ -1,9 +1,12 @@
 package com.tamargo;
 
 import com.tamargo.modelo.*;
+import com.thoughtworks.xstream.XStream;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.*;
+import java.util.Iterator;
 
 public class LeerDatosBase {
 
@@ -171,5 +174,52 @@ public class LeerDatosBase {
 
         return eventos;
     }
+
+    /**
+     * W.I.P
+     * Utilizando XStream leeré del fichero 'ficheros/partidas.xml' las partidas guardadas
+     */
+    public ListaPartidas leerListaPartidas() {
+        ListaPartidas listaPartidas = new ListaPartidas();
+
+        try {
+            //Objeto xstream
+            XStream xstream = new XStream();
+            //Etiquetas de ListaPersonas y de Persona --> para leerlas como están en el XML
+            xstream.alias("ListaPartidas", ListaPartidas.class);
+            xstream.alias("Partida", Partida.class);
+            xstream.alias("Grupo", Grupo.class);
+            xstream.alias("Enemigo", Enemigo.class);
+            xstream.alias("Atributos", Atributos.class);
+            xstream.alias("Evento", Evento.class);
+            xstream.alias("Personaje", Personaje.class);
+            // Quitamos etiqueta lista (atributo de la clase ListaPartidas)
+            xstream.addImplicitCollection(ListaPartidas.class, "lista");
+
+            File f = new File(".\\ficheros\\partidas.xml");
+            FileInputStream fis = new FileInputStream(f);
+
+            //En este caso no cargaremos objetos, sino la lista entera de las personas (objetos)
+            listaPartidas = (ListaPartidas) xstream.fromXML(fis);
+
+            System.out.println("Número de partidas cargadas: " + listaPartidas.getLista().size());
+
+            /*
+            //Iremos persona a persona usando "iterator"
+            Iterator iterador = listaPartidas.getLista().listIterator();
+            while(iterador.hasNext()){
+                Partida p = (Partida) iterador.next();
+                System.out.println(p);
+            }
+            */
+        } catch (Exception e) {
+            System.out.println("Error al cargar la lista de partidas.");
+            e.printStackTrace();
+        }
+
+        return listaPartidas;
+    }
+
+
 
 }

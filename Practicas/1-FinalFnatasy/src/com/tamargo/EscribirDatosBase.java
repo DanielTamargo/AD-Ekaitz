@@ -2,9 +2,10 @@ package com.tamargo;
 
 import com.tamargo.modelo.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.*;
+
+import com.thoughtworks.xstream.XStream;
 
 public class EscribirDatosBase {
 
@@ -175,7 +176,7 @@ public class EscribirDatosBase {
                 "Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.",
                 armas.get(1), TipoPersonaje.Mago, atributos.get(1), "Lady-Sophie.png");
         Personaje arquero = new Personaje(3, "Legomas",
-                "Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a alguien pero no consigues saber a quién... Tendrás que confiar en lo que vean sus ojos de elfo.",
+                "Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo.",
                 armas.get(2), TipoPersonaje.Arquero, atributos.get(2), "Legomas.png");
         Personaje guardian = new Personaje(4, "Brimstone",
                 "Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su piel tan dura como oscura le protege del daño mejor que a ningún otro. Es un guardián de confianza.",
@@ -337,15 +338,33 @@ public class EscribirDatosBase {
 
 
     /**
-     * Testeo de escribir ListaPartidas en un XML
+     * W.I.P
+     * Utilizando XStream guardaré en el fichero 'ficheros/partidas.xml' la lista de partidas jugadas
      */
     public void escribirListaPartidas(ListaPartidas listaPartidas) {
 
-        
+        // Vamos a plasmar la lista de partidas en un fichero XML
+        try {
+            // Preparamos el proceso
+            XStream xstream = new XStream();
 
-
-
-
+            xstream.alias("ListaPartidas", ListaPartidas.class);
+            xstream.alias("Partida", Partida.class);
+            xstream.alias("Grupo", Grupo.class);
+            xstream.alias("Enemigo", Enemigo.class);
+            xstream.alias("Atributos", Atributos.class);
+            xstream.alias("Evento", Evento.class);
+            xstream.alias("Personaje", Personaje.class);
+            // Quitamos etiqueta lista (atributo de la clase ListaPartidas)
+            xstream.addImplicitCollection(ListaPartidas.class, "lista");
+            // Insertamos los objetos en el XML
+            File f = new File(".\\ficheros\\partidas.xml");
+            xstream.toXML(listaPartidas, new FileOutputStream(f));
+            System.out.println("¡Lista de Partidas actualizada!");
+        } catch (Exception e) {
+            System.out.println("Error al actualizar la lista de partidas.");
+            e.printStackTrace();
+        }
     }
 
 }

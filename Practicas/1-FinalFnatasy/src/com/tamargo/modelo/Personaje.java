@@ -48,8 +48,7 @@ public class Personaje implements Serializable {
         return "Personaje{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", tipo=" + tipo +
+                ", tipo=" + tipo.name() +
                 ", imagen='" + imagen + '\'' +
                 '}';
     }
