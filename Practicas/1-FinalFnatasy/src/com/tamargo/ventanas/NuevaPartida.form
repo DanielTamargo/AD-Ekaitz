@@ -176,7 +176,7 @@
             </constraints>
             <properties>
               <font name="Microsoft YaHei UI" size="16" style="0"/>
-              <text value="ELIGE LOS DOS PERSONAJES QUE ACOMPAÑARÁN A TU PROTAGONISTA"/>
+              <text value="ELIGE TRES PERSONAJES CON LOS QUE QUIERAS JUGAR"/>
             </properties>
           </component>
           <vspacer id="4d08b">
