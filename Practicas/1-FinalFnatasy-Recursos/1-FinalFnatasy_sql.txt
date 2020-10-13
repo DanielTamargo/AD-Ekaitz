@@ -5,7 +5,7 @@ tipo string
 # El tipo se guarda como nombre en el personaje y pone unos atributos base ya cargados
 # Guerrero, Mago, Paladín, Arquero, ????
 
-AtributosPersonaje # Tipo del personaje
+Atributos
 -
 id int PK
 nivel int # Hacer estadísticas fijas para los base y dar X puntos a subir para el jugador
@@ -34,7 +34,7 @@ nombre string
 descripcion string
 arma Arma FK >- Arma.id
 tipo TipoPersonaje FK >- TipoPersonaje.id
-atributos AtributosPersonaje FK >- AtributosPersonaje.id
+atributos Atributos FK >- Atributos.id
 imagen string
 
 AtributoEspecialGrupo #Enum | Atributo especial del grupo
@@ -55,17 +55,10 @@ atributo AtributoEspecialGrupo FK >- AtributoEspecialGrupo.id
 Enemigo
 -
 id int PK
-nivel int # Influirá en si sabe hacer focus bien o no, podría ser 'inteligente boolean'
 nombre string
 experiencia int # Experiencia que da derrotar al enemigo
 descripcion string
-vitalidad int #+50 de vida
-fuerza int #+10 daño físico
-destreza int #+10% probabilidad crítico
-agilidad int #+5% esquivar FK
-poder int #+10 daño mágico
-defensaFis int #+10 defensa física
-defensaMag int #+10 defensa mágica
+atributos Atributo FK >- Atributos.id
 imagen string
 
 Pelea

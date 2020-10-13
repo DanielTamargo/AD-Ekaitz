@@ -16,7 +16,7 @@ public class Inicio {
     public Inicio() {
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
-
+        //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
 
         b_salir.addActionListener(new ActionListener() {
             @Override
