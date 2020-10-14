@@ -3,6 +3,8 @@ package com.tamargo.ventanas;
 import com.tamargo.misc.PlaySound;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,13 +17,22 @@ public class Inicio {
     private JButton b_continuar;
     private JButton b_historial;
     private JButton b_salir;
+    private JButton b_previousSong;
+    private JLabel l_cancion;
+    private JButton b_nextSong;
+    private JSpinner spinnerVolumen;
+
+    private int indexCancion = 0;
+    private String[] canciones = {"song-nemesis.wav", "song-buttercup.wav"};
 
     private PlaySound pm;
 
     public Inicio() {
 
+        spinnerVolumen.setValue(50);
+
         pm = new PlaySound();
-        pm.playSound("song-menu.wav", true);
+        pm.playSound(canciones[indexCancion], true, -50);
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
@@ -46,6 +57,57 @@ public class Inicio {
                 ventanaInicio.dispose();
             }
         });
+        b_previousSong.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                indexCancion--;
+                if (indexCancion < 0)
+                    indexCancion = canciones.length - 1;
+                cambiarCancion();
+            }
+        });
+        b_nextSong.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                indexCancion++;
+                if (indexCancion >= canciones.length)
+                    indexCancion = 0;
+                cambiarCancion();
+            }
+        });
+        spinnerVolumen.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if ((int) spinnerVolumen.getValue() > 100)
+                    spinnerVolumen.setValue(100);
+                else if ((int) spinnerVolumen.getValue() < 0)
+                    spinnerVolumen.setValue(0);
+
+                float volumen = (float) (int) spinnerVolumen.getValue();
+                volumen = (float) ((volumen - 100) * 0.80);
+                pm.setVolume(volumen);
+            }
+        });
+    }
+
+    public void cambiarCancion() {
+
+        String cancion = "";
+
+        if (indexCancion == 0) {
+            cancion = "Nemesis (Youtube Song)";
+        }
+        else if (indexCancion == 1) {
+            cancion = "Buttercup Moonflower (Mix)";
+        }
+
+        pm.stopSong();
+        pm = new PlaySound();
+        float volumen = (float) (int) spinnerVolumen.getValue();
+        volumen = (float) ((volumen - 100) * 0.80);
+        pm.playSound(canciones[indexCancion], true, volumen);
+
+        l_cancion.setText(cancion);
     }
 
     public void setVentanaInicio(JFrame ventanaInicio) {
