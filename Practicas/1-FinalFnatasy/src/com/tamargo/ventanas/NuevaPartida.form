@@ -164,7 +164,7 @@
             <properties/>
             <border type="line"/>
             <children>
-              <component id="3aeab" class="javax.swing.JLabel">
+              <component id="3aeab" class="javax.swing.JLabel" binding="l_atrNivel">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -173,7 +173,7 @@
                   <text value="Nivel: 11"/>
                 </properties>
               </component>
-              <component id="90f8" class="javax.swing.JLabel">
+              <component id="90f8" class="javax.swing.JLabel" binding="l_atrTitulo">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -182,7 +182,7 @@
                   <text value="Atributos Lord Kaplan"/>
                 </properties>
               </component>
-              <component id="37eda" class="javax.swing.JLabel">
+              <component id="37eda" class="javax.swing.JLabel" binding="l_atrVit">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -191,7 +191,7 @@
                   <text value="Vitalidad: 11"/>
                 </properties>
               </component>
-              <component id="2ff4d" class="javax.swing.JLabel">
+              <component id="2ff4d" class="javax.swing.JLabel" binding="l_atrFuerza">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -200,7 +200,7 @@
                   <text value="Fuerza: 11"/>
                 </properties>
               </component>
-              <component id="c995d" class="javax.swing.JLabel">
+              <component id="c995d" class="javax.swing.JLabel" binding="l_atrPoder">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -209,7 +209,7 @@
                   <text value="Poder Mágico: 11"/>
                 </properties>
               </component>
-              <component id="99c1f" class="javax.swing.JLabel">
+              <component id="99c1f" class="javax.swing.JLabel" binding="l_atrDestreza">
                 <constraints>
                   <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -218,7 +218,7 @@
                   <text value="Destreza: 11"/>
                 </properties>
               </component>
-              <component id="c9238" class="javax.swing.JLabel">
+              <component id="c9238" class="javax.swing.JLabel" binding="l_atrAgil">
                 <constraints>
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -227,7 +227,7 @@
                   <text value="Agilidad: 11"/>
                 </properties>
               </component>
-              <component id="1a76e" class="javax.swing.JLabel">
+              <component id="1a76e" class="javax.swing.JLabel" binding="l_atrDefFis">
                 <constraints>
                   <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -236,7 +236,7 @@
                   <text value="Defensa Física: 11"/>
                 </properties>
               </component>
-              <component id="1086b" class="javax.swing.JLabel">
+              <component id="1086b" class="javax.swing.JLabel" binding="l_atrDefMag">
                 <constraints>
                   <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
