@@ -9,6 +9,11 @@ public class Pruebas {
         System.out.println(datos[0]);
         System.out.println(Integer.parseInt(datos[datos.length - 1]) * 4);
 
+        System.out.println();
+        String substringg = "probando substring";
+        System.out.println(substringg.substring(0, 5));
+        System.out.println(substringg.substring(5, 10));
+
     }
 
 }

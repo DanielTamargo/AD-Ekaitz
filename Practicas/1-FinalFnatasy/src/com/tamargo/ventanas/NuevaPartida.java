@@ -1,8 +1,12 @@
 package com.tamargo.ventanas;
 
+import com.tamargo.LeerDatosBase;
+import com.tamargo.modelo.Personaje;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class NuevaPartida {
     private JFrame ventanaNuevaPartida;
@@ -18,9 +22,18 @@ public class NuevaPartida {
     private JLabel l_fotoPJ;
     private JLabel l_nombre;
     private JLabel l_tipo;
-    private JLabel l_arna;
+    private JLabel l_arma;
+    private JTextArea l_descripcion;
+    private JButton b_elegirPersonaje;
+
+
+    private ArrayList<Personaje> personajes = new ArrayList<>();
+
 
     public NuevaPartida() {
+
+        // Cargamos los personajes
+        personajes = new LeerDatosBase().leerPersonajesBase();
 
         // Iconos botones
         b_pj1.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
@@ -29,8 +42,8 @@ public class NuevaPartida {
         b_pj4.setIcon(new ImageIcon("assets/icono-4-guardian.png"));
         b_pj5.setIcon(new ImageIcon("assets/icono-5-asesino.png"));
 
-        // Icono preview PJ
-        l_fotoPJ.setIcon(new ImageIcon("assets/pjs-1-guerrero.png"));
+        // Preparamos los datos del primer personaje (PJ seleccionado de forma predeterminada)
+        cambiarDatos(1);
 
         b_pj1.addActionListener(new ActionListener() {
             @Override
@@ -65,19 +78,87 @@ public class NuevaPartida {
     }
 
     public void cambiarDatos(int index) {
-        String foto = "assets/pjs-1-guerrero.png";
-        if (index == 1)
-            foto = "assets/pjs-1-guerrero.png";
-        else if (index == 2)
+        String foto;
+        String nombre;
+        String tipo;
+        String arma;
+        String descripcion;
+
+        if (index == 2) { // PJ 2 - Mago
             foto = "assets/pjs-2-mago.png";
-        else if (index == 3)
+            nombre = personajes.get(1).getNombre();
+            tipo = personajes.get(1).getTipo().name();
+            arma = personajes.get(1).getArma().getNombre();
+            descripcion = personajes.get(1).getDescripcion();
+        }
+        else if (index == 3) { // PJ 3 - Arquero
             foto = "assets/pjs-3-arquero.png";
-        else if (index == 4)
+            nombre = personajes.get(2).getNombre();
+            tipo = personajes.get(2).getTipo().name();
+            arma = personajes.get(2).getArma().getNombre();
+            descripcion = personajes.get(2).getDescripcion();
+        }
+        else if (index == 4) { // PJ 4 - Guardian
             foto = "assets/pjs-4-guardian.png";
-        else if (index == 5)
+            nombre = personajes.get(3).getNombre();
+            tipo = personajes.get(3).getTipo().name();
+            arma = personajes.get(3).getArma().getNombre();
+            descripcion = personajes.get(3).getDescripcion();
+        }
+        else if (index == 5) { // PJ 5 - Asesino
             foto = "assets/pjs-5-asesino.png";
+            nombre = personajes.get(4).getNombre();
+            tipo = personajes.get(4).getTipo().name();
+            arma = personajes.get(4).getArma().getNombre();
+            descripcion = personajes.get(4).getDescripcion();
+        } else { // PJ 1 - Guerrero
+            foto = "assets/pjs-1-guerrero.png";
+            nombre = personajes.get(0).getNombre();
+            tipo = personajes.get(0).getTipo().name();
+            arma = personajes.get(0).getArma().getNombre();
+            descripcion = personajes.get(0).getDescripcion();
+        }
+
+        if (tipo.equalsIgnoreCase("Guardian"))
+            tipo = "Guardián";
+
+        int longitudLinea = 47; // 50 porque a mi me cuadra bien, podría ser cualquier número que cuadrase
+        int caracteresPorLinea = longitudLinea;
+        int caracterInicioLinea = 0;
+        StringBuilder descripcionReconstruida = new StringBuilder();
+        try {
+            while (true) {
+                if (descripcion.length() > (caracterInicioLinea + caracteresPorLinea)) { // Leemos primeras líneas
+                    if (descripcion.charAt(caracteresPorLinea + caracterInicioLinea) == ' ') {
+                        descripcionReconstruida.append(descripcion.substring(caracterInicioLinea, (caracterInicioLinea + caracteresPorLinea))).append("\n");
+                        caracterInicioLinea += caracteresPorLinea + 1;
+                        caracteresPorLinea = longitudLinea;
+                    } else {
+                        caracteresPorLinea--;
+                    }
+                } else { // Última línea
+                    descripcionReconstruida.append(descripcion.substring(caracterInicioLinea));
+                    break;
+                }
+            }
+        } catch (IndexOutOfBoundsException e) {
+            // Este try catch sobra porque en principio controlo cuándo llega a la última línea, peeero por si acaso
+        }
 
         l_fotoPJ.setIcon(new ImageIcon(foto));
+        l_nombre.setText(nombre);
+        l_tipo.setText(tipo);
+        l_arma.setText(arma);
+        l_descripcion.setText(descripcionReconstruida.toString());
+
+    }
+
+    public ArrayList<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+    public void setPersonajes(ArrayList<Personaje> personajes) {
+        this.personajes = personajes;
     }
 
     public void setVentanaNuevaPartida(JFrame ventanaNuevaPartida) {
