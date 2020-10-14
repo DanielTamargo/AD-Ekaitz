@@ -24,6 +24,7 @@ public class Inicio {
 
     private int indexCancion = 0;
     private String[] canciones = {"song-nemesis.wav", "song-buttercup.wav"};
+    private String[] nombreCanciones = {"Nemesis (Youtube Song)", "Buttercup Moonflower (Mix)"};
 
     private PlaySound pm;
 
@@ -92,22 +93,33 @@ public class Inicio {
 
     public void cambiarCancion() {
 
-        String cancion = "";
+        String cancion = nombreCanciones[indexCancion];
+        l_cancion.setText(cancion);
 
-        if (indexCancion == 0) {
-            cancion = "Nemesis (Youtube Song)";
-        }
-        else if (indexCancion == 1) {
-            cancion = "Buttercup Moonflower (Mix)";
-        }
+        float volumen = (float) (int) spinnerVolumen.getValue();
+        volumen = (float) ((volumen - 100) * 0.80);
 
         pm.stopSong();
         pm = new PlaySound();
-        float volumen = (float) (int) spinnerVolumen.getValue();
-        volumen = (float) ((volumen - 100) * 0.80);
         pm.playSound(canciones[indexCancion], true, volumen);
 
-        l_cancion.setText(cancion);
+
+    }
+
+    public String[] getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(String[] canciones) {
+        this.canciones = canciones;
+    }
+
+    public String[] getNombreCanciones() {
+        return nombreCanciones;
+    }
+
+    public void setNombreCanciones(String[] nombreCanciones) {
+        this.nombreCanciones = nombreCanciones;
     }
 
     public void setVentanaInicio(JFrame ventanaInicio) {
