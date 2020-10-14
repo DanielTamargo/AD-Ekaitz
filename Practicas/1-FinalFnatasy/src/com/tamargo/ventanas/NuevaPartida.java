@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class NuevaPartida {
     private JFrame ventanaNuevaPartida;
+    private JFrame ventanaInicio;
 
     private JPanel panel;
     private JLabel l_creaTuGrupo;
@@ -28,11 +29,15 @@ public class NuevaPartida {
     private JButton b_grupoPJ1;
     private JButton b_grupoPJ2;
     private JButton b_grupoPJ3;
+    private JButton b_salir;
     private JButton b_comenzarPartida;
 
+    private int index = 1;
 
     private ArrayList<Personaje> personajes = new ArrayList<>();
 
+    private final String[] fotosPersonaje = { "pjs-1-guerrero.png", "pjs-2-mago.png", "pjs-3-arquero.png",
+            "pjs-4-guardian.png", "pjs-5-asesino.png" };
 
     public NuevaPartida() {
 
@@ -52,81 +57,63 @@ public class NuevaPartida {
         b_pj5.setIcon(new ImageIcon("assets/icono-5-asesino.png"));
 
         // Preparamos los datos del primer personaje (PJ seleccionado de forma predeterminada)
-        cambiarDatos(1);
+        cambiarDatos();
 
         b_pj1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarDatos(1);
+                index = 1;
+                cambiarDatos();
             }
         });
         b_pj2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarDatos(2);
+                index = 2;
+                cambiarDatos();
             }
         });
         b_pj3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarDatos(3);
+                index = 3;
+                cambiarDatos();
             }
         });
         b_pj4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarDatos(4);
+                index = 4;
+                cambiarDatos();
             }
         });
         b_pj5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cambiarDatos(5);
+                index = 5;
+                cambiarDatos();
+            }
+        });
+        b_salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventanaInicio.setVisible(true);
+                ventanaNuevaPartida.dispose();
             }
         });
     }
 
-    public void cambiarDatos(int index) {
+    public void cambiarDatos() {
         String foto;
         String nombre;
         String tipo;
         String arma;
         String descripcion;
 
-        if (index == 2) { // PJ 2 - Mago
-            foto = "assets/pjs-2-mago.png";
-            nombre = personajes.get(1).getNombre();
-            tipo = personajes.get(1).getTipo().name();
-            arma = personajes.get(1).getArma().getNombre();
-            descripcion = personajes.get(1).getDescripcion();
-        }
-        else if (index == 3) { // PJ 3 - Arquero
-            foto = "assets/pjs-3-arquero.png";
-            nombre = personajes.get(2).getNombre();
-            tipo = personajes.get(2).getTipo().name();
-            arma = personajes.get(2).getArma().getNombre();
-            descripcion = personajes.get(2).getDescripcion();
-        }
-        else if (index == 4) { // PJ 4 - Guardian
-            foto = "assets/pjs-4-guardian.png";
-            nombre = personajes.get(3).getNombre();
-            tipo = personajes.get(3).getTipo().name();
-            arma = personajes.get(3).getArma().getNombre();
-            descripcion = personajes.get(3).getDescripcion();
-        }
-        else if (index == 5) { // PJ 5 - Asesino
-            foto = "assets/pjs-5-asesino.png";
-            nombre = personajes.get(4).getNombre();
-            tipo = personajes.get(4).getTipo().name();
-            arma = personajes.get(4).getArma().getNombre();
-            descripcion = personajes.get(4).getDescripcion();
-        } else { // PJ 1 - Guerrero
-            foto = "assets/pjs-1-guerrero.png";
-            nombre = personajes.get(0).getNombre();
-            tipo = personajes.get(0).getTipo().name();
-            arma = personajes.get(0).getArma().getNombre();
-            descripcion = personajes.get(0).getDescripcion();
-        }
+        nombre = personajes.get(index - 1).getNombre();
+        tipo = personajes.get(index - 1).getTipo().name();
+        arma = personajes.get(index - 1).getArma().getNombre();
+        descripcion = personajes.get(index - 1).getDescripcion();
 
         if (tipo.equalsIgnoreCase("Guardian"))
             tipo = "Guardián";
@@ -154,12 +141,16 @@ public class NuevaPartida {
             // Este try catch sobra porque en principio controlo cuándo llega a la última línea, peeero por si acaso
         }
 
-        l_fotoPJ.setIcon(new ImageIcon(foto));
+        l_fotoPJ.setIcon(new ImageIcon("assets/" + fotosPersonaje[(index - 1)]));
         l_nombre.setText(nombre);
         l_tipo.setText(tipo);
         l_arma.setText(arma);
         l_descripcion.setText(descripcionReconstruida.toString());
 
+    }
+
+    public void setVentanaInicio(JFrame ventanaInicio) {
+        this.ventanaInicio = ventanaInicio;
     }
 
     public ArrayList<Personaje> getPersonajes() {

@@ -50,6 +50,7 @@ public class Inicio {
                 NuevaPartida np = new NuevaPartida();
                 frame.setContentPane(np.getPanel());
                 np.setVentanaNuevaPartida(frame);
+                np.setVentanaInicio(ventanaInicio);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null); // Debería centrarlo pero en mi ventana me lo genera abajo a la derecha hm
