@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        /*
+/*
         // Escribimos todos los datos base:
         System.out.println("\n----- Escribiendo todos los datos base:\n");
         EscribirDatosBase escribir = new EscribirDatosBase();
@@ -103,8 +103,8 @@ public class Main {
         for (Partida p: listaPartidas.getLista()) {
             System.out.println(p);
         }
+*/
 
-        */
 
 
         // Lanzamos la ventana

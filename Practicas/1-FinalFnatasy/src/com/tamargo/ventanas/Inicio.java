@@ -1,5 +1,7 @@
 package com.tamargo.ventanas;
 
+import com.tamargo.misc.PlaySound;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,12 @@ public class Inicio {
     private JButton b_historial;
     private JButton b_salir;
 
+    private PlaySound pm;
+
     public Inicio() {
+
+        pm = new PlaySound();
+        pm.playSound("song-menu.wav", true);
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));

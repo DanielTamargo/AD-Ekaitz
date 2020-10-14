@@ -44,13 +44,13 @@
           <descripcion>Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.</descripcion>
           <arma>
             <id>2</id>
-            <nombre>Arco Ligero</nombre>
-            <tipo>Arco</tipo>
-            <ataqueFis>5</ataqueFis>
-            <ataqueMag>0</ataqueMag>
+            <nombre>Bastón Mágico</nombre>
+            <tipo>Bastón</tipo>
+            <ataqueFis>0</ataqueFis>
+            <ataqueMag>5</ataqueMag>
             <defensaFis>0</defensaFis>
             <defensaMag>0</defensaMag>
-            <imagen>arco-1.png</imagen>
+            <imagen>baston-1.png</imagen>
             <rareza>1</rareza>
           </arma>
           <tipo>Mago</tipo>

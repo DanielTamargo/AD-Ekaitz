@@ -136,15 +136,15 @@ public class EscribirDatosBase {
         Arma espadon = new Arma(11, "Espadón", "Espada", 12, 0, 3, 0, "espada-3.png", 3);
         Arma excalibur = new Arma(16, "Excalibur", "Espada", 18, 5, 5, 5, "espada-4.png", 4);
 
-        Arma arco = new Arma(2, "Arco Ligero", "Arco", 5, 0, 0, 0, "arco-1.png", 1);
-        Arma arcoPesado = new Arma(7, "Arco Pesado", "Arco", 8, 0, 0, 0, "arco-2.png", 2);
-        Arma arcoPreciso = new Arma(12, "Arco Preciso", "Arco", 11, 0, 0, 0, "arco-3.png", 3);
-        Arma arcoDeArtemisa = new Arma(17, "Arco de Artemisa", "Arco", 20, 8, 0, 0, "arco-4.png", 4);
+        Arma baston = new Arma(2, "Bastón Mágico", "Bastón", 0, 5, 0, 0, "baston-1.png", 1);
+        Arma bastonArcangel = new Arma(7, "Bastón Arcangel", "Bastón", 0, 8, 0, 0, "baston-2.png", 2);
+        Arma bastonPoderoso = new Arma(12, "Bastón Poderoso", "Bastón", 0, 12, 0, 0, "baston-3.png", 3);
+        Arma morellonomicom = new Arma(17, "Morellonomicom", "Bastón", 0, 24, 0, 0, "baston-4.png", 4);
 
-        Arma baston = new Arma(3, "Bastón Mágico", "Bastón", 0, 5, 0, 0, "baston-1.png", 1);
-        Arma bastonArcangel = new Arma(8, "Bastón Arcangel", "Bastón", 0, 8, 0, 0, "baston-2.png", 2);
-        Arma bastonPoderoso = new Arma(13, "Bastón Poderoso", "Bastón", 0, 12, 0, 0, "baston-3.png", 3);
-        Arma morellonomicom = new Arma(18, "Morellonomicom", "Bastón", 0, 24, 0, 0, "baston-4.png", 4);
+        Arma arco = new Arma(3, "Arco Ligero", "Arco", 5, 0, 0, 0, "arco-1.png", 1);
+        Arma arcoPesado = new Arma(8, "Arco Pesado", "Arco", 8, 0, 0, 0, "arco-2.png", 2);
+        Arma arcoPreciso = new Arma(13, "Arco Preciso", "Arco", 11, 0, 0, 0, "arco-3.png", 3);
+        Arma arcoDeArtemisa = new Arma(18, "Arco de Artemisa", "Arco", 20, 8, 0, 0, "arco-4.png", 4);
 
         Arma escudo = new Arma(4, "Escudo Redondo", "Escudo", 0, 0, 4, 2, "escudo-1.png", 1);
         Arma escudoPesado = new Arma(9, "Escudo Pesado", "Escudo", 0, 0, 6, 4, "escudo-2.png", 2);
@@ -179,7 +179,7 @@ public class EscribirDatosBase {
                 "Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo.",
                 armas.get(2), TipoPersonaje.Arquero, atributos.get(2), "Legomas.png");
         Personaje guardian = new Personaje(4, "Brimstone",
-                "Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su piel tan dura como oscura le protege del daño mejor que a ningún otro. Es un guardián de confianza.",
+                "Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su tenacidad y caracter le protegen del daño mejor que a ningún otro. Es un guardián de confianza.",
                 armas.get(3), TipoPersonaje.Guardian, atributos.get(3), "Brimstone.png");
         Personaje asesino = new Personaje(5, "KillJoy",
                 "A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco.",

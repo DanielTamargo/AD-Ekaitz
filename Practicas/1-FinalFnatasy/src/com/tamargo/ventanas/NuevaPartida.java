@@ -25,12 +25,21 @@ public class NuevaPartida {
     private JLabel l_arma;
     private JTextArea l_descripcion;
     private JButton b_elegirPersonaje;
+    private JButton b_grupoPJ1;
+    private JButton b_grupoPJ2;
+    private JButton b_grupoPJ3;
+    private JButton b_comenzarPartida;
 
 
     private ArrayList<Personaje> personajes = new ArrayList<>();
 
 
     public NuevaPartida() {
+
+        // Borrar
+        b_grupoPJ1.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
+        b_grupoPJ2.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
+        b_grupoPJ3.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
 
         // Cargamos los personajes
         personajes = new LeerDatosBase().leerPersonajesBase();
@@ -122,7 +131,7 @@ public class NuevaPartida {
         if (tipo.equalsIgnoreCase("Guardian"))
             tipo = "Guardián";
 
-        int longitudLinea = 47; // 50 porque a mi me cuadra bien, podría ser cualquier número que cuadrase
+        int longitudLinea = 47; // Esta cifra es porque a mi me cuadra bien, podría ser cualquier número que cuadrase
         int caracteresPorLinea = longitudLinea;
         int caracterInicioLinea = 0;
         StringBuilder descripcionReconstruida = new StringBuilder();
@@ -131,7 +140,7 @@ public class NuevaPartida {
                 if (descripcion.length() > (caracterInicioLinea + caracteresPorLinea)) { // Leemos primeras líneas
                     if (descripcion.charAt(caracteresPorLinea + caracterInicioLinea) == ' ') {
                         descripcionReconstruida.append(descripcion.substring(caracterInicioLinea, (caracterInicioLinea + caracteresPorLinea))).append("\n");
-                        caracterInicioLinea += caracteresPorLinea + 1;
+                        caracterInicioLinea += caracteresPorLinea + 1; // Sin este +1, imprimirá al comienzo de la siguiente línea el espacio, y no queremos eso
                         caracteresPorLinea = longitudLinea;
                     } else {
                         caracteresPorLinea--;
