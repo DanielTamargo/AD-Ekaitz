@@ -1,6 +1,8 @@
 package com.tamargo.ventanas;
 
 import com.tamargo.LeerDatosBase;
+import com.tamargo.misc.AdministradorSonidos;
+import com.tamargo.misc.PlaySound;
 import com.tamargo.modelo.Atributos;
 import com.tamargo.modelo.Personaje;
 
@@ -47,17 +49,20 @@ public class NuevaPartida {
     private ArrayList<Personaje> personajesElegidos = new ArrayList<>();
     private ArrayList<Personaje> personajes = new ArrayList<>();
 
+    private final String[] canciones = AdministradorSonidos.canciones;
+    private final String[] nombreCanciones = AdministradorSonidos.nombreCanciones;
+    private final String[] nombreSonidos = AdministradorSonidos.nombreSonidos;
+    private float volumen = -40;
+
     private final String[] fotosPersonaje = { "pjs-1-guerrero.png", "pjs-2-mago.png", "pjs-3-arquero.png",
             "pjs-4-guardian.png", "pjs-5-asesino.png" };
 
     public NuevaPartida() {
 
-        // TODO necesitamos un icono vacío (también abajo en el método actualizarGrupo())
-        // Borrar
-        /*
-        b_grupoPJ1.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
-        b_grupoPJ2.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));
-        b_grupoPJ3.setIcon(new ImageIcon("assets/icono-1-guerrero.png"));*/
+        // Iconos grupo vacíos (SELECT YOUR TEAM)
+        b_grupoPJ1.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
+        b_grupoPJ2.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
+        b_grupoPJ3.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
 
         // Cargamos los personajes
         personajes = new LeerDatosBase().leerPersonajesBase();
@@ -118,6 +123,10 @@ public class NuevaPartida {
             public void actionPerformed(ActionEvent e) {
                 ventanaInicio.setVisible(true);
                 ventanaNuevaPartida.dispose();
+
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[2], false, volumen + 20);
+
             }
         });
         b_elegirPersonaje.addActionListener(new ActionListener() {
@@ -130,8 +139,16 @@ public class NuevaPartida {
                         actualizarGrupo();
                         deshabilitarPJ();
                         cambiarDatosTrasElegirPersonaje();
+
+                        PlaySound ps = new PlaySound();
+                        ps.playSound(nombreSonidos[1], false, volumen);
+
                     } else {
-                        System.out.println("No se pueden añadir más de 3 personajes al grupo.");
+                        //System.out.println("No se pueden añadir más de 3 personajes al grupo.");
+
+                        PlaySound ps = new PlaySound();
+                        ps.playSound(nombreSonidos[3], false, volumen);
+
                         JOptionPane.showMessageDialog(null,
                                 "No se pueden seleccionar más de 3 personajes.",
                                 "Error en la selección",
@@ -163,6 +180,12 @@ public class NuevaPartida {
             public void actionPerformed(ActionEvent e) {
                 if (personajesElegidos.size() > 2)
                     elegirPJgrupo(3);
+            }
+        });
+        b_comenzarPartida.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO comprobar que ha elegido 3 personajes, crear grupo, y pasar a la siguiente ventana con el grupo
             }
         });
     }
@@ -213,15 +236,15 @@ public class NuevaPartida {
         if (personajesElegidos.size() > 0)
             b_grupoPJ1.setIcon(new ImageIcon(iconoPJ(personajesElegidos.get(0))));
         else
-            b_grupoPJ1.setIcon(new ImageIcon("assets/icono-4-guardian.png")); // TODO necesitamos un icono vacío
+            b_grupoPJ1.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
         if (personajesElegidos.size() > 1)
             b_grupoPJ2.setIcon(new ImageIcon(iconoPJ(personajesElegidos.get(1))));
         else
-            b_grupoPJ2.setIcon(new ImageIcon("assets/icono-4-guardian.png"));
+            b_grupoPJ2.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
         if (personajesElegidos.size() > 2)
             b_grupoPJ3.setIcon(new ImageIcon(iconoPJ(personajesElegidos.get(2))));
         else
-            b_grupoPJ3.setIcon(new ImageIcon("assets/icono-4-guardian.png"));
+            b_grupoPJ3.setIcon(new ImageIcon("assets/icono-0-vacio.png"));
     }
 
     public String iconoPJ(Personaje p) {
@@ -323,6 +346,10 @@ public class NuevaPartida {
         l_atrDefFis.setText("Defensa Física: " + atr.getDefensaFis());
         l_atrDefMag.setText("Defensa Mágica: " + atr.getDefensaMag());
 
+    }
+
+    public void setVolumen(float volumen) {
+        this.volumen = volumen;
     }
 
     public void setVentanaInicio(JFrame ventanaInicio) {

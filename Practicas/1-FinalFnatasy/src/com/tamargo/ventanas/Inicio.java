@@ -1,5 +1,6 @@
 package com.tamargo.ventanas;
 
+import com.tamargo.misc.AdministradorSonidos;
 import com.tamargo.misc.PlaySound;
 
 import javax.swing.*;
@@ -23,17 +24,21 @@ public class Inicio {
     private JSpinner spinnerVolumen;
 
     private int indexCancion = 0;
-    private String[] canciones = {"song-nemesis.wav", "song-buttercup.wav"};
-    private String[] nombreCanciones = {"Nemesis (Youtube Song)", "Buttercup Moonflower (Mix)"};
+    private final String[] canciones = AdministradorSonidos.canciones;
+    private final String[] nombreCanciones = AdministradorSonidos.nombreCanciones;
+    private final String[] nombreSonidos = AdministradorSonidos.nombreSonidos;
 
+    private float volumen = -40;
     private PlaySound pm;
 
     public Inicio() {
 
         spinnerVolumen.setValue(50);
+        volumen = (float) (int) spinnerVolumen.getValue();
+        volumen = (float) ((volumen - 100) * 0.80);
 
         pm = new PlaySound();
-        pm.playSound(canciones[indexCancion], true, -50);
+        pm.playSound(canciones[indexCancion], true, volumen);
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
@@ -41,6 +46,8 @@ public class Inicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ventanaInicio.dispose();
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[2], false, volumen + 20);
             }
         });
         b_nuevaPartida.addActionListener(new ActionListener() {
@@ -51,9 +58,13 @@ public class Inicio {
                 frame.setContentPane(np.getPanel());
                 np.setVentanaNuevaPartida(frame);
                 np.setVentanaInicio(ventanaInicio);
+                np.setVolumen(volumen);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null); // Debería centrarlo pero en mi ventana me lo genera abajo a la derecha hm
+
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[0], false, volumen);
 
                 frame.setVisible(true);
                 ventanaInicio.dispose();
@@ -85,9 +96,17 @@ public class Inicio {
                 else if ((int) spinnerVolumen.getValue() < 0)
                     spinnerVolumen.setValue(0);
 
-                float volumen = (float) (int) spinnerVolumen.getValue();
+                volumen = (float) (int) spinnerVolumen.getValue();
                 volumen = (float) ((volumen - 100) * 0.80);
+                //System.out.println(volumen);
                 pm.setVolume(volumen);
+            }
+        });
+        b_historial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[0], false, volumen);
             }
         });
     }
@@ -111,16 +130,8 @@ public class Inicio {
         return canciones;
     }
 
-    public void setCanciones(String[] canciones) {
-        this.canciones = canciones;
-    }
-
     public String[] getNombreCanciones() {
         return nombreCanciones;
-    }
-
-    public void setNombreCanciones(String[] nombreCanciones) {
-        this.nombreCanciones = nombreCanciones;
     }
 
     public void setVentanaInicio(JFrame ventanaInicio) {

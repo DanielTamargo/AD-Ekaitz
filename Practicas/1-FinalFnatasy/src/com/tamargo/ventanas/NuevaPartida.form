@@ -397,8 +397,8 @@
                   <focusPainted value="false"/>
                   <focusable value="true"/>
                   <font name="Microsoft YaHei UI" size="15" style="1"/>
-                  <label value="Salir"/>
-                  <text value="Salir"/>
+                  <label value="Volver"/>
+                  <text value="Volver"/>
                 </properties>
               </component>
             </children>
