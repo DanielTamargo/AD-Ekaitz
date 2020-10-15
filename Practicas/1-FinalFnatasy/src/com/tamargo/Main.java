@@ -14,7 +14,7 @@ public class Main {
         // Métodos para leer y escribir todos los datos base
         //escribirDatosBase();
         //leerDatosBase();
-        //generandoFicheroXMLBase(); //TODO descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
+        //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");
