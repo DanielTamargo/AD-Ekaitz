@@ -375,6 +375,7 @@
                   <autoscrolls value="false"/>
                   <borderPainted value="true"/>
                   <contentAreaFilled value="true"/>
+                  <enabled value="false"/>
                   <focusPainted value="false"/>
                   <focusable value="true"/>
                   <font name="Microsoft YaHei UI" size="15" style="1"/>

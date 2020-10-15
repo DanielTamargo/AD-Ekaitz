@@ -28,17 +28,7 @@ public class Arma implements Serializable {
 
     @Override
     public String toString() {
-        return "Arma{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", ataqueFis=" + ataqueFis +
-                ", ataqueMag=" + ataqueMag +
-                ", defensaFis=" + defensaFis +
-                ", defensaMag=" + defensaMag +
-                ", imagen='" + imagen + '\'' +
-                ", rareza=" + rareza +
-                '}';
+        return nombre;
     }
 
     public int getRareza() {

@@ -4,6 +4,7 @@ import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorSonidos;
 import com.tamargo.misc.PlaySound;
 import com.tamargo.modelo.Atributos;
+import com.tamargo.modelo.Grupo;
 import com.tamargo.modelo.Personaje;
 
 import javax.swing.*;
@@ -143,16 +144,22 @@ public class NuevaPartida {
                         PlaySound ps = new PlaySound();
                         ps.playSound(nombreSonidos[1], false, volumen);
 
+                        if (personajesElegidos.size() == 3)
+                            b_comenzarPartida.setEnabled(true);
+
                     } else {
                         //System.out.println("No se pueden añadir más de 3 personajes al grupo.");
 
                         PlaySound ps = new PlaySound();
                         ps.playSound(nombreSonidos[3], false, volumen);
 
+                        /*
                         JOptionPane.showMessageDialog(null,
                                 "No se pueden seleccionar más de 3 personajes.",
                                 "Error en la selección",
                                 JOptionPane.ERROR_MESSAGE);
+                        */
+
                     }
                 } else {
                     // Descartar personaje elegido
@@ -185,7 +192,23 @@ public class NuevaPartida {
         b_comenzarPartida.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO comprobar que ha elegido 3 personajes, crear grupo, y pasar a la siguiente ventana con el grupo
+                // En principio el botón sólo está habilitado cuando haya elegido sí o sí 3 personajes
+                // Pero como los bugs pueden pasar, y es difícil tener tod@ en cuenta, vamos a evitar que pueda comenzar la partida sin tener 3 personajes
+                if (personajesElegidos.size() == 3) {
+
+                    // Nota: el id del grupo no es útil en estos momentos, siempre será 1, lo añadí por si en algún momento almacenaba los grupos en un fichero
+                    Grupo grupo = new Grupo(1, personajesElegidos, 1);
+
+                    PlaySound ps = new PlaySound();
+                    ps.playSound(nombreSonidos[0], false, volumen);
+
+                    // TODO abrir nueva ventana y pasarle su propio jframe, grupo, ventanaInicio, volumen...
+
+
+                } else {
+                    PlaySound ps = new PlaySound();
+                    ps.playSound(nombreSonidos[3], false, volumen);
+                }
             }
         });
     }
@@ -200,6 +223,11 @@ public class NuevaPartida {
         if (per != null) {
             personajesElegidos.remove(per);
         }
+
+        PlaySound ps = new PlaySound();
+        ps.playSound(nombreSonidos[1], false, volumen);
+
+        b_comenzarPartida.setEnabled(false);
         b_elegirPersonaje.setText("Elegir Personaje");
         actualizarGrupo();
 
@@ -223,7 +251,6 @@ public class NuevaPartida {
             index = 5;
 
         cambiarDatos();
-
     }
 
     public void elegirPJgrupo(int indexPJGrupo) {
