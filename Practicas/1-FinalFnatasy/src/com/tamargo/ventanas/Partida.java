@@ -1,7 +1,7 @@
 package com.tamargo.ventanas;
 
 import com.tamargo.LeerDatosBase;
-import com.tamargo.misc.AdministradorSonidos;
+import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.modelo.Arma;
 import com.tamargo.modelo.Atributos;
 import com.tamargo.modelo.Grupo;
@@ -43,17 +43,16 @@ public class Partida {
     private JLabel l_armaAtaqMag;
     private JLabel l_armaDefFis;
     private JLabel l_armaDefMag;
-    private JComboBox comboBoxArmas;
+    private JComboBox<Arma> comboBoxArmas;
 
     private Grupo grupo;
 
     private ArrayList<Arma> armasDisponibles = new ArrayList<>();
 
-    private final String[] nombreSonidos = AdministradorSonidos.nombreSonidos;
+    private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private float volumen = -40;
 
-    private final String[] fotosPersonaje = { "pjs-1-guerrero.png", "pjs-2-mago.png", "pjs-3-arquero.png",
-            "pjs-4-guardian.png", "pjs-5-asesino.png" };
+    private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
     private int index = 1;
 
     public Partida() {
@@ -81,11 +80,15 @@ public class Partida {
 
         DefaultComboBoxModel<Arma> modelo = new DefaultComboBoxModel<>();
 
-        for(Arma a: armasDisponibles) {
+        for (Arma a: armasDisponibles) {
             modelo.addElement(a);
         }
 
         comboBoxArmas.setModel(modelo);
+
+    }
+
+    public void cambiarDatosArma() {
 
     }
 

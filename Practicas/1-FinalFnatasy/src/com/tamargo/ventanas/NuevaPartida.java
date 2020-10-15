@@ -1,7 +1,7 @@
 package com.tamargo.ventanas;
 
 import com.tamargo.LeerDatosBase;
-import com.tamargo.misc.AdministradorSonidos;
+import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
 import com.tamargo.modelo.Atributos;
 import com.tamargo.modelo.Grupo;
@@ -11,7 +11,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class NuevaPartida {
     private JFrame ventanaNuevaPartida;
@@ -50,13 +49,12 @@ public class NuevaPartida {
     private ArrayList<Personaje> personajesElegidos = new ArrayList<>();
     private ArrayList<Personaje> personajes = new ArrayList<>();
 
-    private final String[] canciones = AdministradorSonidos.canciones;
-    private final String[] nombreCanciones = AdministradorSonidos.nombreCanciones;
-    private final String[] nombreSonidos = AdministradorSonidos.nombreSonidos;
+    private final String[] canciones = AdministradorRutasArchivos.canciones;
+    private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
+    private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private float volumen = -40;
 
-    private final String[] fotosPersonaje = { "pjs-1-guerrero.png", "pjs-2-mago.png", "pjs-3-arquero.png",
-            "pjs-4-guardian.png", "pjs-5-asesino.png" };
+    private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
 
     public NuevaPartida() {
 
@@ -202,9 +200,21 @@ public class NuevaPartida {
                     PlaySound ps = new PlaySound();
                     ps.playSound(nombreSonidos[0], false, volumen);
 
-                    // TODO abrir nueva ventana y pasarle su propio jframe, grupo, ventanaInicio, volumen...
+                    JFrame frame = new JFrame("Partida");
 
+                    Partida p = new Partida();
+                    p.setGrupo(grupo);
+                    p.setVolumen(volumen);
+                    p.setVentanaInicio(ventanaInicio);
+                    p.setVentanaPartida(frame);
 
+                    frame.setContentPane(p.getPanel());
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.pack();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+
+                    ventanaNuevaPartida.dispose();
                 } else {
                     PlaySound ps = new PlaySound();
                     ps.playSound(nombreSonidos[3], false, volumen);

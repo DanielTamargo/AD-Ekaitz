@@ -81,37 +81,37 @@ public class EscribirDatosBase {
 
         Enemigo lobo = new Enemigo(1, "Lobo", 20,
                 "Lobo que ha mutado debido a las pésimas circustancias del mundo, ahora es agresivo y peligroso.",
-                atributos.get(1 + 4), "FFIX-Lobo.png");
+                atributos.get(1 + 4), "FFIX-1-Lobo.png");
         Enemigo duende = new Enemigo(2, "Duende", 20,
                 "El enemigo más pesado y utilizado al inicio en la saga de los Final Fnatasy. Siempre estará ahí para luchar contigo.",
-                atributos.get(2 + 4), "FFIX-Duende.png");
+                atributos.get(2 + 4), "FFIX-2-Duende.png");
         Enemigo boom = new Enemigo(3, "Boom", 40,
                 "En los Final Fnatasy 'reales', tiende a explotar tras recibir daño unas cuantas veces. Aquí no.",
-                atributos.get(3 + 4), "FFIX-Boom.png");
+                atributos.get(3 + 4), "FFIX-3-Boom.png");
         Enemigo flan = new Enemigo(4, "Flan", 50,
                 "Su forma gelatinosa hace que derrotarlo a base de espadazos y flechazos sea un coñazo. Mejor utilizar daño mágico...",
-                atributos.get(4 + 4), "FFIX-Flan.png");
+                atributos.get(4 + 4), "FFIX-4-Flan.png");
         Enemigo avispon = new Enemigo(5, "Avispón", 70,
                 "Dan miedo en la vida real y en los juegos. Al volar tiene bastantes probabilidad de esquivarte.",
-                atributos.get(5 + 4), "FFIX-Avispon.png");
+                atributos.get(5 + 4), "FFIX-5-Avispon.png");
         Enemigo brocoliMalvado = new Enemigo(6, "Brocoli Malvado", 100,
                 "Por su forma no sabrías decir si es un brócoli o un virus masivo. Por su aguante sabes que es una molestia.",
-                atributos.get(6 +4), "FFIX-BrocoliMalvado.png");
+                atributos.get(6 +4), "FFIX-6-BrocoliMalvado.png");
         Enemigo esqueleto = new Enemigo(7, "Esqueleto", 110,
                 "Esqueleto con espada equivale a pelea intensa. Hace bastante daño para no tener músculo en el que basar sus movimientos.",
-                atributos.get(7 + 4), "FFIX-Esqueleto.png");
+                atributos.get(7 + 4), "FFIX-7-Esqueleto.png");
         Enemigo duendePerdido = new Enemigo(8, "Duende Perdido", 160,
                 "El enemigo pesado, el duende, ha conseguido hacerse más fuerte al ser influenciado por el cristal perdido. Cuidado con sus movimientos ágiles y su gran daño",
-                atributos.get(8 + 4), "FFIX-DuendePerdido.png");
+                atributos.get(8 + 4), "FFIX-8-DuendePerdido.png");
         Enemigo flanTanque = new Enemigo(9, "Boom Tanque", 200,
                 "Los Boom también han mejorado, ahora tienen mucho más aguante y están dispuestos a molestar mucho más tiempo.",
-                atributos.get(9 + 4), "FFIX-BoomTanque.png");
+                atributos.get(9 + 4), "FFIX-9-BoomTanque.png");
         Enemigo guardianMaldito = new Enemigo(10, "Guardián Maldito", 400,
                 "Un guardián tan grande y fuerte que rezas para esquivar sus ataques. Tiene tanto aguante que hará de la pelea una pesadilla.",
-                atributos.get(10 + 4), "FFIX-GuardianMaldito.png");
+                atributos.get(10 + 4), "FFIX-10-GuardianMaldito.png");
         Enemigo diosDelCristalPerdido = new Enemigo(11, "Dios del Cristal Perdido", 9999,
                 "Aquel Dios que un día protegía el planeta, ahora está obcecado con el poder del Cristal Perdido y ansía más y más poder. Si lo derrotas, salvarás el Mundo.",
-                atributos.get(11 + 4), "FFIX-DiosDelCristalPerdido");
+                atributos.get(11 + 4), "FFIX-11-DiosDelCristalPerdido.png");
 
         enemigos.add(lobo);
         enemigos.add(duende);
@@ -355,8 +355,10 @@ public class EscribirDatosBase {
             xstream.alias("Atributos", Atributos.class);
             xstream.alias("Evento", Evento.class);
             xstream.alias("Personaje", Personaje.class);
+
             // Quitamos etiqueta lista (atributo de la clase ListaPartidas)
             xstream.addImplicitCollection(ListaPartidas.class, "lista");
+
             // Insertamos los objetos en el XML
             File f = new File(".\\ficheros\\partidas.xml");
             xstream.toXML(listaPartidas, new FileOutputStream(f));

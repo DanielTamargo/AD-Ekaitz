@@ -10,8 +10,24 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-/*
-        // Escribimos todos los datos base:
+
+        // Métodos para leer y escribir todos los datos base
+        //escribirDatosBase();
+        //leerDatosBase();
+        //generandoFicheroXMLBase(); //TODO descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
+
+        // Lanzamos la ventana
+        JFrame frame = new JFrame("Inicio");
+        Inicio inicio = new Inicio();
+        frame.setContentPane(inicio.getPanel());
+        inicio.setVentanaInicio(frame);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public static void escribirDatosBase() {
         System.out.println("\n----- Escribiendo todos los datos base:\n");
         EscribirDatosBase escribir = new EscribirDatosBase();
 
@@ -21,7 +37,9 @@ public class Main {
         escribir.escribirPersonajesBase();
         escribir.escribirEventosBase();
         System.out.println();
+    }
 
+    public static void leerDatosBase() {
         // Los leemos para ver que funciona bien
         System.out.println("----- Leyendo todos los datos base:\n");
         LeerDatosBase leer = new LeerDatosBase();
@@ -55,6 +73,16 @@ public class Main {
             System.out.println(e);
         }
         System.out.println();
+    }
+
+    public static void generandoFicheroXMLBase() {
+
+        EscribirDatosBase escribir = new EscribirDatosBase();
+        LeerDatosBase leer = new LeerDatosBase();
+
+        ArrayList<Enemigo> enemigos = leer.leerEnemigosBase();
+        ArrayList<Personaje> personajes = leer.leerPersonajesBase();
+        ArrayList<Evento> eventos = leer.leerEventosBase();
 
         // Genero dos partidas ficticias similares (por tener 2) tirando de algunos datos para generar un XML de prueba
         // Partida 1
@@ -98,25 +126,13 @@ public class Main {
         // Escribimos el XML
         escribir.escribirListaPartidas(listaPartidas);
 
-        listaPartidas = new ListaPartidas();
-        listaPartidas = leer.leerListaPartidas();
-        for (Partida p: listaPartidas.getLista()) {
+        // Leemos el XML
+        ListaPartidas listaPartidasLeidas = leer.leerListaPartidas();
+        for (Partida p: listaPartidasLeidas.getLista()) {
             System.out.println(p);
         }
-*/
 
 
-
-        // Lanzamos la ventana
-        JFrame frame = new JFrame("Inicio");
-        Inicio inicio = new Inicio();
-        frame.setContentPane(inicio.getPanel());
-        inicio.setVentanaInicio(frame);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null); // Debería centrarlo pero en mi ventana me lo genera abajo a la derecha hmm
-        frame.setVisible(true);
     }
-
 
 }

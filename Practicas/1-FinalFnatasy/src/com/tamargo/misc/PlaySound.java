@@ -28,6 +28,7 @@ public class PlaySound {
         try {
             //volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); // <- No hace falta
             volume.setValue(volumen);
+            //System.out.println(volumen);
         } catch (Exception e) {
             //System.out.println("No puedes configurar el volumen sin antes definir el sonido a reproducir.");
             //System.out.println(e);
@@ -62,6 +63,10 @@ public class PlaySound {
                 volume.setValue(volumen);
 
                 clip.start();
+
+                // TODO playlist!!! ooooowoooooo clip.getMicrosecondLength();
+
+
             } else {
                 System.out.println("No existe la canción: " + cancion);
             }

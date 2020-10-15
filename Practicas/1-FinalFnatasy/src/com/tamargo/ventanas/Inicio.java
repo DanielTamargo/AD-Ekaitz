@@ -1,6 +1,6 @@
 package com.tamargo.ventanas;
 
-import com.tamargo.misc.AdministradorSonidos;
+import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
 
 import javax.swing.*;
@@ -24,9 +24,9 @@ public class Inicio {
     private JSpinner spinnerVolumen;
 
     private int indexCancion = 0;
-    private final String[] canciones = AdministradorSonidos.canciones;
-    private final String[] nombreCanciones = AdministradorSonidos.nombreCanciones;
-    private final String[] nombreSonidos = AdministradorSonidos.nombreSonidos;
+    private final String[] canciones = AdministradorRutasArchivos.canciones;
+    private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
+    private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
 
     private float volumen = -40;
     private PlaySound pm;
@@ -37,8 +37,7 @@ public class Inicio {
         volumen = (float) (int) spinnerVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
 
-        pm = new PlaySound();
-        pm.playSound(canciones[indexCancion], true, volumen);
+        cambiarCancion();
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
@@ -119,10 +118,10 @@ public class Inicio {
         float volumen = (float) (int) spinnerVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
 
-        pm.stopSong();
+        if (pm != null)
+            pm.stopSong();
         pm = new PlaySound();
         pm.playSound(canciones[indexCancion], true, volumen);
-
 
     }
 

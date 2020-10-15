@@ -1,5 +1,5 @@
 1/Lord Kaplan/Un guerrero dispuesto a luchar hasta la muerte. Cuando masacraron su aldea y perdió a su familia, nacieron sus ganas de purgar el mal./1/Guerrero/1/Lord-Kaplan.png
 2/Lady Sophie/Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada./3/Mago/2/Lady-Sophie.png
 3/Legomas/Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo./2/Arquero/3/Legomas.png
-4/Brimstone/Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su piel tan dura como oscura le protege del daño mejor que a ningún otro. Es un guardián de confianza./4/Guardian/4/Brimstone.png
+4/Brimstone/Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su tenacidad y caracter le protegen del daño mejor que a ningún otro. Es un guardián de confianza./4/Guardian/4/Brimstone.png
 5/KillJoy/A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco./5/Asesino/5/KillJoy.png
