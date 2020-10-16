@@ -171,19 +171,19 @@ public class EscribirDatosBase {
 
         Personaje guerrero = new Personaje(1, "Lord Kaplan",
                 "Un guerrero dispuesto a luchar hasta la muerte. Cuando masacraron su aldea y perdió a su familia, nacieron sus ganas de purgar el mal.",
-                armas.get(0), TipoPersonaje.Guerrero, atributos.get(0), "Lord-Kaplan.png");
+                armas.get(0), TipoPersonaje.Guerrero, atributos.get(0), "icono-1-guerrero.png");
         Personaje mago = new Personaje(2, "Lady Sophie",
                 "Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.",
-                armas.get(1), TipoPersonaje.Mago, atributos.get(1), "Lady-Sophie.png");
+                armas.get(1), TipoPersonaje.Mago, atributos.get(1), "icono-2-mago.png");
         Personaje arquero = new Personaje(3, "Legomas",
                 "Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo.",
-                armas.get(2), TipoPersonaje.Arquero, atributos.get(2), "Legomas.png");
+                armas.get(2), TipoPersonaje.Arquero, atributos.get(2), "icono-3-arquero.png");
         Personaje guardian = new Personaje(4, "Brimstone",
                 "Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su tenacidad y caracter le protegen del daño mejor que a ningún otro. Es un guardián de confianza.",
-                armas.get(3), TipoPersonaje.Guardian, atributos.get(3), "Brimstone.png");
+                armas.get(3), TipoPersonaje.Guardian, atributos.get(3), "icono-4-guardian.png");
         Personaje asesino = new Personaje(5, "KillJoy",
                 "A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco.",
-                armas.get(4), TipoPersonaje.Asesino, atributos.get(4), "KillJoy.png");
+                armas.get(4), TipoPersonaje.Asesino, atributos.get(4), "icono-5-asesino.png");
 
         personajes.add(guerrero); personajes.add(mago); personajes.add(arquero); personajes.add(guardian); personajes.add(asesino);
 
@@ -338,7 +338,6 @@ public class EscribirDatosBase {
 
 
     /**
-     * W.I.P
      * Utilizando XStream guardaré en el fichero 'ficheros/partidas.xml' la lista de partidas jugadas
      */
     public void escribirListaPartidas(ListaPartidas listaPartidas) {
@@ -355,7 +354,6 @@ public class EscribirDatosBase {
             xstream.alias("atributos", Atributos.class);
             xstream.alias("evento", Evento.class);
             xstream.alias("personaje", Personaje.class);
-
 
             xstream.aliasAttribute(Partida.class, "fecha", "fecha");
 

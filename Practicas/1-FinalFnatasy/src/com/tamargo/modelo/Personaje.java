@@ -1,6 +1,7 @@
 package com.tamargo.modelo;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Personaje implements Serializable {
 
@@ -64,6 +65,47 @@ public class Personaje implements Serializable {
             experienciaNecesaria += 50;
             subirNivel();
         }
+    }
+
+
+    // INVENTADA MÁXIMA, TOCARÁ BALANCEARLO NEXT LEVEL
+    public int danyoTotalRecibido(int danyoFis, int danyoMag) {
+        int danyoTotal = 0;
+        Random r = new Random();
+        if (r.nextInt(100) + 1  <= atributos.getAgilidad() * 3)
+            return danyoTotal;
+
+        danyoTotal += danyoFisRecibido(danyoFis);
+        danyoFis += danyoMagRecibido(danyoMag);
+        return danyoTotal;
+    }
+
+    public int danyoMagRecibido(int danyoMag) {
+        return danyoMag - (atributos.getDefensaMag() * 3 + arma.getDefensaMag() * 5);
+    }
+
+    public int danyoFisRecibido(int danyoFis) {
+        return danyoFis - (atributos.getDefensaFis() * 3 + arma.getDefensaFis() * 5);
+    }
+
+    public int calcularVida() {
+        return (atributos.getVitalidad() * 100) + (atributos.getNivel() * 3);
+    }
+
+    public int calcularDanyoFis() {
+        int danyoFis = (atributos.getFuerza() * 7) + (arma.getAtaqueFis() * 15);;
+        Random r = new Random();
+        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
+            danyoFis += (danyoFis * 0.15); //Pum critiquín
+        return danyoFis;
+    }
+
+    public int calcularDanyoMag() {
+        int danyoMag = (atributos.getPoderMagico() * 7) + (arma.getAtaqueMag() * 15);
+        Random r = new Random();
+        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
+            danyoMag += (danyoMag * 0.15); //Pum critiquín
+        return danyoMag;
     }
 
     // Por cada nivel subido dejaremos que suba 5 puntos de habilidad, y luego reiniciaremos los nivelesSubidos

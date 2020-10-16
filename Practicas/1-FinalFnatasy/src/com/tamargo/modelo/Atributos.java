@@ -9,8 +9,8 @@ public class Atributos implements Serializable {
     private int vitalidad;
     private int fuerza;
     private int poderMagico;
-    private int destreza;
-    private int agilidad;
+    private int destreza; // +3% probabilidad critico
+    private int agilidad; // +3% esquivar
     private int defensaFis;
     private int defensaMag;
 

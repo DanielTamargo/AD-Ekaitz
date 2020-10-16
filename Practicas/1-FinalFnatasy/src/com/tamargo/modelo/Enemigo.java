@@ -1,6 +1,7 @@
 package com.tamargo.modelo;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Enemigo implements Serializable {
 
@@ -33,14 +34,51 @@ public class Enemigo implements Serializable {
                 '}';
     }
 
-    public int experienciaADar() {
+    // INVENTADA MÁXIMA
+    public int experienciaADar(int ronda) {
         int experienciaTotal = experiencia;
         if (atributos.getNivel() > nivelInicial) {
-            int experienciaPlusPorNivel = 10 * nivelInicial;
+            int experienciaPlusPorNivel = 10 * nivelInicial + ronda;
             experienciaTotal += (experienciaPlusPorNivel * (atributos.getNivel() - nivelInicial) / 2);
         }
         return experienciaTotal;
     }
+
+    public int danyoTotalRecibido(int danyoFis, int danyoMag) {
+        int danyoTotal = 0;
+        danyoTotal += danyoFisRecibido(danyoFis);
+        danyoFis += danyoMagRecibido(danyoMag);
+        return danyoTotal;
+    }
+
+    public int danyoMagRecibido(int danyoMag) {
+        return danyoMag - (atributos.getDefensaMag() * 4);
+    }
+
+    public int danyoFisRecibido(int danyoFis) {
+        return danyoFis - (atributos.getDefensaFis() * 4);
+    }
+
+    public int calcularVida() {
+        return (atributos.getVitalidad() * 75) + (atributos.getNivel() * 3);
+    }
+
+    public int calcularDanyoFis() {
+        int danyoFis = (atributos.getFuerza() * 10);
+        Random r = new Random();
+        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
+            danyoFis += (danyoFis * 0.15); //Pum critiquín
+        return danyoFis;
+    }
+
+    public int calcularDanyoMag() {
+        int danyoMag = (atributos.getPoderMagico() * 10);
+        Random r = new Random();
+        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
+            danyoMag += (danyoMag * 0.15); //Pum critiquín
+        return danyoMag;
+    }
+
 
     public int getId() {
         return id;

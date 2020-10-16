@@ -1,5 +1,5 @@
 <listaPartidas>
-  <partida fecha="16-10-2020 16:07:03">
+  <partida fecha="16-10-2020 21:00:10">
     <id>1</id>
     <ronda>4</ronda>
     <finalizada>true</finalizada>
@@ -36,7 +36,7 @@
           <experienciaConseguida>0</experienciaConseguida>
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
-          <imagen>Lord-Kaplan.png</imagen>
+          <imagen>icono-1-guerrero.png</imagen>
         </personaje>
         <personaje>
           <id>2</id>
@@ -68,7 +68,7 @@
           <experienciaConseguida>0</experienciaConseguida>
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
-          <imagen>Lady-Sophie.png</imagen>
+          <imagen>icono-2-mago.png</imagen>
         </personaje>
         <personaje>
           <id>5</id>
@@ -100,7 +100,7 @@
           <experienciaConseguida>0</experienciaConseguida>
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
-          <imagen>KillJoy.png</imagen>
+          <imagen>icono-5-asesino.png</imagen>
         </personaje>
       </personajes>
       <atributoEspecial>3</atributoEspecial>
@@ -155,7 +155,7 @@
       </evento>
     </eventosPasados>
   </partida>
-  <partida fecha="16-10-2020 16:07:03">
+  <partida fecha="16-10-2020 21:00:10">
     <id>2</id>
     <ronda>5</ronda>
     <finalizada>true</finalizada>

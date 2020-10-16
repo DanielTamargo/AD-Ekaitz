@@ -12,9 +12,9 @@ public class Main {
     public static void main(String[] args) {
 
         // Métodos para leer y escribir todos los datos base
-        //escribirDatosBase();
-        //leerDatosBase();
-        //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
+        escribirDatosBase();
+        leerDatosBase();
+        generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");

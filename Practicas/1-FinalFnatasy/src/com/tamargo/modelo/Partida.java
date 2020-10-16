@@ -33,7 +33,7 @@ public class Partida implements Serializable {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formateadorFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         fecha = currentDateTime.format(formateadorFecha);
-        System.out.println(fecha);
+        //System.out.println(fecha);
     }
 
     @Override
