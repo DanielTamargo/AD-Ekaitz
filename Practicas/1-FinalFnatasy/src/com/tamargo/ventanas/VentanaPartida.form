@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.tamargo.ventanas.VentanaPartida">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1028" height="697"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="b2448" binding="tabbedPane1">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="1000" height="600"/>
+            <preferred-size width="1000" height="600"/>
+            <maximum-size width="1000" height="600"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="90057" binding="tabJuego" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="Juego"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="237bc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="970" height="550"/>
+                    <preferred-size width="970" height="550"/>
+                    <maximum-size width="970" height="550"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+          <grid id="f0d2f" binding="tabPersonajes" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="Personajes"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="efc2f" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="970" height="550"/>
+                    <preferred-size width="970" height="550"/>
+                    <maximum-size width="970" height="550"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="2fb14" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <grid id="f3ad4" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <minimum-size width="362" height="150"/>
+                            <preferred-size width="362" height="150"/>
+                            <maximum-size width="362" height="150"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="line" title="TU GRUPO" title-justification="2">
+                          <font name="Microsoft YaHei UI" size="20" style="1"/>
+                        </border>
+                        <children>
+                          <component id="bafa1" class="javax.swing.JButton" binding="b_grupoPJ1">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <minimum-size width="100" height="100"/>
+                                <preferred-size width="100" height="100"/>
+                                <maximum-size width="100" height="100"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="true"/>
+                              <focusPainted value="false"/>
+                              <foreground color="-4474490"/>
+                              <label value=""/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="1cfac" class="javax.swing.JButton" binding="b_grupoPJ2">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <minimum-size width="100" height="100"/>
+                                <preferred-size width="100" height="100"/>
+                                <maximum-size width="100" height="100"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="true"/>
+                              <focusPainted value="false"/>
+                              <foreground color="-4474490"/>
+                              <label value=""/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                          <component id="1f628" class="javax.swing.JButton" binding="b_grupoPJ3">
+                            <constraints>
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                <minimum-size width="100" height="100"/>
+                                <preferred-size width="100" height="100"/>
+                                <maximum-size width="100" height="100"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <borderPainted value="false"/>
+                              <contentAreaFilled value="true"/>
+                              <focusPainted value="false"/>
+                              <foreground color="-4474490"/>
+                              <label value=""/>
+                              <text value=""/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <grid id="b7c8" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
+                            <minimum-size width="360" height="-1"/>
+                            <preferred-size width="360" height="-1"/>
+                            <maximum-size width="360" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="line" title-position="3"/>
+                        <children>
+                          <grid id="60377" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                                <minimum-size width="150" height="250"/>
+                                <preferred-size width="150" height="250"/>
+                                <maximum-size width="150" height="250"/>
+                              </grid>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="e4bec" class="javax.swing.JLabel" binding="l_fotoPJ">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <text value=""/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="9051c" layout-manager="GridLayoutManager" row-count="10" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="true">
+                                <minimum-size width="150" height="150"/>
+                                <preferred-size width="150" height="150"/>
+                                <maximum-size width="150" height="250"/>
+                              </grid>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="c1a88" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12"/>
+                                  <text value="Nombre:"/>
+                                </properties>
+                              </component>
+                              <component id="c6694" class="javax.swing.JLabel" binding="l_nombre">
+                                <constraints>
+                                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="14" style="1"/>
+                                  <text value="Lord Ejemplo"/>
+                                </properties>
+                              </component>
+                              <component id="7e148" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12"/>
+                                  <text value="Tipo:"/>
+                                </properties>
+                              </component>
+                              <component id="94017" class="javax.swing.JLabel" binding="l_tipo">
+                                <constraints>
+                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="14" style="1"/>
+                                  <text value="Guerrero"/>
+                                </properties>
+                              </component>
+                              <component id="79690" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12"/>
+                                  <text value="Arma:"/>
+                                </properties>
+                              </component>
+                              <component id="64912" class="javax.swing.JLabel" binding="l_arma">
+                                <constraints>
+                                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="14" style="1"/>
+                                  <text value="Espada Larga"/>
+                                </properties>
+                              </component>
+                              <vspacer id="b3114">
+                                <constraints>
+                                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                    <minimum-size width="-1" height="40"/>
+                                    <preferred-size width="-1" height="40"/>
+                                    <maximum-size width="-1" height="40"/>
+                                  </grid>
+                                </constraints>
+                              </vspacer>
+                              <vspacer id="f2596">
+                                <constraints>
+                                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                    <minimum-size width="-1" height="3"/>
+                                    <preferred-size width="-1" height="3"/>
+                                    <maximum-size width="-1" height="3"/>
+                                  </grid>
+                                </constraints>
+                              </vspacer>
+                              <vspacer id="31a9">
+                                <constraints>
+                                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                    <minimum-size width="-1" height="3"/>
+                                    <preferred-size width="-1" height="3"/>
+                                    <maximum-size width="-1" height="3"/>
+                                  </grid>
+                                </constraints>
+                              </vspacer>
+                              <vspacer id="eb9ef">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                    <minimum-size width="-1" height="3"/>
+                                    <preferred-size width="-1" height="3"/>
+                                    <maximum-size width="-1" height="3"/>
+                                  </grid>
+                                </constraints>
+                              </vspacer>
+                            </children>
+                          </grid>
+                          <grid id="c55c9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <grid id="925ca" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                <margin top="10" left="10" bottom="10" right="10"/>
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                    <minimum-size width="340" height="120"/>
+                                    <preferred-size width="340" height="120"/>
+                                    <maximum-size width="340" height="120"/>
+                                  </grid>
+                                </constraints>
+                                <properties/>
+                                <border type="none"/>
+                                <children>
+                                  <component id="c543f" class="javax.swing.JTextArea" binding="l_descripcion">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="50"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <editable value="false"/>
+                                      <focusable value="false"/>
+                                      <opaque value="false"/>
+                                      <requestFocusEnabled value="false"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                            </children>
+                          </grid>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="3b045" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
+                        <minimum-size width="282" height="-1"/>
+                        <preferred-size width="282" height="-1"/>
+                        <maximum-size width="282" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <grid id="1e9c1" layout-manager="GridLayoutManager" row-count="9" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="10" left="20" bottom="10" right="10"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
+                            <minimum-size width="280" height="-1"/>
+                            <preferred-size width="280" height="-1"/>
+                            <maximum-size width="280" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="line"/>
+                        <children>
+                          <component id="e1835" class="javax.swing.JLabel" binding="l_atrNivel">
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Nivel: 11"/>
+                            </properties>
+                          </component>
+                          <component id="4da6b" class="javax.swing.JLabel" binding="l_atrPuntosDisponibles">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="14" style="1"/>
+                              <text value="Puntos disponibles: 5"/>
+                            </properties>
+                          </component>
+                          <component id="d66ea" class="javax.swing.JLabel" binding="l_atrVit">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Vitalidad: 11"/>
+                            </properties>
+                          </component>
+                          <component id="aecb3" class="javax.swing.JLabel" binding="l_atrFuerza">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Fuerza: 11"/>
+                            </properties>
+                          </component>
+                          <component id="b622a" class="javax.swing.JLabel" binding="l_atrPoder">
+                            <constraints>
+                              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Poder Mágico: 11"/>
+                            </properties>
+                          </component>
+                          <component id="d59ea" class="javax.swing.JLabel" binding="l_atrDestreza">
+                            <constraints>
+                              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Destreza: 11"/>
+                            </properties>
+                          </component>
+                          <component id="8dec5" class="javax.swing.JLabel" binding="l_atrAgil">
+                            <constraints>
+                              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Agilidad: 11"/>
+                            </properties>
+                          </component>
+                          <component id="454c0" class="javax.swing.JLabel" binding="l_atrDefFis">
+                            <constraints>
+                              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Defensa Física: 11"/>
+                            </properties>
+                          </component>
+                          <component id="4234f" class="javax.swing.JLabel" binding="l_atrDefMag">
+                            <constraints>
+                              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <font size="12" style="1"/>
+                              <text value="Defensa Mágica: 11"/>
+                            </properties>
+                          </component>
+                          <component id="174d9" class="javax.swing.JButton" binding="b_restar1">
+                            <constraints>
+                              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                              <visible value="false"/>
+                            </properties>
+                          </component>
+                          <component id="3b98e" class="javax.swing.JButton" binding="b_restarVit">
+                            <constraints>
+                              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="47e3b" class="javax.swing.JButton" binding="b_restarFuerza">
+                            <constraints>
+                              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="aed8f" class="javax.swing.JButton" binding="b_restarPoder">
+                            <constraints>
+                              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="87df5" class="javax.swing.JButton" binding="b_restarDestreza">
+                            <constraints>
+                              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="98577" class="javax.swing.JButton" binding="b_restarAgilidad">
+                            <constraints>
+                              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="6dc5d" class="javax.swing.JButton" binding="b_restarDefFis">
+                            <constraints>
+                              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="a78" class="javax.swing.JButton" binding="b_restarDefMag">
+                            <constraints>
+                              <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <contentAreaFilled value="true"/>
+                              <enabled value="false"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="-"/>
+                            </properties>
+                          </component>
+                          <component id="fa869" class="javax.swing.JButton" binding="b_sumarVit">
+                            <constraints>
+                              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="ef282" class="javax.swing.JButton" binding="b_sumarFuerza">
+                            <constraints>
+                              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="a5d62" class="javax.swing.JButton" binding="b_sumarPoder">
+                            <constraints>
+                              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="3b12c" class="javax.swing.JButton" binding="b_sumarDestreza">
+                            <constraints>
+                              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="31596" class="javax.swing.JButton" binding="b_sumarAgilidad">
+                            <constraints>
+                              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="8231a" class="javax.swing.JButton" binding="b_sumarDefFis">
+                            <constraints>
+                              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                          <component id="22559" class="javax.swing.JButton" binding="b_sumarDefMag">
+                            <constraints>
+                              <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <minimum-size width="50" height="50"/>
+                                <preferred-size width="50" height="50"/>
+                                <maximum-size width="50" height="50"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <enabled value="true"/>
+                              <focusPainted value="false"/>
+                              <font name="Microsoft YaHei" size="18" style="1"/>
+                              <text value="+"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="30a71" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+                        <minimum-size width="280" height="400"/>
+                        <preferred-size width="280" height="400"/>
+                        <maximum-size width="280" height="400"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                    <border type="line"/>
+                    <children>
+                      <grid id="cda00" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true">
+                            <minimum-size width="-1" height="80"/>
+                            <preferred-size width="-1" height="80"/>
+                            <maximum-size width="-1" height="80"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <component id="897e1" class="javax.swing.JLabel">
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <text value="Armas"/>
+                            </properties>
+                          </component>
+                          <component id="edb" class="javax.swing.JComboBox" binding="comboBoxArmas">
+                            <constraints>
+                              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties>
+                              <requestFocusEnabled value="false"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </grid>
+                      <grid id="4963" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="c23b0" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="3d984" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Ataque Físico:"/>
+                                </properties>
+                              </component>
+                              <component id="f5238" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Ataque Mágico:"/>
+                                </properties>
+                              </component>
+                              <component id="38477" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Defensa Física:"/>
+                                </properties>
+                              </component>
+                              <component id="acf93" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Defensa Mágica:"/>
+                                </properties>
+                              </component>
+                              <component id="f2abb" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Rareza:"/>
+                                </properties>
+                              </component>
+                              <component id="f4e81" class="javax.swing.JLabel" binding="l_armaRareza">
+                                <constraints>
+                                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="11"/>
+                                </properties>
+                              </component>
+                              <component id="8b7bf" class="javax.swing.JLabel" binding="l_armaAtaqFis">
+                                <constraints>
+                                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="11"/>
+                                </properties>
+                              </component>
+                              <component id="147bf" class="javax.swing.JLabel" binding="l_armaAtaqMag">
+                                <constraints>
+                                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="11"/>
+                                </properties>
+                              </component>
+                              <component id="d4317" class="javax.swing.JLabel" binding="l_armaDefFis">
+                                <constraints>
+                                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="11"/>
+                                </properties>
+                              </component>
+                              <component id="1c22f" class="javax.swing.JLabel" binding="l_armaDefMag">
+                                <constraints>
+                                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="11"/>
+                                </properties>
+                              </component>
+                              <component id="bb7e7" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Tipo:"/>
+                                </properties>
+                              </component>
+                              <component id="d4f62" class="javax.swing.JLabel" binding="l_armaTipo">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                    <minimum-size width="70" height="-1"/>
+                                    <preferred-size width="70" height="-1"/>
+                                    <maximum-size width="70" height="-1"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <font size="12" style="1"/>
+                                  <text value="Bastón"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                  <grid id="99448" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
+                        <minimum-size width="-1" height="100"/>
+                        <preferred-size width="-1" height="100"/>
+                        <maximum-size width="-1" height="100"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="8a0b1" class="javax.swing.JButton" binding="b_confirmar">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="150" height="40"/>
+                            <preferred-size width="150" height="40"/>
+                            <maximum-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <autoscrolls value="false"/>
+                          <borderPainted value="true"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <focusable value="true"/>
+                          <font name="Microsoft YaHei UI" size="15" style="1"/>
+                          <label value="Confirmar"/>
+                          <text value="Confirmar"/>
+                        </properties>
+                      </component>
+                      <component id="197d9" class="javax.swing.JButton" binding="b_cancelar">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="150" height="40"/>
+                            <preferred-size width="150" height="40"/>
+                            <maximum-size width="150" height="40"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <autoscrolls value="false"/>
+                          <borderPainted value="true"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <focusable value="true"/>
+                          <font name="Microsoft YaHei UI" size="15" style="1"/>
+                          <label value="Cancelar"/>
+                          <text value="Cancelar"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="976f0" binding="tabSonido" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title="Sonido"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="41788" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="970" height="550"/>
+                    <preferred-size width="970" height="550"/>
+                    <maximum-size width="970" height="550"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <grid id="4034" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <minimum-size width="300" height="-1"/>
+                        <preferred-size width="300" height="-1"/>
+                        <maximum-size width="300" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                    <border type="line" title="Canciones" title-justification="2"/>
+                    <children>
+                      <component id="15427" class="javax.swing.JTextPane" binding="textPanePlaylists">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="50"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <editable value="false"/>
+                          <focusable value="false"/>
+                          <font name="Microsoft YaHei" size="12" style="1"/>
+                          <opaque value="false"/>
+                          <requestFocusEnabled value="false"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="89e96" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="10" left="10" bottom="10" right="10"/>
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <minimum-size width="650" height="-1"/>
+                        <preferred-size width="650" height="-1"/>
+                        <maximum-size width="650" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties/>
+                    <border type="line" title="Panel de Sonido"/>
+                    <children>
+                      <component id="78673" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei UI" size="16" style="0"/>
+                          <text value="Playlist"/>
+                        </properties>
+                      </component>
+                      <component id="f7b70" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei UI" size="18" style="3"/>
+                          <text value="(en futuras versiones)"/>
+                        </properties>
+                      </component>
+                      <component id="79504" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei UI" size="16" style="0"/>
+                          <text value="Canción"/>
+                        </properties>
+                      </component>
+                      <component id="1964e" class="javax.swing.JLabel" binding="l_cancion">
+                        <constraints>
+                          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="340" height="30"/>
+                            <preferred-size width="340" height="30"/>
+                            <maximum-size width="340" height="30"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei UI" size="18" style="1"/>
+                          <horizontalAlignment value="0"/>
+                          <horizontalTextPosition value="0"/>
+                          <text value="Nombre canción"/>
+                        </properties>
+                      </component>
+                      <component id="723e0" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="7" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Microsoft YaHei UI" size="16" style="0"/>
+                          <text value="Volumen"/>
+                        </properties>
+                      </component>
+                      <component id="6df42" class="javax.swing.JSlider" binding="sliderVolumen">
+                        <constraints>
+                          <grid row="8" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="350" height="-1"/>
+                            <preferred-size width="350" height="-1"/>
+                            <maximum-size width="350" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <opaque value="true"/>
+                          <orientation value="0"/>
+                          <paintLabels value="false"/>
+                          <paintTicks value="false"/>
+                          <paintTrack value="true"/>
+                          <requestFocusEnabled value="false"/>
+                          <value value="0"/>
+                          <verifyInputWhenFocusTarget value="true"/>
+                        </properties>
+                      </component>
+                      <vspacer id="3e2d9">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="11471">
+                        <constraints>
+                          <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="d8303">
+                        <constraints>
+                          <grid row="9" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <vspacer id="bf15b">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                      </vspacer>
+                      <component id="88f09" class="javax.swing.JButton" binding="b_nextSong">
+                        <constraints>
+                          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="50" height="50"/>
+                            <preferred-size width="50" height="30"/>
+                            <maximum-size width="50" height="50"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <focusPainted value="false"/>
+                          <text value="&gt;"/>
+                        </properties>
+                      </component>
+                      <component id="9de39" class="javax.swing.JButton" binding="b_previousSong">
+                        <constraints>
+                          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="50" height="50"/>
+                            <preferred-size width="50" height="30"/>
+                            <maximum-size width="50" height="50"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <focusPainted value="false"/>
+                          <text value="&lt;"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>

@@ -186,13 +186,16 @@ public class LeerDatosBase {
             //Objeto xstream
             XStream xstream = new XStream();
             //Etiquetas de ListaPersonas y de Persona --> para leerlas como están en el XML
-            xstream.alias("ListaPartidas", ListaPartidas.class);
-            xstream.alias("Partida", Partida.class);
-            xstream.alias("Grupo", Grupo.class);
-            xstream.alias("Enemigo", Enemigo.class);
-            xstream.alias("Atributos", Atributos.class);
-            xstream.alias("Evento", Evento.class);
-            xstream.alias("Personaje", Personaje.class);
+            xstream.alias("listaPartidas", ListaPartidas.class);
+            xstream.alias("partida", Partida.class);
+            xstream.alias("grupo", Grupo.class);
+            xstream.alias("enemigo", Enemigo.class);
+            xstream.alias("atributos", Atributos.class);
+            xstream.alias("evento", Evento.class);
+            xstream.alias("personaje", Personaje.class);
+
+            xstream.aliasAttribute(Partida.class, "fecha", "fecha");
+
             // Quitamos etiqueta lista (atributo de la clase ListaPartidas)
             xstream.addImplicitCollection(ListaPartidas.class, "lista");
 

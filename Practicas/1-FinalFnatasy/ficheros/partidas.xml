@@ -1,12 +1,12 @@
-<ListaPartidas>
-  <Partida>
+<listaPartidas>
+  <partida fecha="16-10-2020 16:07:03">
     <id>1</id>
     <ronda>4</ronda>
     <finalizada>true</finalizada>
     <grupo>
       <id>1</id>
       <personajes>
-        <Personaje>
+        <personaje>
           <id>1</id>
           <nombre>Lord Kaplan</nombre>
           <descripcion>Un guerrero dispuesto a luchar hasta la muerte. Cuando masacraron su aldea y perdió a su familia, nacieron sus ganas de purgar el mal.</descripcion>
@@ -37,8 +37,8 @@
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
           <imagen>Lord-Kaplan.png</imagen>
-        </Personaje>
-        <Personaje>
+        </personaje>
+        <personaje>
           <id>2</id>
           <nombre>Lady Sophie</nombre>
           <descripcion>Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.</descripcion>
@@ -69,8 +69,8 @@
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
           <imagen>Lady-Sophie.png</imagen>
-        </Personaje>
-        <Personaje>
+        </personaje>
+        <personaje>
           <id>5</id>
           <nombre>KillJoy</nombre>
           <descripcion>A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco.</descripcion>
@@ -101,12 +101,13 @@
           <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
           <imagen>KillJoy.png</imagen>
-        </Personaje>
+        </personaje>
       </personajes>
       <atributoEspecial>3</atributoEspecial>
+      <inventario/>
     </grupo>
     <enemigosDerrotados>
-      <Enemigo>
+      <enemigo>
         <id>1</id>
         <nombre>Lobo</nombre>
         <experiencia>20</experiencia>
@@ -122,10 +123,10 @@
           <defensaFis>1</defensaFis>
           <defensaMag>0</defensaMag>
         </atributos>
-        <imagen>FFIX-Lobo.png</imagen>
+        <imagen>FFIX-1-Lobo.png</imagen>
         <nivelInicial>1</nivelInicial>
-      </Enemigo>
-      <Enemigo>
+      </enemigo>
+      <enemigo>
         <id>2</id>
         <nombre>Duende</nombre>
         <experiencia>20</experiencia>
@@ -141,37 +142,38 @@
           <defensaFis>1</defensaFis>
           <defensaMag>0</defensaMag>
         </atributos>
-        <imagen>FFIX-Duende.png</imagen>
+        <imagen>FFIX-2-Duende.png</imagen>
         <nivelInicial>1</nivelInicial>
-      </Enemigo>
-      <Enemigo reference="../Enemigo"/>
+      </enemigo>
+      <enemigo reference="../enemigo"/>
     </enemigosDerrotados>
     <eventosPasados>
-      <Evento>
+      <evento>
         <id>1</id>
         <descripcion>¿Nueva arma? ¡Nueva arma! Espero que te sirva de algo, si no... sh*t happens :/</descripcion>
         <efecto>1</efecto>
-      </Evento>
+      </evento>
     </eventosPasados>
-  </Partida>
-  <Partida>
+  </partida>
+  <partida fecha="16-10-2020 16:07:03">
     <id>2</id>
     <ronda>5</ronda>
     <finalizada>true</finalizada>
     <grupo>
       <id>1</id>
       <personajes>
-        <Personaje reference="../../../../Partida/grupo/personajes/Personaje"/>
-        <Personaje reference="../../../../Partida/grupo/personajes/Personaje[2]"/>
-        <Personaje reference="../../../../Partida/grupo/personajes/Personaje[3]"/>
+        <personaje reference="../../../../partida/grupo/personajes/personaje"/>
+        <personaje reference="../../../../partida/grupo/personajes/personaje[2]"/>
+        <personaje reference="../../../../partida/grupo/personajes/personaje[3]"/>
       </personajes>
       <atributoEspecial>3</atributoEspecial>
+      <inventario/>
     </grupo>
     <enemigosDerrotados>
-      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo"/>
-      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo[2]"/>
-      <Enemigo reference="../../../Partida/enemigosDerrotados/Enemigo"/>
-      <Enemigo>
+      <enemigo reference="../../../partida/enemigosDerrotados/enemigo"/>
+      <enemigo reference="../../../partida/enemigosDerrotados/enemigo[2]"/>
+      <enemigo reference="../../../partida/enemigosDerrotados/enemigo"/>
+      <enemigo>
         <id>3</id>
         <nombre>Boom</nombre>
         <experiencia>40</experiencia>
@@ -187,10 +189,10 @@
           <defensaFis>2</defensaFis>
           <defensaMag>2</defensaMag>
         </atributos>
-        <imagen>FFIX-Boom.png</imagen>
+        <imagen>FFIX-3-Boom.png</imagen>
         <nivelInicial>2</nivelInicial>
-      </Enemigo>
-      <Enemigo>
+      </enemigo>
+      <enemigo>
         <id>4</id>
         <nombre>Flan</nombre>
         <experiencia>50</experiencia>
@@ -206,12 +208,12 @@
           <defensaFis>4</defensaFis>
           <defensaMag>0</defensaMag>
         </atributos>
-        <imagen>FFIX-Flan.png</imagen>
+        <imagen>FFIX-4-Flan.png</imagen>
         <nivelInicial>2</nivelInicial>
-      </Enemigo>
+      </enemigo>
     </enemigosDerrotados>
     <eventosPasados>
-      <Evento reference="../../../Partida/eventosPasados/Evento"/>
+      <evento reference="../../../partida/eventosPasados/evento"/>
     </eventosPasados>
-  </Partida>
-</ListaPartidas>
+  </partida>
+</listaPartidas>

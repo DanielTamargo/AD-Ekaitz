@@ -127,7 +127,7 @@ public class NuevaPartida {
                 ventanaNuevaPartida.dispose();
 
                 PlaySound ps = new PlaySound();
-                ps.playSound(nombreSonidos[2], false, volumen + 20);
+                ps.playSound(nombreSonidos[2], false, volumen);
 
             }
         });
@@ -204,10 +204,11 @@ public class NuevaPartida {
 
                     JFrame frame = new JFrame("Partida");
 
-                    Partida p = new Partida();
+                    VentanaPartida p = new VentanaPartida();
                     p.setPm(pm);
                     p.setIndexCancion(indexCancion);
                     p.setVolumen(volumen);
+                    p.actualizarJTextPane();
                     p.configurarSliderVolumen();
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);

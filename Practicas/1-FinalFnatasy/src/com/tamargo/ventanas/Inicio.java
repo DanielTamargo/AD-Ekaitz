@@ -48,7 +48,7 @@ public class Inicio {
             public void actionPerformed(ActionEvent e) {
                 ventanaInicio.dispose();
                 PlaySound ps = new PlaySound();
-                ps.playSound(nombreSonidos[2], false, volumen + 20);
+                ps.playSound(nombreSonidos[2], false, volumen);
             }
         });
         b_nuevaPartida.addActionListener(new ActionListener() {

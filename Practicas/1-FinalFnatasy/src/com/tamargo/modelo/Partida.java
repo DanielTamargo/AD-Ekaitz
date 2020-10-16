@@ -1,6 +1,8 @@
 package com.tamargo.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Partida implements Serializable {
@@ -11,8 +13,10 @@ public class Partida implements Serializable {
     private Grupo grupo;
     private ArrayList<Enemigo> enemigosDerrotados = new ArrayList<>();
     private ArrayList<Evento> eventosPasados = new ArrayList<>();
+    private String fecha;
 
     public Partida() {
+        obtenerFecha();
     }
 
     public Partida(int id, int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
@@ -22,12 +26,21 @@ public class Partida implements Serializable {
         this.grupo = grupo;
         this.enemigosDerrotados = enemigosDerrotados;
         this.eventosPasados = eventosPasados;
+        obtenerFecha();
+    }
+
+    public void obtenerFecha() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formateadorFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        fecha = currentDateTime.format(formateadorFecha);
+        System.out.println(fecha);
     }
 
     @Override
     public String toString() {
         return "Partida{" +
                 "id=" + id +
+                ", fecha=" + fecha +
                 ", ronda=" + ronda +
                 ", grupo=" + grupo +
                 ", enemigosDerrotados=" + enemigosDerrotados +
