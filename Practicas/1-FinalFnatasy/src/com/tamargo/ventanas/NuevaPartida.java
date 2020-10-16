@@ -193,7 +193,6 @@ public class NuevaPartida {
                 // En principio el botón sólo está habilitado cuando haya elegido sí o sí 3 personajes
                 // Pero como los bugs pueden pasar, y es difícil tener tod@ en cuenta, vamos a evitar que pueda comenzar la partida sin tener 3 personajes
                 if (personajesElegidos.size() == 3) {
-
                     // Nota: el id del grupo no es útil en estos momentos, siempre será 1, lo añadí por si en algún momento almacenaba los grupos en un fichero
                     Grupo grupo = new Grupo(1, personajesElegidos, 1);
 
@@ -203,10 +202,11 @@ public class NuevaPartida {
                     JFrame frame = new JFrame("Partida");
 
                     Partida p = new Partida();
-                    p.setGrupo(grupo);
                     p.setVolumen(volumen);
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);
+                    p.setGrupo(grupo);
+                    p.inicializarTabPersonajes();
 
                     frame.setContentPane(p.getPanel());
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

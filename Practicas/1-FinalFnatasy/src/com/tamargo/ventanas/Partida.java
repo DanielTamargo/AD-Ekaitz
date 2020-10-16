@@ -17,12 +17,14 @@ public class Partida {
 
     private JFrame ventanaPartida;
     private JFrame ventanaInicio;
-
     private JPanel panel;
     private JTabbedPane tabbedPane1;
+
     private JPanel tabJuego;
     private JPanel tabPersonajes;
-    private JPanel tabMisc;
+    private JPanel tabSonido;
+
+    // VARIABLES TAB PERSONAJES
     private JButton b_grupoPJ1;
     private JButton b_grupoPJ2;
     private JButton b_grupoPJ3;
@@ -67,6 +69,14 @@ public class Partida {
     private JButton b_cancelar;
     private JButton b_confirmar;
 
+    // ELEMENTOS TAB SONIDO
+    private JTextArea textAreaPlaylist1;
+    private JTextArea textAreaPlaylist2;
+    private JTextArea textAreaPlaylist3;
+    private JTextArea textAreaPlaylist4;
+    private JSlider slider1;
+
+    private int puntosDisponibles = 0;
     private int vitalidad;
     private int fuerza;
     private int poder;
@@ -89,20 +99,10 @@ public class Partida {
 
     public Partida() {
 
-        // TODO falta que el grupo tenga una serie de armas, cuando le pones un arma al personaje la eliminas y añades la que le has quitado al personaje
-        // TODO en el listado de armas para elegir tenemos que sacar la primera opción el arma que lleva el personaje, y luego añadir las armas del inventario del grupo
 
 
-        // Borrar
-        ArrayList<Personaje> personajes = new LeerDatosBase().leerPersonajesBase();
-        grupo = new Grupo(1, personajes, 1);
-
-        iconosGrupo();
-
-        cambiarDatos();
-        actualizarListaArmasDisponibles();
-        cambiarDatosArma();
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // LISTENERS PERSONAJES
         b_grupoPJ1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -137,119 +137,147 @@ public class Partida {
             @Override
             public void actionPerformed(ActionEvent e) {
                 vitalidad++;
+                puntosDisponibles--;
                 b_restarVit.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarVit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 vitalidad--;
+                puntosDisponibles++;
                 if (vitalidad == grupo.getPersonajes().get(index - 1).getAtributos().getVitalidad())
                     b_restarVit.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarFuerza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fuerza++;
+                puntosDisponibles--;
                 b_restarFuerza.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarFuerza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fuerza--;
+                puntosDisponibles++;
                 if (fuerza == grupo.getPersonajes().get(index - 1).getAtributos().getFuerza())
                     b_restarFuerza.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarPoder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 poder++;
+                puntosDisponibles--;
                 b_restarPoder.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarPoder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 poder--;
+                puntosDisponibles++;
                 if (poder == grupo.getPersonajes().get(index - 1).getAtributos().getPoderMagico())
                     b_restarPoder.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarDestreza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 destreza++;
+                puntosDisponibles--;
                 b_restarDestreza.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarDestreza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 destreza--;
+                puntosDisponibles++;
                 if (destreza == grupo.getPersonajes().get(index - 1).getAtributos().getDestreza())
                     b_restarDestreza.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarAgilidad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 agilidad++;
+                puntosDisponibles--;
                 b_restarAgilidad.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarAgilidad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 agilidad--;
+                puntosDisponibles++;
                 if (agilidad == grupo.getPersonajes().get(index - 1).getAtributos().getAgilidad())
                     b_restarAgilidad.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarDefFis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defensaFis++;
+                puntosDisponibles--;
                 b_restarDefFis.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarDefFis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defensaFis--;
+                puntosDisponibles++;
                 if (defensaFis == grupo.getPersonajes().get(index - 1).getAtributos().getDefensaFis())
                     b_restarDefFis.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_sumarDefMag.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defensaMag++;
+                puntosDisponibles--;
                 b_restarDefMag.setEnabled(true);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_restarDefMag.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defensaMag--;
+                puntosDisponibles++;
                 if (defensaMag == grupo.getPersonajes().get(index - 1).getAtributos().getDefensaMag())
                     b_restarDefMag.setEnabled(false);
                 cambiarPuntosAtributos();
+                habilitarDeshabilitarBotonesSumar();
             }
         });
         b_cancelar.addActionListener(new ActionListener() {
@@ -265,25 +293,58 @@ public class Partida {
         b_confirmar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PlaySound ps = new PlaySound();
-                ps.playSound(nombreSonidos[0], false, volumen);
+                if (puntosDisponibles > 0) { // Solo podremos confirmar cuando se hayan gastado todos los puntos disponibles
+                    PlaySound ps = new PlaySound();
+                    ps.playSound(nombreSonidos[3], false, volumen);
 
-                Personaje per = grupo.getPersonajes().get(index - 1);
-                per.setArma((Arma) comboBoxArmas.getSelectedItem());
+                    JOptionPane.showMessageDialog(null,
+                            "Tienes que gastar todos los puntos disponibles antes de confirmar.",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    PlaySound ps = new PlaySound();
+                    ps.playSound(nombreSonidos[0], false, volumen);
 
-                per.getAtributos().setVitalidad(vitalidad);
-                per.getAtributos().setFuerza(fuerza);
-                per.getAtributos().setPoderMagico(poder);
-                per.getAtributos().setDestreza(destreza);
-                per.getAtributos().setAgilidad(agilidad);
-                per.getAtributos().setDefensaFis(defensaFis);
-                per.getAtributos().setDefensaMag(defensaMag);
+                    Personaje per = grupo.getPersonajes().get(index - 1);
+                    per.setArma((Arma) comboBoxArmas.getSelectedItem());
 
-                cambiarDatos();
-                cambiarDatosArma();
-                actualizarListaArmasDisponibles();
+                    per.getAtributos().setVitalidad(vitalidad);
+                    per.getAtributos().setFuerza(fuerza);
+                    per.getAtributos().setPoderMagico(poder);
+                    per.getAtributos().setDestreza(destreza);
+                    per.getAtributos().setAgilidad(agilidad);
+                    per.getAtributos().setDefensaFis(defensaFis);
+                    per.getAtributos().setDefensaMag(defensaMag);
+
+                    actualizarNivelesSubidosPJ();
+                    cambiarDatos();
+                    cambiarDatosArma();
+                    actualizarListaArmasDisponibles();
+                }
             }
         });
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // TAB PERSONAJES
+
+    public void inicializarTabPersonajes() {
+        iconosGrupo();
+        cambiarDatos();
+        actualizarListaArmasDisponibles();
+        cambiarDatosArma();
+    }
+
+    public void datosPrueba() {
+        if (grupo == null) {
+            ArrayList<Personaje> personajes = new LeerDatosBase().leerPersonajesBase();
+            grupo = new Grupo(1, personajes, 1);
+            grupo.getPersonajes().get(0).setNivelesSubidos(2);
+        }
+    }
+
+    public void actualizarNivelesSubidosPJ() {
+        grupo.getPersonajes().get(index - 1).setNivelesSubidos(0);
     }
 
     public void actualizarListaArmasDisponibles() {
@@ -296,11 +357,7 @@ public class Partida {
 
         armasDisponibles.add(grupo.getPersonajes().get(index - 1).getArma());
 
-        // TODO borrar esta línea y decomentar la de abajo cuando los grupos ya tengan inventario
-        armasDisponibles.add(new LeerDatosBase().leerArmasBase().get(new LeerDatosBase().leerArmasBase().size() - 1));
-        armasDisponibles.add(new LeerDatosBase().leerArmasBase().get(7));
-        armasDisponibles.add(new LeerDatosBase().leerArmasBase().get(15));
-        //armasDisponibles.addAll(grupo.getInventario());
+        armasDisponibles.addAll(grupo.getInventario());
 
         // Añadimos las armas al modelo y se lo encajamos al combobox
         DefaultComboBoxModel<Arma> modelo = new DefaultComboBoxModel<>();
@@ -391,7 +448,7 @@ public class Partida {
         }
 
         // Plasmamos datos personaje
-        l_fotoPJ.setIcon(new ImageIcon("assets/" + fotosPersonaje[(index - 1)]));
+        l_fotoPJ.setIcon(new ImageIcon("assets/" + fotosPersonaje[per.getId() - 1]));
         l_nombre.setText(nombre);
         l_tipo.setText(tipo);
         l_arma.setText(arma);
@@ -406,15 +463,41 @@ public class Partida {
         defensaFis = atr.getDefensaFis();
         defensaMag = atr.getDefensaMag();
 
-        // TODO borrar esta línea después de implementar los puntos disponibles
-        l_atrPuntosDisponibles.setText("Atributos de " + per.getNombre());
-        l_atrNivel.setText("Nivel: " + atr.getNivel());
-
         // Plasmamos datos pantalla Atributos
+        calcularPuntosDisponiblesPJ();
+        l_atrNivel.setText("Nivel: " + atr.getNivel());
         cambiarPuntosAtributos();
+
+        // Habilitamos o deshabilitamos los botones de sumar en base a si tenemos puntos disponibles o no
+        habilitarDeshabilitarBotonesSumar();
 
         // Deshabilitamos los botones de restar puesto que hemos recargado los atributos
         deshabilitarBotonesRestar();
+    }
+
+    public void habilitarDeshabilitarBotonesSumar() {
+        if (puntosDisponibles > 0) {
+            b_sumarVit.setEnabled(true);
+            b_sumarFuerza.setEnabled(true);
+            b_sumarPoder.setEnabled(true);
+            b_sumarDestreza.setEnabled(true);
+            b_sumarAgilidad.setEnabled(true);
+            b_sumarDefFis.setEnabled(true);
+            b_sumarDefMag.setEnabled(true);
+        } else {
+            b_sumarVit.setEnabled(false);
+            b_sumarFuerza.setEnabled(false);
+            b_sumarPoder.setEnabled(false);
+            b_sumarDestreza.setEnabled(false);
+            b_sumarAgilidad.setEnabled(false);
+            b_sumarDefFis.setEnabled(false);
+            b_sumarDefMag.setEnabled(false);
+        }
+    }
+
+    public void calcularPuntosDisponiblesPJ() {
+        Personaje per = grupo.getPersonajes().get(index - 1);
+        puntosDisponibles = per.getNivelesSubidos() * 5; // Cada nivel te deja subir 5 puntos
     }
 
     public void deshabilitarBotonesRestar() {
@@ -429,8 +512,7 @@ public class Partida {
 
     public void cambiarPuntosAtributos() {
         // Plasmamos datos pantalla Atributos
-        // TODO aún queda implementar esta línea con los puntos disponibles
-        // l_atrPuntosDisponibles.setText("Atributos de " + per.getNombre());
+        l_atrPuntosDisponibles.setText("Puntos Disponibles: " + puntosDisponibles);
         l_atrVit.setText("Vitalidad: " + vitalidad);
         l_atrFuerza.setText("Fuerza: " + fuerza);
         l_atrPoder.setText("Poder Mágico: " + poder);
@@ -438,7 +520,6 @@ public class Partida {
         l_atrAgil.setText("Agilidad: " + agilidad);
         l_atrDefFis.setText("Defensa Física: " + defensaFis);
         l_atrDefMag.setText("Defensa Mágica: " + defensaMag);
-
     }
 
     public void setGrupo(Grupo grupo) {
