@@ -9,12 +9,15 @@ import com.tamargo.modelo.Grupo;
 import com.tamargo.modelo.Personaje;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Partida {
 
+    // ELEMENTOS GENERALES
     private JFrame ventanaPartida;
     private JFrame ventanaInicio;
     private JPanel panel;
@@ -24,7 +27,7 @@ public class Partida {
     private JPanel tabPersonajes;
     private JPanel tabSonido;
 
-    // VARIABLES TAB PERSONAJES
+    // ELEMENTOS TAB PERSONAJES
     private JButton b_grupoPJ1;
     private JButton b_grupoPJ2;
     private JButton b_grupoPJ3;
@@ -71,11 +74,14 @@ public class Partida {
 
     // ELEMENTOS TAB SONIDO
     private JTextArea textAreaPlaylist1;
-    private JTextArea textAreaPlaylist2;
-    private JTextArea textAreaPlaylist3;
-    private JTextArea textAreaPlaylist4;
-    private JSlider slider1;
+    private JSlider sliderVolumen;
 
+    // VARIABLES GENERALES
+    private Grupo grupo;
+    private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
+    private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
+
+    // VARIABLES TAB PERSONAJES
     private int puntosDisponibles = 0;
     private int vitalidad;
     private int fuerza;
@@ -84,15 +90,18 @@ public class Partida {
     private int agilidad;
     private int defensaFis;
     private int defensaMag;
-
-    private Grupo grupo;
-
     private ArrayList<Arma> armasDisponibles = new ArrayList<>();
 
-    private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
+    // VARIABLES TAB SONIDO
     private float volumen = -40;
+    private PlaySound pm;
+    private int indexCancion;
+    private final String[] canciones = AdministradorRutasArchivos.canciones;
+    private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
 
-    private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
+
+
+
 
 
     private int index = 1;
@@ -323,7 +332,39 @@ public class Partida {
                 }
             }
         });
+        sliderVolumen.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if ((int) sliderVolumen.getValue() > 100)
+                    sliderVolumen.setValue(100);
+                else if ((int) sliderVolumen.getValue() < 0)
+                    sliderVolumen.setValue(0);
+
+                volumen = (float) (int) sliderVolumen.getValue();
+                volumen = (float) ((volumen - 100) * 0.80);
+                //System.out.println(volumen);
+                pm.setVolume(volumen);
+            }
+        });
     }
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // TAB SONIDO
+    public void configurarSliderVolumen() {
+        volumen = (float) ((volumen * 1.25) + 100);
+        sliderVolumen.setValue((int) volumen);
+    }
+
+    public void setIndexCancion(int indexCancion) {
+        this.indexCancion = indexCancion;
+    }
+
+    public void setPm(PlaySound pm) {
+        this.pm = pm;
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // TAB PERSONAJES

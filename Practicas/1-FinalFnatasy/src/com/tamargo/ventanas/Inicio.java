@@ -23,6 +23,7 @@ public class Inicio {
     private JLabel l_cancion;
     private JButton b_nextSong;
     private JSpinner spinnerVolumen;
+    private JSlider sliderVolumen;
 
     private int indexCancion = 0;
     private final String[] canciones = AdministradorRutasArchivos.canciones;
@@ -34,8 +35,8 @@ public class Inicio {
 
     public Inicio() {
 
-        spinnerVolumen.setValue(50);
-        volumen = (float) (int) spinnerVolumen.getValue();
+        sliderVolumen.setValue(50);
+        volumen = (float) (int) sliderVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
 
         cambiarCancion();
@@ -59,6 +60,8 @@ public class Inicio {
                 np.setVentanaNuevaPartida(frame);
                 np.setVentanaInicio(ventanaInicio);
                 np.setVolumen(volumen);
+                np.setIndexCancion(indexCancion);
+                np.setPm(pm);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null); // Debería centrarlo pero en mi ventana me lo genera abajo a la derecha hm
@@ -88,15 +91,15 @@ public class Inicio {
                 cambiarCancion();
             }
         });
-        spinnerVolumen.addChangeListener(new ChangeListener() {
+        sliderVolumen.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                if ((int) spinnerVolumen.getValue() > 100)
-                    spinnerVolumen.setValue(100);
-                else if ((int) spinnerVolumen.getValue() < 0)
-                    spinnerVolumen.setValue(0);
+                if ((int) sliderVolumen.getValue() > 100)
+                    sliderVolumen.setValue(100);
+                else if ((int) sliderVolumen.getValue() < 0)
+                    sliderVolumen.setValue(0);
 
-                volumen = (float) (int) spinnerVolumen.getValue();
+                volumen = (float) (int) sliderVolumen.getValue();
                 volumen = (float) ((volumen - 100) * 0.80);
                 //System.out.println(volumen);
                 pm.setVolume(volumen);
@@ -116,7 +119,7 @@ public class Inicio {
         String cancion = nombreCanciones[indexCancion];
         l_cancion.setText(cancion);
 
-        float volumen = (float) (int) spinnerVolumen.getValue();
+        float volumen = (float) (int) sliderVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
 
         if (pm != null)

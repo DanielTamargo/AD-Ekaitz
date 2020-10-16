@@ -49,6 +49,9 @@ public class NuevaPartida {
     private ArrayList<Personaje> personajesElegidos = new ArrayList<>();
     private ArrayList<Personaje> personajes = new ArrayList<>();
 
+    private PlaySound pm;
+    private int indexCancion;
+
     private final String[] canciones = AdministradorRutasArchivos.canciones;
     private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
     private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
@@ -202,7 +205,10 @@ public class NuevaPartida {
                     JFrame frame = new JFrame("Partida");
 
                     Partida p = new Partida();
+                    p.setPm(pm);
+                    p.setIndexCancion(indexCancion);
                     p.setVolumen(volumen);
+                    p.configurarSliderVolumen();
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);
                     p.setGrupo(grupo);
@@ -383,6 +389,14 @@ public class NuevaPartida {
         l_atrDefFis.setText("Defensa Física: " + atr.getDefensaFis());
         l_atrDefMag.setText("Defensa Mágica: " + atr.getDefensaMag());
 
+    }
+
+    public void setIndexCancion(int indexCancion) {
+        this.indexCancion = indexCancion;
+    }
+
+    public void setPm(PlaySound pm) {
+        this.pm = pm;
     }
 
     public void setVolumen(float volumen) {

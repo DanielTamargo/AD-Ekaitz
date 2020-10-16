@@ -1,18 +1,22 @@
 package com.tamargo.misc;
 
+import javax.swing.*;
+
 public class Pruebas {
 
     public static void main(String[] args) {
 
-        String linea = "hola,que,tal,estas,8";
-        String[] datos = linea.split(",");
-        System.out.println(datos[0]);
-        System.out.println(Integer.parseInt(datos[datos.length - 1]) * 4);
+        String[] playlistLista = AdministradorRutasArchivos.playlistRPG;
 
-        System.out.println();
-        String substringg = "probando substring";
-        System.out.println(substringg.substring(0, 5));
-        System.out.println(substringg.substring(5, 10));
+        PlayPlaylist playlist = new PlayPlaylist(playlistLista, 1, -40);
+        playlist.start();
+
+        JOptionPane.showMessageDialog(null, "Vas a subir el volumen un poco", "Escuchando", JOptionPane.INFORMATION_MESSAGE);
+        playlist.setVolume(-30);
+
+        JOptionPane.showMessageDialog(null, "Vas a parar la playlist y el hilo", "Escuchando", JOptionPane.INFORMATION_MESSAGE);
+
+        playlist.stop(); //<- deprecado pero para este caso en concreto funciona
 
     }
 
