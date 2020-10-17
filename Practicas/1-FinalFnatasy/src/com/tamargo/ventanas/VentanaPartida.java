@@ -89,6 +89,7 @@ public class VentanaPartida {
     private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
     private JSlider sliderVolumenInicio;
+    private boolean recienAbierto = true;
 
     // VARIABLES TAB PERSONAJES
     private int puntosDisponibles = 0;
@@ -124,18 +125,22 @@ public class VentanaPartida {
             @Override
             public void componentShown(ComponentEvent e) {
                 super.componentShown(e);
-
-                if (partida.getFinalizada()) {
-                    // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
-                    // TOCAR MUSICA SAD DE GAME OVER
-                    partida.setRonda(grupo.getRondasGanadas());
-                } else {
-                    pm.resumeSong();
-                    l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
-                    partida.setRonda(grupo.getRondasGanadas() + 1);
+                if (!recienAbierto) {
+                    if (partida.getFinalizada()) {
+                        // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
+                        // TOCAR MUSICA SAD DE GAME OVER
+                        partida.setRonda(grupo.getRondasGanadas());
+                    } else {
+                        pm.resumeSong();
+                        l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
+                        partida.setRonda(grupo.getRondasGanadas() + 1);
+                        cambiarDatos();
+                    }
+                }
+                else {
+                    recienAbierto = false;
                 }
             }
-
             @Override
             public void componentHidden(ComponentEvent e) {
                 super.componentHidden(e);

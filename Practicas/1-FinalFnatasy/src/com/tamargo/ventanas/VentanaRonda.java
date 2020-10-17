@@ -50,6 +50,7 @@ public class VentanaRonda {
     private Grupo grupo;
     private PlaySound pm;
     private float volumen;
+    String[] cancionesBatalla = AdministradorRutasArchivos.cancionesBatallas;
     private Partida partida;
     private ArrayList<Enemigo> enemigos = new ArrayList<>();
     private ArrayList<Enemigo> enemigosVivos = new ArrayList<>();
@@ -87,15 +88,40 @@ public class VentanaRonda {
         b_siguienteTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                turno();
-                actualizarDatos();
-                comprobarResultado();
+                if (b_siguienteTurno.getText().equalsIgnoreCase("Finalizar Ronda")) {
+                    pm.stopSong();
+                    ventanaPartida.setVisible(true);
+                    ventanaRonda.dispose();
+                } else {
+                    turno();
+                    actualizarDatos();
+                    comprobarResultado();
+                }
             }
         });
     }
 
     public void comprobarResultado() {
-        // TODO COMPROBAR RESULTADO
+
+        if (enemigosVivos.size() <= 0) {
+            pm.stopSong();
+            pm = new PlaySound();
+            pm.playSound(cancionesBatalla[2], true, volumen);
+
+            grupo.rondaGanada();
+
+            // TODO POSIBILIDAD DE DROPPEAR OBJETOS
+
+            b_siguienteTurno.setText("Finalizar Ronda");
+        } else if (personajesVivos.size() <= 0) {
+            pm.stopSong();
+            pm = new PlaySound();
+            pm.playSound(cancionesBatalla[3], true, volumen);
+
+            // TODO GAME OVER (SACAR VENTANA CON LOS CREDITOS)
+
+
+        }
     }
 
     public void comenzarRonda() {
@@ -191,11 +217,15 @@ public class VentanaRonda {
             Personaje per = personajesVivos.get(new Random().nextInt(personajesVivos.size()));
 
             int danyo = per.danyoTotalRecibido(enem.calcularDanyoFis(), enem.calcularDanyoMag());
-            if (danyo <= 0)
-                danyo = 1;
+            if (danyo <= -99999) {
+                System.out.println(per.getNombre() + " ha esquivado el ataque");
+                danyo = 0;
+            } else {
+                if (danyo <= 0)
+                    danyo = 1;
 
-            System.out.println("Daño a " + per.getNombre() + ": " + danyo);
-
+                System.out.println("Daño a " + per.getNombre() + ": " + danyo);
+            }
             vidaPersonajes.put(per, vidaPersonajes.get(per) - danyo);
             if (vidaPersonajes.get(per) < 0)
                 vidaPersonajes.put(per, 0);
@@ -321,6 +351,14 @@ public class VentanaRonda {
                 enemigosVivos.remove(enem);
                 partida.addEnemigoDerrotado(enem);
                 System.out.println("Ha derrotado a " + enem.getNombre());
+                int nivelesSubidos;
+                for (Personaje p: personajesVivos) {
+                    nivelesSubidos = p.getNivelesSubidos();
+                    p.addExperienciaConseguida(enem.getExperiencia());
+                    //System.out.println(p.getExperienciaConseguida());
+                    if (p.getNivelesSubidos() > nivelesSubidos)
+                        System.out.println("\t¡" + p.getNombre() + " ha subido al nivel " + p.getAtributos().getNivel() + "!");
+                }
             }
 
         } else {
@@ -363,19 +401,39 @@ public class VentanaRonda {
             }
         }
 
+        int vit;
+        int fuerza;
+        int poderMag;
+        int destreza;
+        int agilidad;
+        int defFis;
+        int defMag;
+        int exp;
+
         // Balanceamos los enemigos que sean demasiado débiles para la ronda en la que estamos
         for (Enemigo enem: enemigos) {
-            if (enem.getAtributos().getNivel() < rondas) {
-                for (int i = 0; i < (rondas - enem.getAtributos().getNivel()); i++) {
-                    Atributos atr = enem.getAtributos();
+            Atributos atr = enem.getAtributos();
+            if (atr.getNivel() < rondas) {
+                vit = atr.getVitalidad();
+                fuerza = atr.getFuerza();
+                poderMag = atr.getPoderMagico();
+                destreza = atr.getDestreza();
+                agilidad = atr.getAgilidad();
+                defFis = atr.getDefensaFis();
+                defMag = atr.getDefensaMag();
+                exp = enem.getExperiencia();
+
+                for (int i = 0; i < (rondas - atr.getNivel()); i++) {
+
                     atr.setNivel(atr.getNivel() + 1);
-                    atr.setVitalidad(atr.getVitalidad() * 2);
-                    atr.setFuerza(atr.getFuerza() * 2);
-                    atr.setPoderMagico(atr.getPoderMagico() * 2);
-                    atr.setDestreza(atr.getDestreza() * 2);
-                    atr.setAgilidad(atr.getAgilidad() * 2);
-                    atr.setDefensaFis(atr.getDefensaFis() * 2);
-                    atr.setDefensaMag(atr.getDefensaMag() * 2);
+                    atr.setVitalidad(atr.getVitalidad() + vit);
+                    atr.setFuerza(atr.getFuerza() + fuerza);
+                    atr.setPoderMagico(atr.getPoderMagico() * 2+ poderMag);
+                    atr.setDestreza(atr.getDestreza() + destreza);
+                    atr.setAgilidad(atr.getAgilidad() + agilidad);
+                    atr.setDefensaFis(atr.getDefensaFis() + defFis);
+                    atr.setDefensaMag(atr.getDefensaMag() + defMag);
+                    enem.setExperiencia(enem.getExperiencia() + (exp / 2));
                 }
             }
         }
@@ -389,7 +447,7 @@ public class VentanaRonda {
         if (enemigosVivos.contains(enemigosDisponibles.get(enemigosDisponibles.size() - 1))) {
             indexCancionBatalla = 1;
         }
-        String[] cancionesBatalla = AdministradorRutasArchivos.cancionesBatallas;
+
         pm = new PlaySound();
         pm.playSound(cancionesBatalla[indexCancionBatalla], true, volumen);
 

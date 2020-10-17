@@ -12,6 +12,11 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
+        int danyoTotal = 100;
+        danyoTotal = danyoTotal - (int)(danyoTotal * 0.10);
+        System.out.println(danyoTotal);
+
+        /*
         String[] canciones = AdministradorRutasArchivos.canciones;
 
         PlaySound pm = new PlaySound();
@@ -21,7 +26,7 @@ public class Pruebas {
         JOptionPane.showMessageDialog(null, "Reanudar", "Reanudar", JOptionPane.INFORMATION_MESSAGE);
         pm.resumeSong();
         JOptionPane.showMessageDialog(null, "Terminar", "Terminar", JOptionPane.INFORMATION_MESSAGE);
-
+*/
 
 /*
         String[] playlistLista = AdministradorRutasArchivos.playlistRPG;

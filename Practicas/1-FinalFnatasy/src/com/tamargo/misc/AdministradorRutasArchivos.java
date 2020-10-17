@@ -20,7 +20,7 @@ public class AdministradorRutasArchivos {
             "Challenges (Metal Guitar)", "Postmortem (Metal Guitar)", "Desecreation (Metal Guitar)",
             "Ayasake no Starmine", "Buttercup Moonflower (Mix)" };
 
-    public static String[] cancionesBatallas = { "song-ffixBattle.wav", "song-ffixBoss.wav" };
+    public static String[] cancionesBatallas = { "song-ffixBattle.wav", "song-ffixBoss.wav", "song-ffixVictory.wav", "song-ffixGameOver.wav" };
 
     // Si implementamos playlists:
     public static String[] playlistAgresivo = { "song-challenges.wav", "song-postmortem.wav", "song-desecreation.wav" };

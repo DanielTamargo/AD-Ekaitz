@@ -54,12 +54,17 @@ public class Personaje implements Serializable {
                 '}';
     }
 
+    public void addExperienciaConseguida(int experiencia) {
+        experienciaConseguida += experiencia;
+        subirNivel();
+    }
+
     public void subirNivel() {
         // Si la experiencia es igual o mayor que la necesaria para subir de nivel, subimos de nivel
         // y aumentamos la experiencia necesaria para subir otro nivel
         // También contemplamos la posiblidad de subir varios niveles a la vez
         if (experienciaConseguida >= experienciaNecesaria) {
-            experienciaConseguida-= experienciaNecesaria;
+            experienciaConseguida -= experienciaNecesaria;
             atributos.subirNivel();
             nivelesSubidos ++;
             experienciaNecesaria += 50;
@@ -67,16 +72,23 @@ public class Personaje implements Serializable {
         }
     }
 
-
     // INVENTADA MÁXIMA, TOCARÁ BALANCEARLO NEXT LEVEL
     public int danyoTotalRecibido(int danyoFis, int danyoMag) {
         int danyoTotal = 0;
         Random r = new Random();
-        if (r.nextInt(100) + 1  <= atributos.getAgilidad() * 3)
-            return danyoTotal;
+        if (tipo == TipoPersonaje.Arquero) {
+            if (r.nextInt(100) + 1 <= atributos.getAgilidad() * 3 + 20)
+                return -99999;
+        } else {
+            if (r.nextInt(100) + 1 <= atributos.getAgilidad() * 3)
+                return -99999;
+        }
 
         danyoTotal += danyoFisRecibido(danyoFis);
         danyoTotal += danyoMagRecibido(danyoMag);
+
+        if (tipo == TipoPersonaje.Guardian) // Guardian reduce un 10% del daño
+            danyoTotal = danyoTotal - (int)(danyoTotal * 0.10);
         return danyoTotal;
     }
 
@@ -95,18 +107,34 @@ public class Personaje implements Serializable {
     public int calcularDanyoFis() {
         int danyoFis = (atributos.getFuerza() * 7) + (arma.getAtaqueFis() * 15);;
         Random r = new Random();
-        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
-            danyoFis += (danyoFis * 0.15); //Pum critiquín
+        if (tipo == TipoPersonaje.Asesino) { // Asesino = +20% prob critico
+            if (r.nextInt(100) + 1 <= atributos.getDestreza() * 3 + 20)
+                danyoFis += (danyoFis * 0.15); //Pum critiquín
+        } else {
+            if (r.nextInt(100) + 1 <= atributos.getDestreza() * 3)
+                danyoFis += (danyoFis * 0.15); //Pum critiquín
+        }
+        if (tipo == TipoPersonaje.Guerrero) // Guerrero = +15% daño fisico
+            danyoFis += (danyoFis * 0.15);
         return danyoFis;
     }
 
     public int calcularDanyoMag() {
         int danyoMag = (atributos.getPoderMagico() * 7) + (arma.getAtaqueMag() * 15);
         Random r = new Random();
-        if (r.nextInt(100) + 1  <= atributos.getDestreza() * 3)
-            danyoMag += (danyoMag * 0.15); //Pum critiquín
-        return danyoMag;
+        if (tipo == TipoPersonaje.Asesino) { // Asesino = +20% prob critico
+            if (r.nextInt(100) + 1 <= atributos.getDestreza() * 3 + 20)
+                danyoMag += (danyoMag * 0.15); //Pum critiquín
+        } else {
+            if (r.nextInt(100) + 1 <= atributos.getDestreza() * 3)
+                danyoMag += (danyoMag * 0.15); //Pum critiquín
+        }
+        if (tipo == TipoPersonaje.Mago) // Mago = +15% daño fisico
+            danyoMag += (danyoMag * 0.15);
+            return danyoMag;
     }
+
+
 
     // Por cada nivel subido dejaremos que suba 5 puntos de habilidad, y luego reiniciaremos los nivelesSubidos
     public void reiniciarNivelesSubidos() {
