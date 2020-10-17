@@ -213,6 +213,7 @@ public class NuevaPartida {
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);
                     p.setGrupo(grupo);
+                    p.actualizarRondasGanadas();
                     p.inicializarTabPersonajes();
 
                     frame.setContentPane(p.getPanel());

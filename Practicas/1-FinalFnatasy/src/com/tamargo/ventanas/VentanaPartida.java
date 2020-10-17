@@ -108,6 +108,8 @@ public class VentanaPartida {
     private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
 
     private JButton b_siguienteRonda;
+    private JButton b_salir;
+    private JLabel l_rondasGanadas;
 
 
 
@@ -117,28 +119,53 @@ public class VentanaPartida {
     public VentanaPartida() {
 
         /*
+        if (grupo == null) {
+            ArrayList<Personaje> personajes = new LeerDatosBase().leerPersonajesBase();
+            personajes.remove(3);
+            personajes.remove(2);
+            grupo = new Grupo(1, personajes, 1);
+        }*/
+
         panelJuego.setLayout(null);
+
+        Dimension dim = new Dimension();
+
+        b_salir = new JButton("Salir");
+        b_salir.setFont(b_confirmar.getFont());
+        dim.setSize(200, 50);
+        b_salir.setPreferredSize(dim);
+        panelJuego.add(b_salir);
+        b_salir.setBounds(770, 495, dim.width, dim.height);
+        b_salir.setRequestFocusEnabled(false);
+        b_salir.setFocusPainted(false);
 
         b_siguienteRonda = new JButton("Siguiente Ronda");
         b_siguienteRonda.setFont(b_confirmar.getFont());
-        //b_siguienteRonda.setSize(200, 100);
-        Dimension dim = new Dimension();
         dim.setSize(200, 50);
         b_siguienteRonda.setPreferredSize(dim);
-        Dimension size = b_siguienteRonda.getPreferredSize();
         panelJuego.add(b_siguienteRonda);
-        b_siguienteRonda.setBounds(770, 495, size.width, size.height);
+        b_siguienteRonda.setBounds(770, 430, dim.width, dim.height);
         b_siguienteRonda.setRequestFocusEnabled(false);
+        b_siguienteRonda.setFocusPainted(false);
+
+        l_rondasGanadas = new JLabel("Rondas ganadas: ");
+        dim.setSize(200, 50);
+        l_rondasGanadas.setPreferredSize(dim);
+        l_rondasGanadas.setFont(l_nombre.getFont());
+        panelJuego.add(l_rondasGanadas);
+        l_rondasGanadas.setBounds(831, 380, dim.width, dim.height);
+
 
         JLabel l_fotoJuego = new JLabel("");
-        l_fotoJuego.setIcon(new ImageIcon("assets/gif-juego.gif"));
+        l_fotoJuego.setIcon(new ImageIcon("assets/fondo-1.png"));
         panelJuego.add(l_fotoJuego);
         dim.setSize(995, 575);
         l_fotoJuego.setPreferredSize(dim);
-        size = l_fotoJuego.getPreferredSize();
-        l_fotoJuego.setBounds(0, 0, size.width, size.height);
+        l_fotoJuego.setBounds(0, 0, dim.width, dim.height);
 
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // LISTENERS JUEGO
         b_siguienteRonda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,8 +173,18 @@ public class VentanaPartida {
                 ps.playSound(nombreSonidos[0], false, volumen);
             }
         });
-        */
+        b_salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[2], false, volumen);
 
+                // TODO GUARDAR LA PARTIDA PARA CONTINUAR (?)
+
+                ventanaPartida.dispose();
+                //ventanaInicio.setVisible(true);
+            }
+        });
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // LISTENERS PERSONAJES
@@ -376,7 +413,8 @@ public class VentanaPartida {
         });
 
 
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // LISTENERS SONIDO
         b_previousSong.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -411,6 +449,11 @@ public class VentanaPartida {
         });
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // TAB JUEGO
+    public void actualizarRondasGanadas() {
+        l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
+    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -558,6 +601,7 @@ public class VentanaPartida {
     }
 
     public void cambiarDatos() {
+
         String nombre;
         String tipo;
         String arma;

@@ -9,7 +9,7 @@ public class Grupo implements Serializable {
     private ArrayList<Personaje> personajes = new ArrayList<>();
     private int atributoEspecial; // 1 = Inteligencia (puzles), 2 = Crueldad (5% ejecutar), 3 = Sinergía (estadísticas + 1), 4 = Curtido (10% critico)
     private ArrayList<Arma> inventario = new ArrayList<>();
-
+    private int rondasGanadas = 0;
 
     public Grupo(int id, ArrayList<Personaje> personajes, int atributoEspecial) {
         this.id = id;
@@ -34,8 +34,20 @@ public class Grupo implements Serializable {
                 '}';
     }
 
+    public void rondaGanada() {
+        rondasGanadas++;
+    }
+
     public void addArmaAlInventario(Arma arma) {
         inventario.add(arma);
+    }
+
+    public int getRondasGanadas() {
+        return rondasGanadas;
+    }
+
+    public void setRondasGanadas(int rondasGanadas) {
+        this.rondasGanadas = rondasGanadas;
     }
 
     public ArrayList<Arma> getInventario() {
