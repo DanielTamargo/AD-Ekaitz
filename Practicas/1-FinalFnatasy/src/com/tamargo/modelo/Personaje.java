@@ -76,7 +76,7 @@ public class Personaje implements Serializable {
             return danyoTotal;
 
         danyoTotal += danyoFisRecibido(danyoFis);
-        danyoFis += danyoMagRecibido(danyoMag);
+        danyoTotal += danyoMagRecibido(danyoMag);
         return danyoTotal;
     }
 

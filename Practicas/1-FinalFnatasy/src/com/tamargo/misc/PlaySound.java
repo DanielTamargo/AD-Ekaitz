@@ -35,6 +35,12 @@ public class PlaySound {
         }
     }
 
+    public void resumeSong() {
+        try {
+            clip.start();
+        } catch (Exception e) {}
+    }
+
     public void stopSong() {
         try {
             clip.stop();

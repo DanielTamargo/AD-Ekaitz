@@ -205,10 +205,10 @@ public class LeerDatosBase {
             //En este caso no cargaremos objetos, sino la lista entera de las personas (objetos)
             listaPartidas = (ListaPartidas) xstream.fromXML(fis);
 
-            System.out.println("Número de partidas cargadas: " + listaPartidas.getLista().size());
+            //System.out.println("Número de partidas cargadas: " + listaPartidas.getLista().size());
 
             /*
-            //Iremos persona a persona usando "iterator"
+            //Iremos partida a partida usando "iterator"
             Iterator iterador = listaPartidas.getLista().listIterator();
             while(iterador.hasNext()){
                 Partida p = (Partida) iterador.next();

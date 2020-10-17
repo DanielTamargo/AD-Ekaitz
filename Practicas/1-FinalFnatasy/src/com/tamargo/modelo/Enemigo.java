@@ -47,7 +47,7 @@ public class Enemigo implements Serializable {
     public int danyoTotalRecibido(int danyoFis, int danyoMag) {
         int danyoTotal = 0;
         danyoTotal += danyoFisRecibido(danyoFis);
-        danyoFis += danyoMagRecibido(danyoMag);
+        danyoTotal += danyoMagRecibido(danyoMag);
         return danyoTotal;
     }
 

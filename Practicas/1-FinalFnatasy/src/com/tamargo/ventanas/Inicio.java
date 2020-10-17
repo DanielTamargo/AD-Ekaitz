@@ -9,6 +9,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Inicio {
     private JFrame ventanaInicio;
@@ -62,6 +64,7 @@ public class Inicio {
                 np.setVolumen(volumen);
                 np.setIndexCancion(indexCancion);
                 np.setPm(pm);
+                np.setSliderVolumenInicio(sliderVolumen);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null); // Debería centrarlo pero en mi ventana me lo genera abajo a la derecha hm

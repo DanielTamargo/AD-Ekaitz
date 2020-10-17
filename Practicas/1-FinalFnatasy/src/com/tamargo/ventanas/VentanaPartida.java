@@ -3,10 +3,7 @@ package com.tamargo.ventanas;
 import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
-import com.tamargo.modelo.Arma;
-import com.tamargo.modelo.Atributos;
-import com.tamargo.modelo.Grupo;
-import com.tamargo.modelo.Personaje;
+import com.tamargo.modelo.*;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -18,6 +15,8 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.ArrayList;
 
 public class VentanaPartida {
@@ -86,8 +85,10 @@ public class VentanaPartida {
 
     // VARIABLES GENERALES
     private Grupo grupo;
+    private Partida partida;
     private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
+    private JSlider sliderVolumenInicio;
 
     // VARIABLES TAB PERSONAJES
     private int puntosDisponibles = 0;
@@ -116,7 +117,34 @@ public class VentanaPartida {
 
     private int index = 1;
 
-    public VentanaPartida() {
+    public VentanaPartida(JFrame ventanaPartida) {
+
+        this.ventanaPartida = ventanaPartida;
+        this.ventanaPartida.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                super.componentShown(e);
+
+                if (partida.getFinalizada()) {
+                    // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
+                    // TOCAR MUSICA SAD DE GAME OVER
+                    partida.setRonda(grupo.getRondasGanadas());
+                } else {
+                    pm.resumeSong();
+                    l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
+                    partida.setRonda(grupo.getRondasGanadas() + 1);
+                }
+            }
+
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                super.componentHidden(e);
+                System.out.println("Se ha ocultado la ventana partida!");
+            }
+        });
+
+
+
 
         /*
         if (grupo == null) {
@@ -130,7 +158,7 @@ public class VentanaPartida {
 
         Dimension dim = new Dimension();
 
-        b_salir = new JButton("Salir");
+        b_salir = new JButton("Salir al Menú");
         b_salir.setFont(b_confirmar.getFont());
         dim.setSize(200, 50);
         b_salir.setPreferredSize(dim);
@@ -169,8 +197,28 @@ public class VentanaPartida {
         b_siguienteRonda.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                pm.stopSong();
+
                 PlaySound ps = new PlaySound();
                 ps.playSound(nombreSonidos[0], false, volumen);
+
+                VentanaRonda vr = new VentanaRonda();
+                JFrame frame = new JFrame("Ronda");
+                frame.setContentPane(vr.getPanel());
+                vr.setVentanaPartida(ventanaPartida);
+                vr.setVolumen(volumen);
+                vr.setVentanaRonda(frame);
+
+                //vr.setGrupo(grupo);
+                vr.setPartida(partida);
+
+                vr.comenzarRonda();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
+                ventanaPartida.dispose();
             }
         });
         b_salir.addActionListener(new ActionListener() {
@@ -182,7 +230,8 @@ public class VentanaPartida {
                 // TODO GUARDAR LA PARTIDA PARA CONTINUAR (?)
 
                 ventanaPartida.dispose();
-                //ventanaInicio.setVisible(true);
+                sliderVolumenInicio.setValue(sliderVolumen.getValue());
+                ventanaInicio.setVisible(true);
             }
         });
 
@@ -620,7 +669,7 @@ public class VentanaPartida {
         if (tipo.equalsIgnoreCase("Guardian"))
             tipo = "Guardián";
 
-        int longitudLinea = 47; // Esta cifra es porque a mi me cuadra bien, podría ser cualquier número que cuadrase
+        int longitudLinea = 53; // Esta cifra es porque a mi me cuadra bien, podría ser cualquier número que cuadrase
         int caracteresPorLinea = longitudLinea;
         int caracterInicioLinea = 0;
         StringBuilder descripcionReconstruida = new StringBuilder();
@@ -718,8 +767,23 @@ public class VentanaPartida {
         l_atrDefMag.setText("Defensa Mágica: " + defensaMag);
     }
 
+    public void setSliderVolumenInicio(JSlider sliderVolumenInicio) {
+        this.sliderVolumenInicio = sliderVolumenInicio;
+    }
+
     public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
+
+        ListaPartidas listaPartidas = null;
+        try {
+            listaPartidas = new LeerDatosBase().leerListaPartidas();
+        } catch (Exception e) {}
+        int id = 1;
+        if (listaPartidas != null)
+            id = listaPartidas.getLista().size() + 1;
+
+        partida = new Partida(id, 1, false, this.grupo, new ArrayList<Enemigo>(), new ArrayList<Evento>());
+                //int id, int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados
     }
 
     public void setVolumen(float volumen) {
@@ -740,7 +804,7 @@ public class VentanaPartida {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Partida");
-        frame.setContentPane(new VentanaPartida().panel);
+        frame.setContentPane(new VentanaPartida(frame).panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);

@@ -56,6 +56,7 @@ public class NuevaPartida {
     private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
     private final String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private float volumen = -40;
+    private JSlider sliderVolumenInicio;
 
     private final String[] fotosPersonaje = AdministradorRutasArchivos.fotosPersonaje;
 
@@ -204,12 +205,13 @@ public class NuevaPartida {
 
                     JFrame frame = new JFrame("Partida");
 
-                    VentanaPartida p = new VentanaPartida();
+                    VentanaPartida p = new VentanaPartida(frame);
                     p.setPm(pm);
                     p.setIndexCancion(indexCancion);
                     p.setVolumen(volumen);
                     p.actualizarJTextPane();
                     p.configurarSliderVolumen();
+                    p.setSliderVolumenInicio(sliderVolumenInicio);
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);
                     p.setGrupo(grupo);
@@ -391,6 +393,10 @@ public class NuevaPartida {
         l_atrDefFis.setText("Defensa Física: " + atr.getDefensaFis());
         l_atrDefMag.setText("Defensa Mágica: " + atr.getDefensaMag());
 
+    }
+
+    public void setSliderVolumenInicio(JSlider sliderVolumenInicio) {
+        this.sliderVolumenInicio = sliderVolumenInicio;
     }
 
     public void setIndexCancion(int indexCancion) {

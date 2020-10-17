@@ -1,9 +1,9 @@
 package com.tamargo.ventanas;
 
 import com.tamargo.LeerDatosBase;
-import com.tamargo.modelo.Enemigo;
-import com.tamargo.modelo.Grupo;
-import com.tamargo.modelo.Personaje;
+import com.tamargo.misc.AdministradorRutasArchivos;
+import com.tamargo.misc.PlaySound;
+import com.tamargo.modelo.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ import java.util.Random;
 public class VentanaRonda {
 
     private JFrame ventanaRonda;
-    private JFrame ventanaInicio;
+    private JFrame ventanaPartida;
 
     private JPanel panel;
     private JButton b_grupoPJ1;
@@ -48,9 +48,14 @@ public class VentanaRonda {
     private JButton b_objetos;
 
     private Grupo grupo;
+    private PlaySound pm;
+    private float volumen;
+    private Partida partida;
     private ArrayList<Enemigo> enemigos = new ArrayList<>();
     private ArrayList<Enemigo> enemigosVivos = new ArrayList<>();
     private Map<Enemigo, Integer> vidaEnemigos = new HashMap<Enemigo, Integer>();
+    private ArrayList<Personaje> personajesVivos = new ArrayList<>();
+    private Map<Personaje, Integer> vidaPersonajes = new HashMap<Personaje, Integer>();
 
     private int vidaMaxPj1 = 0;
     private int vidaMaxPj2 = 0;
@@ -77,24 +82,30 @@ public class VentanaRonda {
     public VentanaRonda() {
 
         // TODO borrar esto ya que el grupo ya vendrá cargado desde la ventana anterior
-        generarGrupoPruebas();
-
-        generarEnemigos();
-
-        cargarDatosIniciales();
-
-        actualizarIconos();
-        actualizarDatos();
-
-
+        //generarGrupoPruebas();
 
         b_siguienteTurno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 turno();
                 actualizarDatos();
+                comprobarResultado();
             }
         });
+    }
+
+    public void comprobarResultado() {
+        // TODO COMPROBAR RESULTADO
+    }
+
+    public void comenzarRonda() {
+        generarEnemigos();
+        cargarVidaPJsYPersonajesVivos();
+
+        cargarDatosIniciales();
+
+        actualizarIconos();
+        actualizarDatos();
     }
 
     public void cargarDatosIniciales() {
@@ -156,7 +167,84 @@ public class VentanaRonda {
     public void turno() {
         // TODO HACER ESTO CON TODOS LOS PERSONAJES VIVOS Y LUEGO TURNOENEMIGO CON TODOS LOS ENEMIGOS VIVOS
         // TODO AÑADIR ARRAYLIST PERSONAJESVIVOS Y METER AHI LOS PERSONAJES
-        turnoPersonaje(grupo.getPersonajes().get(0));
+        if (enemigosVivos.size() > 0) {
+            for (Personaje p : personajesVivos) {
+                System.out.println("Turno de " + p.getNombre());
+                turnoPersonaje(p);
+                System.out.println();
+            }
+        }
+        if (personajesVivos.size() > 0) {
+            for (Enemigo e : enemigosVivos) {
+                System.out.println("Turno de " + e.getNombre());
+                turnoEnemigo(e);
+                System.out.println();
+            }
+        }
+
+    }
+
+    public void turnoEnemigo(Enemigo enem) {
+        if (personajesVivos.size() > 0) {
+
+            // Los enemigos golpean random
+            Personaje per = personajesVivos.get(new Random().nextInt(personajesVivos.size()));
+
+            int danyo = per.danyoTotalRecibido(enem.calcularDanyoFis(), enem.calcularDanyoMag());
+            if (danyo <= 0)
+                danyo = 1;
+
+            System.out.println("Daño a " + per.getNombre() + ": " + danyo);
+
+            vidaPersonajes.put(per, vidaPersonajes.get(per) - danyo);
+            if (vidaPersonajes.get(per) < 0)
+                vidaPersonajes.put(per, 0);
+
+            // TODO REGISTRO DEL DAÑO Y DE LA VIDA QUE TIENE EL PERSONAJE
+
+            // Sumamos el daño realizado
+            for (int i = 0; i < enemigos.size(); i++) {
+                if (enemigos.get(i) == enem) {
+                    if (i == 0)
+                        danyoEnem1 += danyo;
+                    else if (i == 1)
+                        danyoEnem2 += danyo;
+                    else if (i == 2)
+                        danyoEnem3 += danyo;
+                }
+            }
+
+            // Bajamos la vida al jugador herido
+            for (int i = 0; i < grupo.getPersonajes().size(); i++) {
+                if (grupo.getPersonajes().get(i) == per) {
+                    if (i == 0)
+                        vidaPj1 = vidaPersonajes.get(grupo.getPersonajes().get(0));
+                    else if (i == 1)
+                        vidaPj2 = vidaPersonajes.get(grupo.getPersonajes().get(1));
+                    else if (i == 2)
+                        vidaPj3 = vidaPersonajes.get(grupo.getPersonajes().get(2));
+                }
+            }
+
+            // Comprobamos si el jugador herido ha muerto
+            if (vidaPersonajes.get(per) <= 0) {
+                for (int i = 0; i < grupo.getPersonajes().size(); i++) {
+                    if (grupo.getPersonajes().get(i) == per) {
+                        if (i == 0)
+                            b_grupoPJ1.setEnabled(false);
+                        else if (i == 1)
+                            b_grupoPJ2.setEnabled(false);
+                        else if (i == 2)
+                            b_grupoPJ3.setEnabled(false);
+                    }
+                }
+                personajesVivos.remove(per);
+                System.out.println("Ha derrotado a " + per.getNombre());
+            }
+
+        } else {
+            System.out.println("Ya no quedan personajes vivos!");
+        }
     }
 
     public void turnoPersonaje(Personaje per) {
@@ -182,14 +270,19 @@ public class VentanaRonda {
                 }
             }
 
-
             int danyo = enem.danyoTotalRecibido(per.calcularDanyoFis(), per.calcularDanyoMag());
+            if (danyo <= 0)
+                danyo = 1;
+
+            System.out.println("Daño a " + enem.getNombre() + ": " + danyo);
+
             vidaEnemigos.put(enem, vidaEnemigos.get(enem) - danyo);
             if (vidaEnemigos.get(enem) < 0)
                 vidaEnemigos.put(enem, 0);
 
             // TODO REGISTRO DEL DAÑO Y DE LA VIDA QUE TIENE EL ENEMIGO
 
+            // Sumamos el daño realizado
             for (int i = 0; i < grupo.getPersonajes().size(); i++) {
                 if (grupo.getPersonajes().get(i) == per) {
                     if (i == 0)
@@ -201,6 +294,7 @@ public class VentanaRonda {
                 }
             }
 
+            // Bajamos vida al enemigo herido
             for (int i = 0; i < enemigos.size(); i++) {
                 if (enemigos.get(i) == enem) {
                     if (i == 0)
@@ -212,10 +306,10 @@ public class VentanaRonda {
                 }
             }
 
+            // Comprobamos si el enemigo herido ha muerto
             if (vidaEnemigos.get(enem) <= 0) {
                 for (int i = 0; i < enemigos.size(); i++) {
                     if (enemigos.get(i) == enem) {
-                        System.out.println(enemigos.get(0));
                         if (i == 0)
                             b_enemigo1.setEnabled(false);
                         else if (i == 1)
@@ -225,12 +319,13 @@ public class VentanaRonda {
                     }
                 }
                 enemigosVivos.remove(enem);
+                partida.addEnemigoDerrotado(enem);
+                System.out.println("Ha derrotado a " + enem.getNombre());
             }
 
         } else {
             System.out.println("Ya no quedan enemigos vivos!");
         }
-
     }
 
 
@@ -247,19 +342,63 @@ public class VentanaRonda {
     public void generarEnemigos() {
         //TODO importante calcular decentemente los enemigos
 
-        //borrar
-        for (int i = 0; i < 3; i++) {
-            //TODO falta añadir un patrón para generar enemigos más fuertes dependiendo de la ronda y quizás incluso mejorarlos
-            ArrayList<Enemigo> enemigosDisponibles =  new LeerDatosBase().leerEnemigosBase();
-            enemigos.add(enemigosDisponibles.get(new Random().nextInt(3)));
+        /*
+        int nivelPJ1 = 1;
+        int nivelPJ2 = 1;
+        int nivelPJ3 = 1;
+
+        nivelPJ1 = grupo.getPersonajes().get(0).getAtributos().getNivel();
+        nivelPJ2 = grupo.getPersonajes().get(1).getAtributos().getNivel();
+        nivelPJ3 = grupo.getPersonajes().get(2).getAtributos().getNivel();
+        int nivelGrupo = (nivelPJ1 + nivelPJ2 + nivelPJ3) / 3;
+         */
+
+        // Recogemos los enemigos en base a la ronda en la que estamos y el nivel del enemigo
+        int rondas = grupo.getRondasGanadas() + 1;
+        ArrayList<Enemigo> enemigosDisponibles =  new LeerDatosBase().leerEnemigosBase();
+        while (enemigos.size() < 3) {
+            Enemigo enem = enemigosDisponibles.get(new Random().nextInt(enemigosDisponibles.size()));
+            if (enem.getAtributos().getNivel() <= rondas + 1) {
+                enemigos.add(enem);
+            }
         }
 
-
-
+        // Balanceamos los enemigos que sean demasiado débiles para la ronda en la que estamos
+        for (Enemigo enem: enemigos) {
+            if (enem.getAtributos().getNivel() < rondas) {
+                for (int i = 0; i < (rondas - enem.getAtributos().getNivel()); i++) {
+                    Atributos atr = enem.getAtributos();
+                    atr.setNivel(atr.getNivel() + 1);
+                    atr.setVitalidad(atr.getVitalidad() * 2);
+                    atr.setFuerza(atr.getFuerza() * 2);
+                    atr.setPoderMagico(atr.getPoderMagico() * 2);
+                    atr.setDestreza(atr.getDestreza() * 2);
+                    atr.setAgilidad(atr.getAgilidad() * 2);
+                    atr.setDefensaFis(atr.getDefensaFis() * 2);
+                    atr.setDefensaMag(atr.getDefensaMag() * 2);
+                }
+            }
+        }
 
         enemigosVivos.addAll(enemigos);
         for (Enemigo e: enemigos) {
             vidaEnemigos.put(e, e.calcularVida());
+        }
+
+        int indexCancionBatalla = 0; // 0 = normal, 1 = boss
+        if (enemigosVivos.contains(enemigosDisponibles.get(enemigosDisponibles.size() - 1))) {
+            indexCancionBatalla = 1;
+        }
+        String[] cancionesBatalla = AdministradorRutasArchivos.cancionesBatallas;
+        pm = new PlaySound();
+        pm.playSound(cancionesBatalla[indexCancionBatalla], true, volumen);
+
+    }
+
+    public void cargarVidaPJsYPersonajesVivos() {
+        personajesVivos.addAll(grupo.getPersonajes());
+        for (Personaje p: personajesVivos) {
+            vidaPersonajes.put(p, p.calcularVida());
         }
     }
 
@@ -280,6 +419,19 @@ public class VentanaRonda {
         frame.setVisible(true);
     }
 
+    public void setVolumen(float volumen) {
+        this.volumen = volumen;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+        grupo = partida.getGrupo();
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
     public JPanel getPanel() {
         return panel;
     }
@@ -288,7 +440,7 @@ public class VentanaRonda {
         this.ventanaRonda = ventanaRonda;
     }
 
-    public void setVentanaInicio(JFrame ventanaInicio) {
-        this.ventanaInicio = ventanaInicio;
+    public void setVentanaPartida(JFrame ventanaPartida) {
+        this.ventanaPartida = ventanaPartida;
     }
 }
