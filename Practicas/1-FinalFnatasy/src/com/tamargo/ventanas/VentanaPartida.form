@@ -20,20 +20,20 @@
         <border type="none"/>
         <children>
           <grid id="90057" binding="tabJuego" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="10" left="10" bottom="10" right="10"/>
+            <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Juego"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="237bc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="237bc" binding="panelJuego" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <minimum-size width="970" height="550"/>
-                    <preferred-size width="970" height="550"/>
-                    <maximum-size width="970" height="550"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="995" height="565"/>
+                    <preferred-size width="995" height="565"/>
+                    <maximum-size width="995" height="565"/>
                   </grid>
                 </constraints>
                 <properties/>

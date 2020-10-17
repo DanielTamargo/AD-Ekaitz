@@ -1,5 +1,5 @@
 <listaPartidas>
-  <partida fecha="16-10-2020 21:00:10">
+  <partida fecha="17-10-2020 03:10:02">
     <id>1</id>
     <ronda>4</ronda>
     <finalizada>true</finalizada>
@@ -155,7 +155,7 @@
       </evento>
     </eventosPasados>
   </partida>
-  <partida fecha="16-10-2020 21:00:10">
+  <partida fecha="17-10-2020 03:10:02">
     <id>2</id>
     <ronda>5</ronda>
     <finalizada>true</finalizada>

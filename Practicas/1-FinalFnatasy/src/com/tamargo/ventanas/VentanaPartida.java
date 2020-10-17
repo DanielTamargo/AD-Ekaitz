@@ -82,6 +82,7 @@ public class VentanaPartida {
     private JButton b_nextSong;
     private JButton b_previousSong;
     private JLabel l_cancion;
+    private JPanel panelJuego;
 
     // VARIABLES GENERALES
     private Grupo grupo;
@@ -106,7 +107,7 @@ public class VentanaPartida {
     private final String[] canciones = AdministradorRutasArchivos.canciones;
     private final String[] nombreCanciones = AdministradorRutasArchivos.nombreCanciones;
 
-
+    private JButton b_siguienteRonda;
 
 
 
@@ -115,6 +116,37 @@ public class VentanaPartida {
 
     public VentanaPartida() {
 
+        /*
+        panelJuego.setLayout(null);
+
+        b_siguienteRonda = new JButton("Siguiente Ronda");
+        b_siguienteRonda.setFont(b_confirmar.getFont());
+        //b_siguienteRonda.setSize(200, 100);
+        Dimension dim = new Dimension();
+        dim.setSize(200, 50);
+        b_siguienteRonda.setPreferredSize(dim);
+        Dimension size = b_siguienteRonda.getPreferredSize();
+        panelJuego.add(b_siguienteRonda);
+        b_siguienteRonda.setBounds(770, 495, size.width, size.height);
+        b_siguienteRonda.setRequestFocusEnabled(false);
+
+        JLabel l_fotoJuego = new JLabel("");
+        l_fotoJuego.setIcon(new ImageIcon("assets/gif-juego.gif"));
+        panelJuego.add(l_fotoJuego);
+        dim.setSize(995, 575);
+        l_fotoJuego.setPreferredSize(dim);
+        size = l_fotoJuego.getPreferredSize();
+        l_fotoJuego.setBounds(0, 0, size.width, size.height);
+
+
+        b_siguienteRonda.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[0], false, volumen);
+            }
+        });
+        */
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
