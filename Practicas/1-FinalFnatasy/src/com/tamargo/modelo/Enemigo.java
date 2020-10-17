@@ -46,6 +46,8 @@ public class Enemigo implements Serializable {
 
     public int danyoTotalRecibido(int danyoFis, int danyoMag) {
         int danyoTotal = 0;
+        if (new Random().nextInt(100) + 1 <= atributos.getAgilidad() * 3)
+            return -99999;
         danyoTotal += danyoFisRecibido(danyoFis);
         danyoTotal += danyoMagRecibido(danyoMag);
         return danyoTotal;

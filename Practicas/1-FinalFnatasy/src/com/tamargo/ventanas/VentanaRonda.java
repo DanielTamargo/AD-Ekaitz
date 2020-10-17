@@ -8,6 +8,7 @@ import com.tamargo.modelo.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,9 +44,9 @@ public class VentanaRonda {
     private JLabel l_enem3damage;
     private JLabel l_enem3nombre;
     private JLabel l_enem3vida;
-    private JTextPane textPaneRegistro;
     private JButton b_siguienteTurno;
     private JButton b_objetos;
+    private JTextPane textPaneRegistro;
 
     private Grupo grupo;
     private PlaySound pm;
@@ -80,6 +81,22 @@ public class VentanaRonda {
     private int danyoEnem2 = 0;
     private int danyoEnem3 = 0;
 
+    private int turnos = 1;
+    private int personajesVivosAlComienzoTurno = 0;
+    private StringBuilder sbTextoRegistro = new StringBuilder();
+    private ArrayList<String> registroNombres = new ArrayList<>();
+    private ArrayList<String> registroDanyos = new ArrayList<>();
+    private ArrayList<String> registroDerrotados = new ArrayList<>();
+    private ArrayList<String> registroNivelesSubidos = new ArrayList<>();
+    /*
+    private ArrayList<String> registroPJ1 = new ArrayList<>();
+    private ArrayList<String> registroPJ2 = new ArrayList<>();
+    private ArrayList<String> registroPJ3 = new ArrayList<>();
+    private ArrayList<String> registroEnem1 = new ArrayList<>();
+    private ArrayList<String> registroEnem2 = new ArrayList<>();
+    private ArrayList<String> registroEnem3 = new ArrayList<>();
+    */
+
     public VentanaRonda() {
 
         // TODO borrar esto ya que el grupo ya vendrá cargado desde la ventana anterior
@@ -96,6 +113,8 @@ public class VentanaRonda {
                     turno();
                     actualizarDatos();
                     comprobarResultado();
+                    plasmarRegistroTurno();
+                    turnos++;
                 }
             }
         });
@@ -122,6 +141,77 @@ public class VentanaRonda {
 
 
         }
+    }
+
+    public void plasmarRegistroTurno() {
+        if (turnos > 0) {
+            sbTextoRegistro.append(String.format("%0120d", 0).replace('0', '-'));
+            sbTextoRegistro.append("\n");
+        }
+        sbTextoRegistro.append("TURNO ").append(turnos).append("\n\n");
+
+        // Guardamos los turnos de los Personajes
+        for (int j = 0; j < personajesVivosAlComienzoTurno; j++) {
+            try {
+                String dato = registroNombres.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+        for (int j = 0; j < personajesVivosAlComienzoTurno; j++) {
+            try {
+                String dato = registroDanyos.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+        for (int j = 0; j < personajesVivosAlComienzoTurno; j++) {
+            try {
+                String dato = registroDerrotados.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+        for (int j = 0; j < personajesVivosAlComienzoTurno; j++) {
+            try {
+                String dato = registroNivelesSubidos.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n\n\n");
+
+        // Guardamos los turnos del enemigo
+        for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
+            try {
+                String dato = registroNombres.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+        for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
+            try {
+                String dato = registroDanyos.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+        for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
+            try {
+                String dato = registroDerrotados.get(j);
+                sbTextoRegistro.append(String.format("%-46s", dato));
+            } catch (NullPointerException | IndexOutOfBoundsException e) {}
+        }
+        sbTextoRegistro.append("\n");
+
+
+        textPaneRegistro.setText(String.valueOf(sbTextoRegistro));
+
+        // Reseteamos para poder plasmar el siguiente turno
+        registroNombres.clear();
+        registroDanyos.clear();
+        registroDerrotados.clear();
+        registroNivelesSubidos.clear();
+        personajesVivosAlComienzoTurno = 0;
     }
 
     public void comenzarRonda() {
@@ -194,8 +284,10 @@ public class VentanaRonda {
         // TODO HACER ESTO CON TODOS LOS PERSONAJES VIVOS Y LUEGO TURNOENEMIGO CON TODOS LOS ENEMIGOS VIVOS
         // TODO AÑADIR ARRAYLIST PERSONAJESVIVOS Y METER AHI LOS PERSONAJES
         if (enemigosVivos.size() > 0) {
+            personajesVivosAlComienzoTurno = personajesVivos.size();
             for (Personaje p : personajesVivos) {
                 System.out.println("Turno de " + p.getNombre());
+                registroNombres.add("Turno de " + p.getNombre());
                 turnoPersonaje(p);
                 System.out.println();
             }
@@ -203,11 +295,11 @@ public class VentanaRonda {
         if (personajesVivos.size() > 0) {
             for (Enemigo e : enemigosVivos) {
                 System.out.println("Turno de " + e.getNombre());
+                registroNombres.add("Turno de " + e.getNombre());
                 turnoEnemigo(e);
                 System.out.println();
             }
         }
-
     }
 
     public void turnoEnemigo(Enemigo enem) {
@@ -218,12 +310,13 @@ public class VentanaRonda {
 
             int danyo = per.danyoTotalRecibido(enem.calcularDanyoFis(), enem.calcularDanyoMag());
             if (danyo <= -99999) {
+                registroDanyos.add(per.getNombre() + " ha esquivado el ataque");
                 System.out.println(per.getNombre() + " ha esquivado el ataque");
                 danyo = 0;
             } else {
                 if (danyo <= 0)
                     danyo = 1;
-
+                registroDanyos.add("Daño a " + per.getNombre() + ": " + danyo);
                 System.out.println("Daño a " + per.getNombre() + ": " + danyo);
             }
             vidaPersonajes.put(per, vidaPersonajes.get(per) - danyo);
@@ -269,6 +362,7 @@ public class VentanaRonda {
                     }
                 }
                 personajesVivos.remove(per);
+                registroDerrotados.add("Ha derrotado a " + per.getNombre());
                 System.out.println("Ha derrotado a " + per.getNombre());
             }
 
@@ -301,10 +395,17 @@ public class VentanaRonda {
             }
 
             int danyo = enem.danyoTotalRecibido(per.calcularDanyoFis(), per.calcularDanyoMag());
-            if (danyo <= 0)
-                danyo = 1;
+            if (danyo <= -99999) {
+                registroDanyos.add(enem.getNombre() + " ha esquivado el ataque");
+                System.out.println(enem.getNombre() + " ha esquivado el ataque");
+                danyo = 0;
+            } else {
+                if (danyo <= 0)
+                    danyo = 1;
+                registroDanyos.add("Daño a " + enem.getNombre() + ": " + danyo);
+                System.out.println("Daño a " + enem.getNombre() + ": " + danyo);
+            }
 
-            System.out.println("Daño a " + enem.getNombre() + ": " + danyo);
 
             vidaEnemigos.put(enem, vidaEnemigos.get(enem) - danyo);
             if (vidaEnemigos.get(enem) < 0)
@@ -350,14 +451,17 @@ public class VentanaRonda {
                 }
                 enemigosVivos.remove(enem);
                 partida.addEnemigoDerrotado(enem);
+                registroDerrotados.add("Ha derrotado a " + enem.getNombre());
                 System.out.println("Ha derrotado a " + enem.getNombre());
                 int nivelesSubidos;
                 for (Personaje p: personajesVivos) {
                     nivelesSubidos = p.getNivelesSubidos();
                     p.addExperienciaConseguida(enem.getExperiencia());
                     //System.out.println(p.getExperienciaConseguida());
-                    if (p.getNivelesSubidos() > nivelesSubidos)
+                    if (p.getNivelesSubidos() > nivelesSubidos) {
+                        registroNivelesSubidos.add("¡" + p.getNombre() + " ha subido al nivel " + p.getAtributos().getNivel() + "!");
                         System.out.println("\t¡" + p.getNombre() + " ha subido al nivel " + p.getAtributos().getNivel() + "!");
+                    }
                 }
             }
 

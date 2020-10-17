@@ -12,9 +12,8 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
-        int danyoTotal = 100;
-        danyoTotal = danyoTotal - (int)(danyoTotal * 0.10);
-        System.out.println(danyoTotal);
+        String danyo = "Daño a Dios del Cristal Olvidado: 99999";
+        System.out.println(danyo.length());
 
         /*
         String[] canciones = AdministradorRutasArchivos.canciones;

@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="10" bottom="0" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="994" height="783"/>
+      <xy x="20" y="20" width="1194" height="783"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -12,9 +12,9 @@
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <minimum-size width="970" height="750"/>
-            <preferred-size width="970" height="750"/>
-            <maximum-size width="970" height="750"/>
+            <minimum-size width="1170" height="750"/>
+            <preferred-size width="1170" height="750"/>
+            <maximum-size width="1170" height="750"/>
           </grid>
         </constraints>
         <properties/>
@@ -24,9 +24,9 @@
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
-                <minimum-size width="960" height="-1"/>
-                <preferred-size width="960" height="-1"/>
-                <maximum-size width="960" height="-1"/>
+                <minimum-size width="1160" height="-1"/>
+                <preferred-size width="1160" height="-1"/>
+                <maximum-size width="1160" height="-1"/>
               </grid>
             </constraints>
             <properties/>
@@ -36,9 +36,9 @@
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="680" height="330"/>
-                    <preferred-size width="680" height="330"/>
-                    <maximum-size width="680" height="330"/>
+                    <minimum-size width="930" height="330"/>
+                    <preferred-size width="930" height="330"/>
+                    <maximum-size width="930" height="330"/>
                   </grid>
                 </constraints>
                 <properties/>
@@ -46,29 +46,37 @@
                   <font name="Microsoft YaHei UI" size="16" style="1"/>
                 </border>
                 <children>
-                  <component id="69f86" class="javax.swing.JTextPane" binding="textPaneRegistro">
+                  <scrollpane id="4f273">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
-                        <minimum-size width="700" height="330"/>
-                        <preferred-size width="700" height="330"/>
-                        <maximum-size width="700" height="330"/>
-                      </grid>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <opaque value="false"/>
-                      <requestFocusEnabled value="true"/>
-                      <text value=""/>
-                    </properties>
-                  </component>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="2e6db" class="javax.swing.JTextPane" binding="textPaneRegistro">
+                        <constraints/>
+                        <properties>
+                          <editable value="false"/>
+                          <enabled value="true"/>
+                          <font name="Unispace" size="10"/>
+                          <maximumSize width="930" height="-1"/>
+                          <minimumSize width="930" height="-1"/>
+                          <opaque value="false"/>
+                          <requestFocusEnabled value="false"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
                 </children>
               </grid>
               <grid id="e9de5" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="10" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false">
-                    <minimum-size width="250" height="330"/>
-                    <preferred-size width="250" height="330"/>
-                    <maximum-size width="250" height="330"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="true">
+                    <minimum-size width="210" height="330"/>
+                    <preferred-size width="210" height="330"/>
+                    <maximum-size width="210" height="330"/>
                   </grid>
                 </constraints>
                 <properties/>
@@ -136,9 +144,9 @@
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false">
-                <minimum-size width="960" height="-1"/>
-                <preferred-size width="960" height="-1"/>
-                <maximum-size width="960" height="-1"/>
+                <minimum-size width="1160" height="-1"/>
+                <preferred-size width="1160" height="-1"/>
+                <maximum-size width="1160" height="-1"/>
               </grid>
             </constraints>
             <properties/>
