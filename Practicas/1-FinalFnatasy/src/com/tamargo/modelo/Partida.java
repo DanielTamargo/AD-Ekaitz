@@ -62,7 +62,7 @@ public class Partida implements Serializable {
         int nivelPj1 = grupo.getPersonajes().get(0).getAtributos().getNivel();
         int nivelPj2 = grupo.getPersonajes().get(1).getAtributos().getNivel();
         int nivelPj3 = grupo.getPersonajes().get(2).getAtributos().getNivel();
-        return String.format("Partida: %3d | Guardado: %s | Grupo: %s (%d), %s (%d), %s (%d)", id, fecha, nombrePj1, nivelPj1, nombrePj2, nivelPj2, nombrePj3, nivelPj3);
+        return String.format("Partida: %3d | %s | Ronda: %3d | Grupo: %s (%d), %s (%d), %s (%d)", id, fecha, ronda, nombrePj1, nivelPj1, nombrePj2, nivelPj2, nombrePj3, nivelPj3);
     }
 
     public void actualizarFecha() {

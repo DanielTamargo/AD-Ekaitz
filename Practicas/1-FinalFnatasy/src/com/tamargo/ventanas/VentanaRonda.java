@@ -51,6 +51,7 @@ public class VentanaRonda {
 
     private Grupo grupo;
     private PlaySound pm;
+    private PlaySound pmPartida;
     private float volumen;
     String[] cancionesBatalla = AdministradorRutasArchivos.cancionesBatallas;
     private Partida partida;
@@ -98,12 +99,19 @@ public class VentanaRonda {
     private ArrayList<String> registroEnem3 = new ArrayList<>();
     */
 
+    private String nombreDatos;
+    private String iconoDatos;
+    private Atributos atributosDatos;
+
+    private int controlarRegistroDerrotados = 1;
+
     public VentanaRonda() {
 
         l_fotoVS.setIcon(new ImageIcon("assets/icono-vs-1.png"));
         //generarGrupoPruebas();
 
         textPaneRegistro.setText("¡Comienza el primer turno!");
+
 
         b_siguienteTurno.addActionListener(new ActionListener() {
             @Override
@@ -122,13 +130,78 @@ public class VentanaRonda {
                 }
             }
         });
+        b_grupoPJ1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosPersonaje(0);
+            }
+        });
+        b_grupoPJ2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosPersonaje(1);
+            }
+        });
+        b_grupoPJ3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosPersonaje(2);
+            }
+        });
+        b_enemigo1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosEnemigo(0);
+            }
+        });
+        b_enemigo2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosEnemigo(1);
+            }
+        });
+        b_enemigo3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prepararVentanaDatosEnemigo(2);
+            }
+        });
+    }
+
+    public void lanzarVentanaDatos() {
+        JFrame frame = new JFrame("Datos " + nombreDatos);
+        VentanaRondaDatos vrd = new VentanaRondaDatos(nombreDatos, iconoDatos, atributosDatos, frame);
+        frame.setContentPane(vrd.getPanel());
+        vrd.setVentanaRonda(ventanaRonda);
+        vrd.setVentanaRondaDatos(frame);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setAlwaysOnTop(true);
+        ventanaRonda.setEnabled(false);
+
+    }
+
+    public void prepararVentanaDatosPersonaje(int i) {
+        nombreDatos = grupo.getPersonajes().get(i).getNombre();
+        iconoDatos = grupo.getPersonajes().get(i).getImagen();
+        atributosDatos = grupo.getPersonajes().get(i).getAtributos();
+        lanzarVentanaDatos();
+    }
+
+    public void prepararVentanaDatosEnemigo(int i) {
+        nombreDatos = enemigos.get(i).getNombre();
+        iconoDatos = enemigos.get(i).getImagen();
+        atributosDatos = enemigos.get(i).getAtributos();
+        lanzarVentanaDatos();
     }
 
     public void comprobarResultado() {
 
         if (enemigosVivos.size() <= 0) {
             pm.stopSong();
-            pm = new PlaySound();
+            //pm = new PlaySound();
             pm.playSound(cancionesBatalla[2], true, volumen);
 
             grupo.rondaGanada();
@@ -138,8 +211,8 @@ public class VentanaRonda {
             b_siguienteTurno.setText("Finalizar Ronda");
         } else if (personajesVivos.size() <= 0) {
             pm.stopSong();
-            pm = new PlaySound();
-            pm.playSound(cancionesBatalla[3], true, volumen);
+            //pm = new PlaySound();
+            pmPartida.playSound(cancionesBatalla[3], true, volumen);
             partida.setFinalizada(true);
             // TODO GAME OVER (SACAR VENTANA CON LOS CREDITOS)
             b_siguienteTurno.setText("Finalizar Ronda");
@@ -172,7 +245,8 @@ public class VentanaRonda {
         for (int j = 0; j < personajesVivosAlComienzoTurno; j++) {
             try {
                 String dato = registroDerrotados.get(j);
-                sbTextoRegistro.append(String.format("%-46s", dato));
+                if (!dato.equalsIgnoreCase("b"))
+                    sbTextoRegistro.append(String.format("%-46s", dato));
             } catch (NullPointerException | IndexOutOfBoundsException e) {}
         }
         sbTextoRegistro.append("\n");
@@ -182,7 +256,8 @@ public class VentanaRonda {
                 sbTextoRegistro.append(String.format("%-46s", dato));
             } catch (NullPointerException | IndexOutOfBoundsException e) {}
         }
-        sbTextoRegistro.append("\n\n\n");
+
+        sbTextoRegistro.append("\n\n");
 
         // Guardamos los turnos del enemigo
         for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
@@ -192,14 +267,14 @@ public class VentanaRonda {
             } catch (NullPointerException | IndexOutOfBoundsException e) {}
         }
         sbTextoRegistro.append("\n");
-        for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
+        for (int j = personajesVivosAlComienzoTurno; j < registroDanyos.size(); j++) {
             try {
                 String dato = registroDanyos.get(j);
                 sbTextoRegistro.append(String.format("%-46s", dato));
             } catch (NullPointerException | IndexOutOfBoundsException e) {}
         }
         sbTextoRegistro.append("\n");
-        for (int j = personajesVivosAlComienzoTurno; j < registroNombres.size(); j++) {
+        for (int j = personajesVivosAlComienzoTurno; j < registroDerrotados.size(); j++) {
             try {
                 String dato = registroDerrotados.get(j);
                 sbTextoRegistro.append(String.format("%-46s", dato));
@@ -285,8 +360,7 @@ public class VentanaRonda {
     }
 
     public void turno() {
-        // TODO HACER ESTO CON TODOS LOS PERSONAJES VIVOS Y LUEGO TURNOENEMIGO CON TODOS LOS ENEMIGOS VIVOS
-        // TODO AÑADIR ARRAYLIST PERSONAJESVIVOS Y METER AHI LOS PERSONAJES
+        controlarRegistroDerrotados = 1;
         if (enemigosVivos.size() > 0) {
             personajesVivosAlComienzoTurno = personajesVivos.size();
             for (Personaje p : personajesVivos) {
@@ -366,9 +440,22 @@ public class VentanaRonda {
                     }
                 }
                 personajesVivos.remove(per);
+                if (controlarRegistroDerrotados > registroDerrotados.size() + 1) {
+                    int j = registroDerrotados.size();
+                    if (j < personajesVivosAlComienzoTurno) {
+                        for (int i = 0; i < personajesVivosAlComienzoTurno - j; i++) {
+                            registroDerrotados.add("b");
+                        }
+                    }
+                    j = registroDerrotados.size();
+                    for (int i = 0; i < (controlarRegistroDerrotados - j) - 1; i++) {
+                        registroDerrotados.add("");
+                    }
+                }
                 registroDerrotados.add("Ha derrotado a " + per.getNombre());
                 System.out.println("Ha derrotado a " + per.getNombre());
             }
+            controlarRegistroDerrotados++;
 
         } else {
             System.out.println("Ya no quedan personajes vivos!");
@@ -455,20 +542,34 @@ public class VentanaRonda {
                 }
                 enemigosVivos.remove(enem);
                 partida.addEnemigoDerrotado(enem);
+                if (controlarRegistroDerrotados > registroDerrotados.size() + 1) {
+                    int j = registroDerrotados.size();
+                    for (int i = 0; i < (controlarRegistroDerrotados - j) - 1; i++) {
+                        registroDerrotados.add("");
+                    }
+                }
                 registroDerrotados.add("Ha derrotado a " + enem.getNombre());
                 System.out.println("Ha derrotado a " + enem.getNombre());
                 int nivelesSubidos;
+                int k = 1;
                 for (Personaje p: personajesVivos) {
                     nivelesSubidos = p.getNivelesSubidos();
                     p.addExperienciaConseguida(enem.getExperiencia());
                     //System.out.println(p.getExperienciaConseguida());
                     if (p.getNivelesSubidos() > nivelesSubidos) {
+                        if (k > registroNivelesSubidos.size() + 1) {
+                            int j = registroNivelesSubidos.size();
+                            for (int i = 0; i < (k - j) - 1; i++) {
+                                registroNivelesSubidos.add("");
+                            }
+                        }
                         registroNivelesSubidos.add("¡" + p.getNombre() + " ha subido al nivel " + p.getAtributos().getNivel() + "!");
                         System.out.println("\t¡" + p.getNombre() + " ha subido al nivel " + p.getAtributos().getNivel() + "!");
                     }
+                    k++;
                 }
             }
-
+            controlarRegistroDerrotados++;
         } else {
             System.out.println("Ya no quedan enemigos vivos!");
         }
@@ -501,8 +602,9 @@ public class VentanaRonda {
 
         // Recogemos los enemigos en base a la ronda en la que estamos y el nivel del enemigo
         int rondas = grupo.getRondasGanadas() + 1;
-        ArrayList<Enemigo> enemigosDisponibles =  new LeerDatosBase().leerEnemigosBase();
         while (enemigos.size() < 3) {
+            ArrayList<Enemigo> enemigosDisponibles =  new LeerDatosBase().leerEnemigosBase();
+
             Enemigo enem = enemigosDisponibles.get(new Random().nextInt(enemigosDisponibles.size()));
             if (enem.getAtributos().getNivel() <= rondas + 1) {
                 enemigos.add(enem);
@@ -536,7 +638,7 @@ public class VentanaRonda {
                     atr.setNivel(atr.getNivel() + 1);
                     atr.setVitalidad(atr.getVitalidad() + vit);
                     atr.setFuerza(atr.getFuerza() + fuerza);
-                    atr.setPoderMagico(atr.getPoderMagico() * 2+ poderMag);
+                    atr.setPoderMagico(atr.getPoderMagico() + poderMag);
                     atr.setDestreza(atr.getDestreza() + destreza);
                     atr.setAgilidad(atr.getAgilidad() + agilidad);
                     atr.setDefensaFis(atr.getDefensaFis() + defFis);
@@ -552,8 +654,18 @@ public class VentanaRonda {
         }
 
         int indexCancionBatalla = 0; // 0 = normal, 1 = boss
-        if (enemigosVivos.contains(enemigosDisponibles.get(enemigosDisponibles.size() - 1))) {
-            textPaneRegistro.setText("¡¡Pero qué!!\n¡Te has encontrado con un Dios del Cristal Perdido!\nTen cuidado...\n¡Comienza el primer turno!");
+        int diosEncontrado = 0;
+        for (Enemigo e: enemigosVivos) {
+            if (e.getId() == 11)
+                diosEncontrado++;
+        }
+        if (diosEncontrado > 0) {
+            if (diosEncontrado == 1)
+                textPaneRegistro.setText("¡¡Pero qué!!\n¡Te has encontrado con un Dios del Cristal Perdido!\nTen cuidado...\n\n¡Comienza el primer turno!");
+            else if (diosEncontrado == 2)
+                textPaneRegistro.setText("¡¡Pero qué!!\n¡¡No puede ser!\n¡Te has encontrado con dos Dioses del Cristal Perdido!\nTen cuidado... Mucho cuidado...\n\n¡Comienza el primer turno!");
+            else
+                textPaneRegistro.setText("¡¡Pero qué!!\n¡¡No puede ser!\n¡¡¡ESTO NO TIENE NINGÚN SENTIDO!!!\n¡Te has encontrado con TRES MALDITOS Dioses del Cristal Perdido!\nIntentas huir pero no puedes...\nTendrás que luchar.\n\n¡Comienza el primer turno!");
             indexCancionBatalla = 1;
         }
 
@@ -584,6 +696,10 @@ public class VentanaRonda {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    public void setPmPartida(PlaySound pmPartida) {
+        this.pmPartida = pmPartida;
     }
 
     public void setVolumen(float volumen) {

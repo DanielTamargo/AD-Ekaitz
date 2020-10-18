@@ -1,7 +1,7 @@
 <listaPartidas>
-  <partida fecha="18-10-2020 16:35:55">
+  <partida fecha="18-10-2020 19:37:33">
     <id>1</id>
-    <ronda>6</ronda>
+    <ronda>1</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -34,7 +34,7 @@
             <defensaMag>1</defensaMag>
           </atributos>
           <experienciaConseguida>0</experienciaConseguida>
-          <experienciaNecesaria>100</experienciaNecesaria>
+          <experienciaNecesaria>1000</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
           <imagen>icono-1-guerrero.png</imagen>
         </personaje>
@@ -105,7 +105,7 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>5</rondasGanadas>
+      <rondasGanadas>0</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo>
@@ -156,9 +156,9 @@
       </evento>
     </eventosPasados>
   </partida>
-  <partida fecha="18-10-2020 16:35:55">
+  <partida fecha="18-10-2020 19:37:33">
     <id>2</id>
-    <ronda>3</ronda>
+    <ronda>17</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -169,7 +169,7 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>2</rondasGanadas>
+      <rondasGanadas>16</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo reference="../../../partida/enemigosDerrotados/enemigo"/>

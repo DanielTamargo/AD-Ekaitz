@@ -50,7 +50,7 @@ public class EscribirDatosBase {
 
         // Jefes (?)
         Atributos atributosDiosDelCristalPerdido = new Atributos(16, 20,
-                50, 20, 20, 0, 0, 20, 12);
+                50, 200, 200, 30, 0, 170, 170);
 
         // Añadimos todos a la lista
         atributosBase.add(guerrero);

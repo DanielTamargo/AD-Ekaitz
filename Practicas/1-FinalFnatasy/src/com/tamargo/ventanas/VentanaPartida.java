@@ -82,6 +82,7 @@ public class VentanaPartida {
     private JButton b_previousSong;
     private JLabel l_cancion;
     private JPanel panelJuego;
+    private JLabel l_fotoJuego;
 
     // VARIABLES GENERALES
     private Grupo grupo;
@@ -126,15 +127,16 @@ public class VentanaPartida {
                     if (partida.getFinalizada()) {
                         // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
                         // CREO QUE SE PUEDE HACER DESDE LA VENTANA DE LA RONDA Y YA
-                        tabPersonajes.setEnabled(false);
-                        tabSonido.setEnabled(false);
+                        tabbedPane1.removeTabAt(2);
+                        tabbedPane1.removeTabAt(1);
                         b_siguienteRonda.setEnabled(false);
                         partida.setRonda(grupo.getRondasGanadas());
-                        // TODO PONER UNA FOTO DE FONDO TRISTE CAMBIANDO LA FOTO EPICA QUE HAY AHORA
+                        l_fotoJuego.setIcon(new ImageIcon("assets/fondo-2.png"));
                     } else {
                         pm.resumeSong();
                         l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
                         partida.setRonda(grupo.getRondasGanadas() + 1);
+                        index = 1;
                         cambiarDatos();
 
                         boolean nivelesSubidos = false;
@@ -203,7 +205,7 @@ public class VentanaPartida {
         l_rondasGanadas.setBounds(831, 380, dim.width, dim.height);
 
 
-        JLabel l_fotoJuego = new JLabel("");
+        l_fotoJuego = new JLabel("");
         l_fotoJuego.setIcon(new ImageIcon("assets/fondo-1.png"));
         panelJuego.add(l_fotoJuego);
         dim.setSize(995, 575);
@@ -232,6 +234,7 @@ public class VentanaPartida {
                 vr.setPartida(partida);
 
                 vr.comenzarRonda();
+                vr.setPmPartida(pm);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null);
@@ -247,10 +250,16 @@ public class VentanaPartida {
                 ps.playSound(nombreSonidos[2], false, volumen);
 
                 // TODO GUARDAR LA PARTIDA PARA CONTINUAR (?)
+
+                if (partida.getFinalizada()) {
+                    pm.setIndexCancion(indexCancion);
+                    pm.stopSong();
+                    pm.playSound(canciones[indexCancion], true, volumen);
+                }
                 pm.setIndexCancion(indexCancion);
-                ventanaPartida.dispose();
-                sliderVolumenInicio.setValue(sliderVolumen.getValue());
                 ventanaInicio.setVisible(true);
+                sliderVolumenInicio.setValue(sliderVolumen.getValue());
+                ventanaPartida.dispose();
             }
         });
 

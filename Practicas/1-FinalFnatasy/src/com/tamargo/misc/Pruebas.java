@@ -12,6 +12,27 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
+
+        System.out.print(String.format("%-46s", "Lady Sophie"));
+        System.out.print(String.format("%-46s", "Lord Kaplan"));
+        System.out.print(String.format("%-46s", "Legomas"));
+        System.out.println();
+        String dato = "¡Legomas ha subido de nivel!";
+        if (dato.contains("Lady Sophie"))
+            System.out.print(String.format("%-46s", dato));
+        else
+            System.out.print(String.format("%-46s", ""));
+        if (dato.contains("Lord Kaplan"))
+            System.out.print(String.format("%-46s", dato));
+        else
+            System.out.print(String.format("%-46s", ""));
+        if (dato.contains("Legomas"))
+            System.out.print(String.format("%-46s", dato));
+        else
+            System.out.print(String.format("%-46s", ""));
+        System.out.println();
+
+        System.out.println();
         String danyo = "Daño a Dios del Cristal Olvidado: 99999";
         System.out.println(danyo.length());
 
