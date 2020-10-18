@@ -18,7 +18,7 @@ public class Main {
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");
-        Inicio inicio = new Inicio();
+        Inicio inicio = new Inicio(frame);
         frame.setContentPane(inicio.getPanel());
         inicio.setVentanaInicio(frame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

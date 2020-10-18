@@ -19,6 +19,16 @@ public class Partida implements Serializable {
         obtenerFecha();
     }
 
+    public Partida(int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
+        this.id = 1; // sobreescribir más tarde con setId();
+        this.finalizada = finalizada;
+        this.ronda = ronda;
+        this.grupo = grupo;
+        this.enemigosDerrotados = enemigosDerrotados;
+        this.eventosPasados = eventosPasados;
+        obtenerFecha();
+    }
+
     public Partida(int id, int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
         this.id = id;
         this.finalizada = finalizada;

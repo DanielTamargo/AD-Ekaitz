@@ -47,6 +47,7 @@ public class VentanaRonda {
     private JButton b_siguienteTurno;
     private JButton b_objetos;
     private JTextPane textPaneRegistro;
+    private JLabel l_fotoVS;
 
     private Grupo grupo;
     private PlaySound pm;
@@ -99,8 +100,10 @@ public class VentanaRonda {
 
     public VentanaRonda() {
 
-        // TODO borrar esto ya que el grupo ya vendrá cargado desde la ventana anterior
+        l_fotoVS.setIcon(new ImageIcon("assets/icono-vs-1.png"));
         //generarGrupoPruebas();
+
+        textPaneRegistro.setText("¡Comienza el primer turno!");
 
         b_siguienteTurno.addActionListener(new ActionListener() {
             @Override
@@ -549,6 +552,7 @@ public class VentanaRonda {
 
         int indexCancionBatalla = 0; // 0 = normal, 1 = boss
         if (enemigosVivos.contains(enemigosDisponibles.get(enemigosDisponibles.size() - 1))) {
+            textPaneRegistro.setText("¡¡Pero qué!!\n¡Te has encontrado con un Dios del Cristal Perdido!\nTen cuidado...\n¡Comienza el primer turno!");
             indexCancionBatalla = 1;
         }
 

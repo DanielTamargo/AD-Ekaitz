@@ -11,6 +11,14 @@ public class PlaySound {
 
     Clip clip;
     FloatControl volume;
+    int indexCancion = 0;
+
+    public PlaySound() {
+    }
+
+    public PlaySound(int indexCancion) {
+        this.indexCancion = indexCancion;
+    }
 
     public float ajustarLimitesVolumen(float volumen) {
         if (volumen > 0)
@@ -84,4 +92,11 @@ public class PlaySound {
 
     }
 
+    public int getIndexCancion() {
+        return indexCancion;
+    }
+
+    public void setIndexCancion(int indexCancion) {
+        this.indexCancion = indexCancion;
+    }
 }

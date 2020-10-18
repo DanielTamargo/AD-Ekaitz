@@ -1,5 +1,6 @@
 package com.tamargo;
 
+import com.tamargo.misc.PlaySound;
 import com.tamargo.modelo.*;
 
 import java.util.ArrayList;
@@ -305,6 +306,10 @@ public class EscribirDatosBase {
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de los personajes.");
         }
+    }
+
+    public void escribirCancionYTiempo(PlaySound pm) {
+
     }
 
     /**

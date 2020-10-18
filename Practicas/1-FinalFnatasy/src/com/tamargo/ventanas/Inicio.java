@@ -1,7 +1,11 @@
 package com.tamargo.ventanas;
 
+import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
+import com.tamargo.modelo.Grupo;
+import com.tamargo.modelo.Partida;
+import com.tamargo.modelo.Personaje;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -35,7 +39,7 @@ public class Inicio {
     private float volumen = -40;
     private PlaySound pm;
 
-    public Inicio() {
+    public Inicio(JFrame ventanaInicio) {
 
         sliderVolumen.setValue(50);
         volumen = (float) (int) sliderVolumen.getValue();
@@ -44,6 +48,24 @@ public class Inicio {
         cambiarCancion();
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
+
+        this.ventanaInicio = ventanaInicio;
+        this.ventanaInicio.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentShown(ComponentEvent e) {
+                super.componentShown(e);
+                //System.out.println("Volviendo a Inicio!");
+                indexCancion = pm.getIndexCancion();
+                cambiarNombreCancion();
+            }
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                super.componentHidden(e);
+                //System.out.println("Se ha ocultado la ventana Inicio!");
+            }
+        });
+
+
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
         b_salir.addActionListener(new ActionListener() {
             @Override
@@ -115,21 +137,61 @@ public class Inicio {
                 ps.playSound(nombreSonidos[0], false, volumen);
             }
         });
+        b_continuar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                // TODO AL INICIAR LA VENTANA COMPROBAR QUE EXISTE EL FICHERO CONTINUARPARTIDA.XML (BORRAR ESTE FICHERO CUANDO LA PARTIDA SE ACABA)
+                // TODO CARGAR PARTIDA, COGER GRUPO Y PASARLO
+                /*
+                Partida partida = new LeerDatosBase().leerPartida();
+
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[0], false, volumen);
+
+                JFrame frame = new JFrame("Partida");
+
+                VentanaPartida p = new VentanaPartida(frame);
+                p.setPm(pm);
+                p.setIndexCancion(indexCancion);
+                p.setVolumen(volumen);
+                p.actualizarJTextPane();
+                p.configurarSliderVolumen();
+                p.setSliderVolumenInicio(sliderVolumen);
+                p.setVentanaInicio(ventanaInicio);
+                p.setVentanaPartida(frame);
+                p.setPartida(partida);
+                p.actualizarRondasGanadas();
+                p.inicializarTabPersonajes();
+
+                frame.setContentPane(p.getPanel());
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
+                ventanaInicio.dispose();
+
+                 */
+
+            }
+        });
+    }
+
+    public void cambiarNombreCancion() {
+        String cancion = nombreCanciones[indexCancion];
+        l_cancion.setText(cancion);
     }
 
     public void cambiarCancion() {
-
-        String cancion = nombreCanciones[indexCancion];
-        l_cancion.setText(cancion);
-
+        cambiarNombreCancion();
         float volumen = (float) (int) sliderVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
-
         if (pm != null)
             pm.stopSong();
-        pm = new PlaySound();
+        else
+            pm = new PlaySound(indexCancion);
         pm.playSound(canciones[indexCancion], true, volumen);
-
     }
 
     public String[] getCanciones() {
@@ -150,7 +212,7 @@ public class Inicio {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Inicio");
-        frame.setContentPane(new Inicio().panel);
+        frame.setContentPane(new Inicio(frame).panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.pack();

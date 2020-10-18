@@ -135,6 +135,19 @@ public class VentanaPartida {
                         l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
                         partida.setRonda(grupo.getRondasGanadas() + 1);
                         cambiarDatos();
+
+                        boolean nivelesSubidos = false;
+
+                        for (Personaje p: grupo.getPersonajes()) {
+                            if (p.getNivelesSubidos() > 0)
+                                nivelesSubidos = true;
+                        }
+
+                        if (nivelesSubidos) {
+                            JOptionPane.showMessageDialog(null, "¡Tienes puntos para subir!\n" +
+                                    "¡Comprueba tu grupo en la pestaña personajes!", "Puntos Disponibles",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
                 }
                 else {
@@ -144,7 +157,7 @@ public class VentanaPartida {
             @Override
             public void componentHidden(ComponentEvent e) {
                 super.componentHidden(e);
-                System.out.println("Se ha ocultado la ventana partida!");
+                //System.out.println("Se ha ocultado la ventana partida!");
             }
         });
 
@@ -233,7 +246,7 @@ public class VentanaPartida {
                 ps.playSound(nombreSonidos[2], false, volumen);
 
                 // TODO GUARDAR LA PARTIDA PARA CONTINUAR (?)
-
+                pm.setIndexCancion(indexCancion);
                 ventanaPartida.dispose();
                 sliderVolumenInicio.setValue(sliderVolumen.getValue());
                 ventanaInicio.setVisible(true);
@@ -519,12 +532,11 @@ public class VentanaPartida {
 
         float volumen = (float) (int) sliderVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
-
         if (pm != null)
             pm.stopSong();
-        pm = new PlaySound();
+        else
+            pm = new PlaySound(indexCancion);
         pm.playSound(canciones[indexCancion], true, volumen);
-
         actualizarJTextPane();
     }
 
@@ -776,9 +788,15 @@ public class VentanaPartida {
         this.sliderVolumenInicio = sliderVolumenInicio;
     }
 
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+        this.grupo = partida.getGrupo();
+    }
+
     public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
 
+        /*
         ListaPartidas listaPartidas = null;
         try {
             listaPartidas = new LeerDatosBase().leerListaPartidas();
@@ -786,8 +804,10 @@ public class VentanaPartida {
         int id = 1;
         if (listaPartidas != null)
             id = listaPartidas.getLista().size() + 1;
+         */
 
-        partida = new Partida(id, 1, false, this.grupo, new ArrayList<Enemigo>(), new ArrayList<Evento>());
+        // Hacer setId cuando vayamos a guardarla
+        partida = new Partida(1, false, this.grupo, new ArrayList<Enemigo>(), new ArrayList<Evento>());
                 //int id, int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados
     }
 
