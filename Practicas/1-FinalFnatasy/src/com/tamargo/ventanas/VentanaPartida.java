@@ -1,5 +1,6 @@
 package com.tamargo.ventanas;
 
+import com.tamargo.EscribirDatosBase;
 import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
@@ -13,10 +14,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class VentanaPartida {
@@ -125,8 +123,6 @@ public class VentanaPartida {
                 super.componentShown(e);
                 if (!recienAbierto) {
                     if (partida.getFinalizada()) {
-                        // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
-                        // CREO QUE SE PUEDE HACER DESDE LA VENTANA DE LA RONDA Y YA
                         tabbedPane1.removeTabAt(2);
                         tabbedPane1.removeTabAt(1);
                         b_siguienteRonda.setEnabled(false);
@@ -138,6 +134,8 @@ public class VentanaPartida {
                         partida.setRonda(grupo.getRondasGanadas() + 1);
                         index = 1;
                         cambiarDatos();
+                        actualizarListaArmasDisponibles();
+                        cambiarDatosArma();
 
                         boolean nivelesSubidos = false;
 
@@ -147,9 +145,31 @@ public class VentanaPartida {
                         }
 
                         if (nivelesSubidos) {
-                            JOptionPane.showMessageDialog(null, "¡Tienes puntos para subir!\n" +
-                                    "¡Comprueba tu grupo en la pestaña personajes!", "Puntos Disponibles",
-                                    JOptionPane.INFORMATION_MESSAGE);
+                            JButton okButton = new JButton("Ok");
+                            JButton llevameButton = new JButton("¡Llévame!");
+                            okButton.setFocusPainted(false);
+                            Object[] options = {okButton, llevameButton};
+                            final JOptionPane pane = new JOptionPane("¡Tienes puntos para subir!\n" +
+                                    "¡Comprueba tu grupo en la pestaña personajes!", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION, null, options);
+                            JDialog dialog = pane.createDialog("Puntos Disponibles");
+                            okButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlaySound ps = new PlaySound();
+                                    ps.playSound(nombreSonidos[1], false, volumen);
+                                    dialog.dispose();
+                                }
+                            });
+                            llevameButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    PlaySound ps = new PlaySound();
+                                    ps.playSound(nombreSonidos[1], false, volumen);
+                                    tabbedPane1.setSelectedIndex(1);
+                                    dialog.dispose();
+                                }
+                            });
+                            dialog.setVisible(true);
                         }
                     }
                 }
@@ -163,10 +183,13 @@ public class VentanaPartida {
                 //System.out.println("Se ha ocultado la ventana partida!");
             }
         });
-
-
-
-
+        this.ventanaPartida.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                guardarPartida();
+                e.getWindow().dispose();
+            }
+        });
         /*
         if (grupo == null) {
             ArrayList<Personaje> personajes = new LeerDatosBase().leerPersonajesBase();
@@ -250,6 +273,7 @@ public class VentanaPartida {
                 ps.playSound(nombreSonidos[2], false, volumen);
 
                 // TODO GUARDAR LA PARTIDA PARA CONTINUAR (?)
+                guardarPartida();
 
                 if (partida.getFinalizada()) {
                     pm.setIndexCancion(indexCancion);
@@ -512,8 +536,8 @@ public class VentanaPartida {
 
                     actualizarNivelesSubidosPJ();
                     cambiarDatos();
-                    cambiarDatosArma();
                     actualizarListaArmasDisponibles();
+                    cambiarDatosArma();
                 }
             }
         });
@@ -553,6 +577,27 @@ public class VentanaPartida {
                 pm.setVolume(volumen);
             }
         });
+    }
+
+    public void guardarPartida() {
+        partida.actualizarFecha();
+        boolean anyadida = false;
+        ArrayList<Partida> listaPartidas = new LeerDatosBase().leerListaPartidas().getLista();
+        ArrayList<Partida> listaPartidasAGuardar = new ArrayList<>();
+
+        for (Partida p: listaPartidas) {
+            if (p.getId() == partida.getId()) { //Sustituimos la partida en cuestión
+                listaPartidasAGuardar.add(partida);
+                anyadida = true;
+            } else {
+                listaPartidasAGuardar.add(p);
+            }
+        }
+        if (!anyadida)
+            listaPartidasAGuardar.add(partida);
+
+        ListaPartidas lp = new ListaPartidas(listaPartidasAGuardar);
+        new EscribirDatosBase().escribirListaPartidas(lp);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

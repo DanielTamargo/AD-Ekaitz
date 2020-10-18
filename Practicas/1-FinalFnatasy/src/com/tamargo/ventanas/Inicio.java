@@ -16,6 +16,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Inicio {
     private JFrame ventanaInicio;
@@ -45,6 +51,7 @@ public class Inicio {
     private boolean iniciado = false;
 
     public Inicio(JFrame ventanaInicio) {
+        comprobarPartidasContinuar();
 
         logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         sliderVolumen.setValue(50);
@@ -52,7 +59,6 @@ public class Inicio {
         volumen = (float) ((volumen - 100) * 0.80);
 
         cambiarCancion();
-        comprobarPartidasContinuar();
 
         this.ventanaInicio = ventanaInicio;
         this.ventanaInicio.addComponentListener(new ComponentAdapter() {
@@ -190,8 +196,20 @@ public class Inicio {
                     existen = true;
                 }
             }
-            if (existen)
+            if (existen) {
                 b_continuar.setEnabled(true);
+                Map<LocalDateTime, Partida> listaOrdenada = new TreeMap<LocalDateTime, Partida>();
+                for (Partida p: listaPartidasContinuar.getLista()) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    LocalDateTime dateTime = LocalDateTime.parse(p.getFecha(), formatter);
+                    listaOrdenada.put(dateTime, p);
+                }
+                ArrayList<Partida> listaPartidasOrdenadas = new ArrayList<>();
+                listaPartidasOrdenadas.addAll(listaOrdenada.values());
+                Collections.reverse(listaPartidasOrdenadas);
+                listaPartidasContinuar.setLista(listaPartidasOrdenadas);
+
+            }
         }
     }
 

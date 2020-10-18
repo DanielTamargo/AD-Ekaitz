@@ -1,7 +1,7 @@
 <listaPartidas>
-  <partida fecha="18-10-2020 19:37:33">
+  <partida fecha="19-10-2020 01:23:04">
     <id>1</id>
-    <ronda>1</ronda>
+    <ronda>6</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -34,7 +34,7 @@
             <defensaMag>1</defensaMag>
           </atributos>
           <experienciaConseguida>0</experienciaConseguida>
-          <experienciaNecesaria>1000</experienciaNecesaria>
+          <experienciaNecesaria>100</experienciaNecesaria>
           <nivelesSubidos>0</nivelesSubidos>
           <imagen>icono-1-guerrero.png</imagen>
         </personaje>
@@ -105,7 +105,7 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>0</rondasGanadas>
+      <rondasGanadas>5</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo>
@@ -156,9 +156,9 @@
       </evento>
     </eventosPasados>
   </partida>
-  <partida fecha="18-10-2020 19:37:33">
+  <partida fecha="19-10-2020 01:45:06">
     <id>2</id>
-    <ronda>17</ronda>
+    <ronda>3</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -169,7 +169,7 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>16</rondasGanadas>
+      <rondasGanadas>2</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo reference="../../../partida/enemigosDerrotados/enemigo"/>
@@ -217,5 +217,227 @@
     <eventosPasados>
       <evento reference="../../../partida/eventosPasados/evento"/>
     </eventosPasados>
+  </partida>
+  <partida fecha="19-10-2020 01:45:25">
+    <id>3</id>
+    <ronda>1</ronda>
+    <finalizada>false</finalizada>
+    <grupo>
+      <id>1</id>
+      <personajes>
+        <personaje>
+          <id>1</id>
+          <nombre>Lord Kaplan</nombre>
+          <descripcion>Un guerrero dispuesto a luchar hasta la muerte. Cuando masacraron su aldea y perdió a su familia, nacieron sus ganas de purgar el mal.</descripcion>
+          <arma>
+            <id>1</id>
+            <nombre>Espada Corta</nombre>
+            <tipo>Espada</tipo>
+            <ataqueFis>5</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>espada-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Guerrero</tipo>
+          <atributos>
+            <id>1</id>
+            <nivel>1</nivel>
+            <vitalidad>3</vitalidad>
+            <fuerza>3</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>0</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>3</defensaFis>
+            <defensaMag>1</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-1-guerrero.png</imagen>
+        </personaje>
+        <personaje>
+          <id>2</id>
+          <nombre>Lady Sophie</nombre>
+          <descripcion>Su misión consistía en ser la princesa del reino Dartnor, pero una vez descubrió su inmenso poder mágico no quiso quedarse encerrada sin hacer nada.</descripcion>
+          <arma>
+            <id>2</id>
+            <nombre>Bastón Mágico</nombre>
+            <tipo>Bastón</tipo>
+            <ataqueFis>0</ataqueFis>
+            <ataqueMag>5</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>baston-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Mago</tipo>
+          <atributos>
+            <id>2</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>0</fuerza>
+            <poderMagico>4</poderMagico>
+            <destreza>0</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>2</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-2-mago.png</imagen>
+        </personaje>
+        <personaje>
+          <id>3</id>
+          <nombre>Legomas</nombre>
+          <descripcion>Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo.</descripcion>
+          <arma>
+            <id>3</id>
+            <nombre>Arco Ligero</nombre>
+            <tipo>Arco</tipo>
+            <ataqueFis>5</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>arco-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Arquero</tipo>
+          <atributos>
+            <id>3</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>2</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>2</destreza>
+            <agilidad>2</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>0</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-3-arquero.png</imagen>
+        </personaje>
+      </personajes>
+      <atributoEspecial>1</atributoEspecial>
+      <inventario/>
+      <rondasGanadas>0</rondasGanadas>
+    </grupo>
+    <enemigosDerrotados/>
+    <eventosPasados/>
+  </partida>
+  <partida fecha="19-10-2020 01:46:33">
+    <id>4</id>
+    <ronda>1</ronda>
+    <finalizada>false</finalizada>
+    <grupo>
+      <id>1</id>
+      <personajes>
+        <personaje>
+          <id>5</id>
+          <nombre>KillJoy</nombre>
+          <descripcion>A esta chica nadie le entiende y su lenguaje asiático confunde a todos, pero en el combate sabes que aportará un daño inmenso. Aunque sus pintas de hipster te molestan un poco.</descripcion>
+          <arma>
+            <id>5</id>
+            <nombre>Dagas</nombre>
+            <tipo>Cuchillas</tipo>
+            <ataqueFis>6</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>cuchillas-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Asesino</tipo>
+          <atributos>
+            <id>5</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>4</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>2</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>0</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-5-asesino.png</imagen>
+        </personaje>
+        <personaje>
+          <id>4</id>
+          <nombre>Brimstone</nombre>
+          <descripcion>Escuchas cómo sus pasos avisan de su llegada desde una larga distancia. Su tenacidad y caracter le protegen del daño mejor que a ningún otro. Es un guardián de confianza.</descripcion>
+          <arma>
+            <id>4</id>
+            <nombre>Escudo Redondo</nombre>
+            <tipo>Escudo</tipo>
+            <ataqueFis>0</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>4</defensaFis>
+            <defensaMag>2</defensaMag>
+            <imagen>escudo-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Guardian</tipo>
+          <atributos>
+            <id>4</id>
+            <nivel>1</nivel>
+            <vitalidad>4</vitalidad>
+            <fuerza>1</fuerza>
+            <poderMagico>1</poderMagico>
+            <destreza>0</destreza>
+            <agilidad>0</agilidad>
+            <defensaFis>3</defensaFis>
+            <defensaMag>2</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-4-guardian.png</imagen>
+        </personaje>
+        <personaje>
+          <id>3</id>
+          <nombre>Legomas</nombre>
+          <descripcion>Su increíble precisión, sus rasgos élficos y su nombre te recuerdan a un arquero de alguna saga... Tendrás que confiar en lo que vean sus ojos de elfo.</descripcion>
+          <arma>
+            <id>3</id>
+            <nombre>Arco Ligero</nombre>
+            <tipo>Arco</tipo>
+            <ataqueFis>5</ataqueFis>
+            <ataqueMag>0</ataqueMag>
+            <defensaFis>0</defensaFis>
+            <defensaMag>0</defensaMag>
+            <imagen>arco-1.png</imagen>
+            <rareza>1</rareza>
+          </arma>
+          <tipo>Arquero</tipo>
+          <atributos>
+            <id>3</id>
+            <nivel>1</nivel>
+            <vitalidad>2</vitalidad>
+            <fuerza>2</fuerza>
+            <poderMagico>0</poderMagico>
+            <destreza>2</destreza>
+            <agilidad>2</agilidad>
+            <defensaFis>2</defensaFis>
+            <defensaMag>0</defensaMag>
+          </atributos>
+          <experienciaConseguida>0</experienciaConseguida>
+          <experienciaNecesaria>100</experienciaNecesaria>
+          <nivelesSubidos>0</nivelesSubidos>
+          <imagen>icono-3-arquero.png</imagen>
+        </personaje>
+      </personajes>
+      <atributoEspecial>1</atributoEspecial>
+      <inventario/>
+      <rondasGanadas>0</rondasGanadas>
+    </grupo>
+    <enemigosDerrotados/>
+    <eventosPasados/>
   </partida>
 </listaPartidas>

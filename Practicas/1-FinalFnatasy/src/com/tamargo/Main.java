@@ -13,8 +13,8 @@ public class Main {
 
         // Métodos para leer y escribir todos los datos base
         escribirDatosBase();
-        //leerDatosBase();
-        //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
+        leerDatosBase();
+        //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto sobreescribirá las partidas guardadas
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");
@@ -102,7 +102,7 @@ public class Main {
         eventosPasados.add(eventos.get(0));
 
         Partida partida1 = new Partida(1, grupo.getRondasGanadas() + 1, false, grupo, enemigosDerrotados, eventosPasados);
-
+        partida1.setFecha("19-10-2020 01:23:04");
         // Partida 2
         ArrayList<Personaje> personajesGrupo2 = new ArrayList<>();
         personajesGrupo2.add(personajes.get(0));

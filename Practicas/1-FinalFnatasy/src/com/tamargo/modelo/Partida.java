@@ -22,7 +22,6 @@ public class Partida implements Serializable {
     }
 
     public Partida(int ronda, boolean finalizada, Grupo grupo, ArrayList<Enemigo> enemigosDerrotados, ArrayList<Evento> eventosPasados) {
-        this.id = 1; // sobreescribir más tarde con setId();
         this.finalizada = finalizada;
         this.ronda = ronda;
         this.grupo = grupo;
@@ -69,6 +68,10 @@ public class Partida implements Serializable {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formateadorFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         fecha = currentDateTime.format(formateadorFecha);
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public boolean isFinalizada() {

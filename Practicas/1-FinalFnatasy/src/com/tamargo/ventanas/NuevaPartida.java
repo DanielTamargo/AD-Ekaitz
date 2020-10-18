@@ -198,7 +198,8 @@ public class NuevaPartida {
                     // Nota: el id del grupo no es útil en estos momentos, siempre será 1, lo añadí por si en algún momento almacenaba los grupos en un fichero
                     Grupo grupo = new Grupo(1, personajesElegidos, 1);
                     Partida partida = new Partida(grupo);
-
+                    partida.setId(new LeerDatosBase().leerListaPartidas().getLista().size() + 1);
+                    System.out.println(partida);
                     PlaySound ps = new PlaySound();
                     ps.playSound(nombreSonidos[0], false, volumen);
 

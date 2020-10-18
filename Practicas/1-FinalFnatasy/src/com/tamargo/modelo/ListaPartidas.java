@@ -10,6 +10,10 @@ public class ListaPartidas implements Serializable {
     public ListaPartidas() {
     }
 
+    public ListaPartidas(ArrayList<Partida> lista) {
+        this.lista = lista;
+    }
+
     public void addPartida(Partida partida) {
         lista.add(partida);
     }
@@ -21,4 +25,5 @@ public class ListaPartidas implements Serializable {
     public void setLista(ArrayList<Partida> lista) {
         this.lista = lista;
     }
+
 }

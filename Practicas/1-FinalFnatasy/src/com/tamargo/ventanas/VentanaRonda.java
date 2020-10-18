@@ -205,6 +205,7 @@ public class VentanaRonda {
             pm.playSound(cancionesBatalla[2], true, volumen);
 
             grupo.rondaGanada();
+            droppearObjeto();
 
             // TODO POSIBILIDAD DE DROPPEAR OBJETOS
 
@@ -214,9 +215,7 @@ public class VentanaRonda {
             //pm = new PlaySound();
             pmPartida.playSound(cancionesBatalla[3], true, volumen);
             partida.setFinalizada(true);
-            // TODO GAME OVER (SACAR VENTANA CON LOS CREDITOS)
             b_siguienteTurno.setText("Finalizar Ronda");
-
         }
     }
 
@@ -282,7 +281,6 @@ public class VentanaRonda {
         }
         sbTextoRegistro.append("\n");
 
-
         textPaneRegistro.setText(String.valueOf(sbTextoRegistro));
 
         // Reseteamos para poder plasmar el siguiente turno
@@ -301,6 +299,52 @@ public class VentanaRonda {
 
         actualizarIconos();
         actualizarDatos();
+    }
+
+    public void droppearObjeto() {
+        // Calcular la probabilidad de que caiga un objeto, y en caso de caer, calcular cual podria ser
+        int x = 20; // <- probabilidad de que caiga
+        if (x > new Random().nextInt(100) + 1) {
+            int rarezaArma = 1;
+            int probArmaLegendaria = 1 + grupo.getRondasGanadas();
+            int probArmaEpica = 5 + grupo.getRondasGanadas();
+            int probArmaFuerte = 15 + grupo.getRondasGanadas();
+            if (probArmaLegendaria > new Random().nextInt(100) + 1)
+                rarezaArma = 4;
+            if (probArmaEpica > new Random().nextInt(100) + 1 && rarezaArma == 1) {
+                rarezaArma = 3;
+            }
+            if (probArmaFuerte > new Random().nextInt(100) + 1 && rarezaArma == 1) {
+                rarezaArma = 2;
+            }
+
+            ArrayList<Arma> armasDisponibles = new LeerDatosBase().leerArmasBase();
+            ArrayList<Arma> armasDroppeables = new ArrayList<>();
+            for (Arma a: armasDisponibles) {
+                if (a.getRareza() == rarezaArma)
+                    armasDroppeables.add(a);
+            }
+            Arma armaDroppeada = armasDroppeables.get(new Random().nextInt(armasDroppeables.size()));
+            String rarezaNombre;
+            switch (rarezaArma) {
+                case 2:
+                    rarezaNombre = "rara";
+                    break;
+                case 3:
+                    rarezaNombre = "épica";
+                    break;
+                case 4:
+                    rarezaNombre = "legendaria";
+                    break;
+                default:
+                    rarezaNombre = "normal";
+                    break;
+            }
+            grupo.addArmaAlInventario(armaDroppeada);
+            JOptionPane.showMessageDialog(null, "¡Has encontrado " + armaDroppeada.getNombre() + "!\n¡Un arma de rareza " + rarezaNombre + "!\n" +
+                    "Se ha añadido a tu inventario.", "Nueva arma encontrada", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }
 
     public void cargarDatosIniciales() {
@@ -401,8 +445,6 @@ public class VentanaRonda {
             if (vidaPersonajes.get(per) < 0)
                 vidaPersonajes.put(per, 0);
 
-            // TODO REGISTRO DEL DAÑO Y DE LA VIDA QUE TIENE EL PERSONAJE
-
             // Sumamos el daño realizado
             for (int i = 0; i < enemigos.size(); i++) {
                 if (enemigos.get(i) == enem) {
@@ -502,7 +544,6 @@ public class VentanaRonda {
             if (vidaEnemigos.get(enem) < 0)
                 vidaEnemigos.put(enem, 0);
 
-            // TODO REGISTRO DEL DAÑO Y DE LA VIDA QUE TIENE EL ENEMIGO
 
             // Sumamos el daño realizado
             for (int i = 0; i < grupo.getPersonajes().size(); i++) {
@@ -587,8 +628,6 @@ public class VentanaRonda {
     }
 
     public void generarEnemigos() {
-        //TODO importante calcular decentemente los enemigos
-
         /*
         int nivelPJ1 = 1;
         int nivelPJ2 = 1;
