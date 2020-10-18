@@ -1,5 +1,7 @@
 package com.tamargo.modelo;
 
+import com.tamargo.LeerDatosBase;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,9 +9,9 @@ import java.util.ArrayList;
 
 public class Partida implements Serializable {
 
-    private int id;
-    private int ronda;
-    private boolean finalizada;
+    private int id = 1;
+    private int ronda = 1;
+    private boolean finalizada = false;
     private Grupo grupo;
     private ArrayList<Enemigo> enemigosDerrotados = new ArrayList<>();
     private ArrayList<Evento> eventosPasados = new ArrayList<>();
@@ -26,6 +28,12 @@ public class Partida implements Serializable {
         this.grupo = grupo;
         this.enemigosDerrotados = enemigosDerrotados;
         this.eventosPasados = eventosPasados;
+        obtenerFecha();
+    }
+
+    public Partida(Grupo grupo) {
+        id = new LeerDatosBase().leerListaPartidas().getLista().size() + 1;
+        this.grupo = grupo;
         obtenerFecha();
     }
 
@@ -48,14 +56,27 @@ public class Partida implements Serializable {
 
     @Override
     public String toString() {
-        return "Partida{" +
-                "id=" + id +
-                ", fecha=" + fecha +
-                ", ronda=" + ronda +
-                ", grupo=" + grupo +
-                ", enemigosDerrotados=" + enemigosDerrotados +
-                ", eventosPasados=" + eventosPasados +
-                '}';
+        String nombrePj1 = grupo.getPersonajes().get(0).getNombre();
+        String nombrePj2 = grupo.getPersonajes().get(1).getNombre();
+        String nombrePj3 = grupo.getPersonajes().get(2).getNombre();
+        int nivelPj1 = grupo.getPersonajes().get(0).getAtributos().getNivel();
+        int nivelPj2 = grupo.getPersonajes().get(1).getAtributos().getNivel();
+        int nivelPj3 = grupo.getPersonajes().get(2).getAtributos().getNivel();
+        return String.format("Partida: %3d | Guardado: %s | Grupo: %s (%d), %s (%d), %s (%d)", id, fecha, nombrePj1, nivelPj1, nombrePj2, nivelPj2, nombrePj3, nivelPj3);
+    }
+
+    public void actualizarFecha() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formateadorFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        fecha = currentDateTime.format(formateadorFecha);
+    }
+
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public String getFecha() {
+        return fecha;
     }
 
     public void addEventoPasado(Evento evento) {

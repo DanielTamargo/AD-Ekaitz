@@ -4,6 +4,7 @@ import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
 import com.tamargo.modelo.Grupo;
+import com.tamargo.modelo.ListaPartidas;
 import com.tamargo.modelo.Partida;
 import com.tamargo.modelo.Personaje;
 
@@ -38,16 +39,20 @@ public class Inicio {
 
     private float volumen = -40;
     private PlaySound pm;
+    private ListaPartidas listaPartidas;
+    private ListaPartidas listaPartidasContinuar = new ListaPartidas();
+
+    private boolean iniciado = false;
 
     public Inicio(JFrame ventanaInicio) {
 
+        logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
         sliderVolumen.setValue(50);
         volumen = (float) (int) sliderVolumen.getValue();
         volumen = (float) ((volumen - 100) * 0.80);
 
         cambiarCancion();
-
-        logo.setIcon(new ImageIcon("assets/logo_600x338.png"));
+        comprobarPartidasContinuar();
 
         this.ventanaInicio = ventanaInicio;
         this.ventanaInicio.addComponentListener(new ComponentAdapter() {
@@ -55,8 +60,13 @@ public class Inicio {
             public void componentShown(ComponentEvent e) {
                 super.componentShown(e);
                 //System.out.println("Volviendo a Inicio!");
-                indexCancion = pm.getIndexCancion();
-                cambiarNombreCancion();
+                if (iniciado) {
+                    indexCancion = pm.getIndexCancion();
+                    cambiarNombreCancion();
+                    comprobarPartidasContinuar();
+                } else {
+                    iniciado = true;
+                }
             }
             @Override
             public void componentHidden(ComponentEvent e) {
@@ -64,7 +74,6 @@ public class Inicio {
                 //System.out.println("Se ha ocultado la ventana Inicio!");
             }
         });
-
 
         //b_nuevaPartida.setIcon(new ImageIcon("assets/boton_nuevaPartida.png"));
         b_salir.addActionListener(new ActionListener() {
@@ -141,41 +150,49 @@ public class Inicio {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                // TODO AL INICIAR LA VENTANA COMPROBAR QUE EXISTE EL FICHERO CONTINUARPARTIDA.XML (BORRAR ESTE FICHERO CUANDO LA PARTIDA SE ACABA)
-                // TODO CARGAR PARTIDA, COGER GRUPO Y PASARLO
-                /*
-                Partida partida = new LeerDatosBase().leerPartida();
+                // TODO AL INICIAR LA VENTANA COMPROBAR QUE EXISTE EL FICHERO partidascontinuar.xml
+
 
                 PlaySound ps = new PlaySound();
                 ps.playSound(nombreSonidos[0], false, volumen);
 
-                JFrame frame = new JFrame("Partida");
-
-                VentanaPartida p = new VentanaPartida(frame);
-                p.setPm(pm);
-                p.setIndexCancion(indexCancion);
-                p.setVolumen(volumen);
-                p.actualizarJTextPane();
-                p.configurarSliderVolumen();
-                p.setSliderVolumenInicio(sliderVolumen);
-                p.setVentanaInicio(ventanaInicio);
-                p.setVentanaPartida(frame);
-                p.setPartida(partida);
-                p.actualizarRondasGanadas();
-                p.inicializarTabPersonajes();
-
+                JFrame frame = new JFrame("InicioContinuar");
+                InicioContinuar p = new InicioContinuar();
                 frame.setContentPane(p.getPanel());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                p.setPm(pm);
+                p.setVolumen(volumen);
+                p.setIndexCancion(indexCancion);
+                p.setVentanaInicio(ventanaInicio);
+                p.setVentanaInicioContinuar(frame);
+                p.setListaPartidas(listaPartidasContinuar);
+                p.setSliderVolumen(sliderVolumen);
+                p.actualizarJList();
 
                 ventanaInicio.dispose();
 
-                 */
-
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
             }
         });
+    }
+
+    public void comprobarPartidasContinuar() {
+        listaPartidasContinuar.getLista().clear(); // Vaciamos la lista para no repetir los elementos porque cada vez que volvemos a inicio, se ejecuta el método que añade partidas
+        listaPartidas = new LeerDatosBase().leerListaPartidas();
+        if (listaPartidas.getLista().size() > 0) {
+            boolean existen = false;
+            for (Partida p: listaPartidas.getLista()) {
+                if (!p.getFinalizada()) {
+                    listaPartidasContinuar.addPartida(p);
+                    existen = true;
+                }
+            }
+            if (existen)
+                b_continuar.setEnabled(true);
+        }
     }
 
     public void cambiarNombreCancion() {

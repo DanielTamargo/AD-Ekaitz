@@ -1,7 +1,7 @@
 <listaPartidas>
-  <partida fecha="18-10-2020 16:35:55">
+  <partida fecha="17-10-2020 03:10:02">
     <id>1</id>
-    <ronda>6</ronda>
+    <ronda>4</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -24,7 +24,7 @@
           <tipo>Guerrero</tipo>
           <atributos>
             <id>1</id>
-            <nivel>1</nivel>
+            <nivel>14</nivel>
             <vitalidad>3</vitalidad>
             <fuerza>3</fuerza>
             <poderMagico>0</poderMagico>
@@ -56,7 +56,7 @@
           <tipo>Mago</tipo>
           <atributos>
             <id>2</id>
-            <nivel>1</nivel>
+            <nivel>12</nivel>
             <vitalidad>2</vitalidad>
             <fuerza>0</fuerza>
             <poderMagico>4</poderMagico>
@@ -88,7 +88,7 @@
           <tipo>Asesino</tipo>
           <atributos>
             <id>5</id>
-            <nivel>1</nivel>
+            <nivel>15</nivel>
             <vitalidad>2</vitalidad>
             <fuerza>4</fuerza>
             <poderMagico>0</poderMagico>
@@ -105,7 +105,6 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>5</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo>
@@ -156,9 +155,9 @@
       </evento>
     </eventosPasados>
   </partida>
-  <partida fecha="18-10-2020 16:35:55">
+  <partida fecha="17-10-2020 03:10:02">
     <id>2</id>
-    <ronda>3</ronda>
+    <ronda>5</ronda>
     <finalizada>false</finalizada>
     <grupo>
       <id>1</id>
@@ -169,7 +168,6 @@
       </personajes>
       <atributoEspecial>3</atributoEspecial>
       <inventario/>
-      <rondasGanadas>2</rondasGanadas>
     </grupo>
     <enemigosDerrotados>
       <enemigo reference="../../../partida/enemigosDerrotados/enemigo"/>

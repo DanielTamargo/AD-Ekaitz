@@ -308,10 +308,6 @@ public class EscribirDatosBase {
         }
     }
 
-    public void escribirCancionYTiempo(PlaySound pm) {
-
-    }
-
     /**
      * Utilizando DataOutputStream guardaré en el fichero 'ficheros/eventos.dat' los eventos base
      */
@@ -371,8 +367,9 @@ public class EscribirDatosBase {
             System.out.println("¡Lista de Partidas actualizada!");
         } catch (Exception e) {
             System.out.println("Error al actualizar la lista de partidas.");
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
+
 
 }

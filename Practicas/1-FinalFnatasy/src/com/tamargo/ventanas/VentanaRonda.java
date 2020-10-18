@@ -109,7 +109,8 @@ public class VentanaRonda {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (b_siguienteTurno.getText().equalsIgnoreCase("Finalizar Ronda")) {
-                    pm.stopSong();
+                    if (!partida.getFinalizada())
+                        pm.stopSong();
                     ventanaPartida.setVisible(true);
                     ventanaRonda.dispose();
                 } else {
@@ -139,9 +140,9 @@ public class VentanaRonda {
             pm.stopSong();
             pm = new PlaySound();
             pm.playSound(cancionesBatalla[3], true, volumen);
-
+            partida.setFinalizada(true);
             // TODO GAME OVER (SACAR VENTANA CON LOS CREDITOS)
-
+            b_siguienteTurno.setText("Finalizar Ronda");
 
         }
     }

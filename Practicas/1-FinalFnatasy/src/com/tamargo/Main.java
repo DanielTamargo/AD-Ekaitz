@@ -14,7 +14,7 @@ public class Main {
         // Métodos para leer y escribir todos los datos base
         //escribirDatosBase();
         //leerDatosBase();
-        //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
+        generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto puede sobreescribir las partidas guardadas si el juego ya es 'oficial'
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");
@@ -91,6 +91,7 @@ public class Main {
         personajesGrupo.add(personajes.get(1));
         personajesGrupo.add(personajes.get(4));
         Grupo grupo = new Grupo(1, personajesGrupo, 3);
+        grupo.setRondasGanadas(5);
 
         ArrayList<Enemigo> enemigosDerrotados = new ArrayList<>();
         enemigosDerrotados.add(enemigos.get(0));
@@ -100,7 +101,7 @@ public class Main {
         ArrayList<Evento> eventosPasados = new ArrayList<>();
         eventosPasados.add(eventos.get(0));
 
-        Partida partida1 = new Partida(1, 4, true, grupo, enemigosDerrotados, eventosPasados);
+        Partida partida1 = new Partida(1, grupo.getRondasGanadas() + 1, false, grupo, enemigosDerrotados, eventosPasados);
 
         // Partida 2
         ArrayList<Personaje> personajesGrupo2 = new ArrayList<>();
@@ -108,6 +109,7 @@ public class Main {
         personajesGrupo2.add(personajes.get(1));
         personajesGrupo2.add(personajes.get(4));
         Grupo grupo2 = new Grupo(1, personajesGrupo2, 3);
+        grupo2.setRondasGanadas(2);
         ArrayList<Enemigo> enemigosDerrotados2 = new ArrayList<>();
         enemigosDerrotados2.add(enemigos.get(0));
         enemigosDerrotados2.add(enemigos.get(1));
@@ -116,7 +118,7 @@ public class Main {
         enemigosDerrotados2.add(enemigos.get(3));
         ArrayList<Evento> eventosPasados2 = new ArrayList<>();
         eventosPasados2.add(eventos.get(0));
-        Partida partida2 = new Partida(2, 5, true, grupo2, enemigosDerrotados2, eventosPasados2);
+        Partida partida2 = new Partida(2, grupo2.getRondasGanadas() + 1, false, grupo2, enemigosDerrotados2, eventosPasados2);
 
         // Lista partidas con las 2 partidas
         ListaPartidas listaPartidas = new ListaPartidas();

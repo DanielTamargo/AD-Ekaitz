@@ -176,7 +176,6 @@ public class LeerDatosBase {
     }
 
     /**
-     * W.I.P
      * Utilizando XStream leeré del fichero 'ficheros/partidas.xml' las partidas guardadas
      */
     public ListaPartidas leerListaPartidas() {
@@ -217,12 +216,11 @@ public class LeerDatosBase {
             */
         } catch (Exception e) {
             System.out.println("Error al cargar la lista de partidas.");
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         return listaPartidas;
     }
-
 
 
 }

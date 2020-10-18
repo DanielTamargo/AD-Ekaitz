@@ -3,9 +3,7 @@ package com.tamargo.ventanas;
 import com.tamargo.LeerDatosBase;
 import com.tamargo.misc.AdministradorRutasArchivos;
 import com.tamargo.misc.PlaySound;
-import com.tamargo.modelo.Atributos;
-import com.tamargo.modelo.Grupo;
-import com.tamargo.modelo.Personaje;
+import com.tamargo.modelo.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -199,6 +197,7 @@ public class NuevaPartida {
                 if (personajesElegidos.size() == 3) {
                     // Nota: el id del grupo no es útil en estos momentos, siempre será 1, lo añadí por si en algún momento almacenaba los grupos en un fichero
                     Grupo grupo = new Grupo(1, personajesElegidos, 1);
+                    Partida partida = new Partida(grupo);
 
                     PlaySound ps = new PlaySound();
                     ps.playSound(nombreSonidos[0], false, volumen);
@@ -214,7 +213,8 @@ public class NuevaPartida {
                     p.setSliderVolumenInicio(sliderVolumenInicio);
                     p.setVentanaInicio(ventanaInicio);
                     p.setVentanaPartida(frame);
-                    p.setGrupo(grupo);
+                    p.setPartida(partida);
+                    //p.setGrupo(grupo);
                     p.actualizarRondasGanadas();
                     p.inicializarTabPersonajes();
 

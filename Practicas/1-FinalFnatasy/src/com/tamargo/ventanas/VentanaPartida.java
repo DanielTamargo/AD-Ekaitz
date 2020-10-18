@@ -113,9 +113,6 @@ public class VentanaPartida {
     private JButton b_salir;
     private JLabel l_rondasGanadas;
 
-
-
-
     private int index = 1;
 
     public VentanaPartida(JFrame ventanaPartida) {
@@ -128,8 +125,12 @@ public class VentanaPartida {
                 if (!recienAbierto) {
                     if (partida.getFinalizada()) {
                         // TODO SACAR PANTALLA GAME OVER Y GUARDAR PARTIDA
-                        // TOCAR MUSICA SAD DE GAME OVER
+                        // CREO QUE SE PUEDE HACER DESDE LA VENTANA DE LA RONDA Y YA
+                        tabPersonajes.setEnabled(false);
+                        tabSonido.setEnabled(false);
+                        b_siguienteRonda.setEnabled(false);
                         partida.setRonda(grupo.getRondasGanadas());
+                        // TODO PONER UNA FOTO DE FONDO TRISTE CAMBIANDO LA FOTO EPICA QUE HAY AHORA
                     } else {
                         pm.resumeSong();
                         l_rondasGanadas.setText("Rondas ganadas: " + grupo.getRondasGanadas());
@@ -221,7 +222,7 @@ public class VentanaPartida {
                 ps.playSound(nombreSonidos[0], false, volumen);
 
                 VentanaRonda vr = new VentanaRonda();
-                JFrame frame = new JFrame("Ronda");
+                JFrame frame = new JFrame("Ronda " + partida.getRonda());
                 frame.setContentPane(vr.getPanel());
                 vr.setVentanaPartida(ventanaPartida);
                 vr.setVolumen(volumen);
@@ -291,6 +292,8 @@ public class VentanaPartida {
         b_sumarVit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 vitalidad++;
                 puntosDisponibles--;
                 b_restarVit.setEnabled(true);
@@ -301,6 +304,8 @@ public class VentanaPartida {
         b_restarVit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 vitalidad--;
                 puntosDisponibles++;
                 if (vitalidad == grupo.getPersonajes().get(index - 1).getAtributos().getVitalidad())
@@ -312,6 +317,8 @@ public class VentanaPartida {
         b_sumarFuerza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 fuerza++;
                 puntosDisponibles--;
                 b_restarFuerza.setEnabled(true);
@@ -322,6 +329,8 @@ public class VentanaPartida {
         b_restarFuerza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 fuerza--;
                 puntosDisponibles++;
                 if (fuerza == grupo.getPersonajes().get(index - 1).getAtributos().getFuerza())
@@ -333,6 +342,9 @@ public class VentanaPartida {
         b_sumarPoder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 poder++;
                 puntosDisponibles--;
                 b_restarPoder.setEnabled(true);
@@ -343,6 +355,8 @@ public class VentanaPartida {
         b_restarPoder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 poder--;
                 puntosDisponibles++;
                 if (poder == grupo.getPersonajes().get(index - 1).getAtributos().getPoderMagico())
@@ -354,6 +368,8 @@ public class VentanaPartida {
         b_sumarDestreza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 destreza++;
                 puntosDisponibles--;
                 b_restarDestreza.setEnabled(true);
@@ -364,6 +380,8 @@ public class VentanaPartida {
         b_restarDestreza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 destreza--;
                 puntosDisponibles++;
                 if (destreza == grupo.getPersonajes().get(index - 1).getAtributos().getDestreza())
@@ -375,6 +393,8 @@ public class VentanaPartida {
         b_sumarAgilidad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 agilidad++;
                 puntosDisponibles--;
                 b_restarAgilidad.setEnabled(true);
@@ -385,6 +405,8 @@ public class VentanaPartida {
         b_restarAgilidad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 agilidad--;
                 puntosDisponibles++;
                 if (agilidad == grupo.getPersonajes().get(index - 1).getAtributos().getAgilidad())
@@ -396,6 +418,8 @@ public class VentanaPartida {
         b_sumarDefFis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 defensaFis++;
                 puntosDisponibles--;
                 b_restarDefFis.setEnabled(true);
@@ -406,6 +430,8 @@ public class VentanaPartida {
         b_restarDefFis.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 defensaFis--;
                 puntosDisponibles++;
                 if (defensaFis == grupo.getPersonajes().get(index - 1).getAtributos().getDefensaFis())
@@ -417,6 +443,8 @@ public class VentanaPartida {
         b_sumarDefMag.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[1], false, volumen);
                 defensaMag++;
                 puntosDisponibles--;
                 b_restarDefMag.setEnabled(true);
@@ -427,6 +455,8 @@ public class VentanaPartida {
         b_restarDefMag.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                PlaySound ps = new PlaySound();
+                ps.playSound(nombreSonidos[3], false, volumen);
                 defensaMag--;
                 puntosDisponibles++;
                 if (defensaMag == grupo.getPersonajes().get(index - 1).getAtributos().getDefensaMag())
