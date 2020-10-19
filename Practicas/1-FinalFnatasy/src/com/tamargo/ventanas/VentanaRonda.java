@@ -181,7 +181,6 @@ public class VentanaRonda {
         frame.setVisible(true);
         frame.setAlwaysOnTop(true);
         ventanaRonda.setEnabled(false);
-
     }
 
     public void prepararVentanaDatosPersonaje(int i) {

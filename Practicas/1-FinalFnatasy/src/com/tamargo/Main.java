@@ -11,9 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Métodos para leer y escribir todos los datos base
-        escribirDatosBase();
-        leerDatosBase();
+        escribirDatosBase(); // Escribimos todos los datos base
+        leerDatosBase(); // Leemos todos los datos base
         if (new LeerDatosBase().leerListaPartidas().getLista().size() <= 0)
             generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto sobreescribirá las partidas guardadas
 

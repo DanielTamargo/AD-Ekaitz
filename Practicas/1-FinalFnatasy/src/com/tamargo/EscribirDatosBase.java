@@ -10,6 +10,8 @@ import com.thoughtworks.xstream.XStream;
 
 public class EscribirDatosBase {
 
+    // PREPARO LOS DATOS BASE QUE CARGA PARA GUARDAR EN LOS FICHEROS
+
     public ArrayList<Atributos> prepararAtributosBase() {
         ArrayList<Atributos> atributosBase = new ArrayList<>();
 
@@ -224,7 +226,7 @@ public class EscribirDatosBase {
 
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de los atributos.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
     }
 
@@ -256,7 +258,7 @@ public class EscribirDatosBase {
 
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de los enemigos.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
     }
 
@@ -280,7 +282,7 @@ public class EscribirDatosBase {
 
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de las armas.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
     }
 
@@ -305,6 +307,7 @@ public class EscribirDatosBase {
             pw.close();
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de los personajes.");
+            //ex.printStackTrace();
         }
     }
 
@@ -333,7 +336,7 @@ public class EscribirDatosBase {
 
         } catch (IOException ex) {
             System.out.println("Error al escribir el fichero de los eventos.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
     }
 

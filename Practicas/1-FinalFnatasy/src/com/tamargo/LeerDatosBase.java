@@ -2,11 +2,8 @@ package com.tamargo;
 
 import com.tamargo.modelo.*;
 import com.thoughtworks.xstream.XStream;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.*;
-import java.util.Iterator;
 
 public class LeerDatosBase {
 
@@ -34,9 +31,11 @@ public class LeerDatosBase {
 
             dataIS.close(); //Cerramos el flujo de entrada
 
+        } catch (FileNotFoundException ex) {
+            System.out.println("¡Fichero no existente!");
         } catch (IOException ex) {
             System.out.println("Error al leer los atributos base.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
 
         return atributos;
@@ -63,6 +62,8 @@ public class LeerDatosBase {
                 // Hemos acabado de recorrer el fichero
             }
             dataIS.close();  // Como siempre, cerrar el fichero al acabar con el
+        } catch (FileNotFoundException ex) {
+            System.out.println("No se encuentra el fichero enemigos.dat");
         } catch (IOException ex) {
             System.out.println("Error al leer los enemigos base.");
         }
@@ -94,9 +95,11 @@ public class LeerDatosBase {
 
             dataIS.close(); // Cerramos el fichero
 
+        } catch (FileNotFoundException ex) {
+            System.out.println("No se encuentra el fichero armas.dat");
         } catch (IOException ex) {
             System.out.println("Error al leer las armas base.");
-            System.out.println(ex);
+            //ex.printStackTrace();
         }
 
         return armas;
@@ -168,6 +171,8 @@ public class LeerDatosBase {
                 // Hemos acabado de recorrer el fichero
             }
             dataIS.close();  // Como siempre, cerrar el fichero al acabar con el
+        } catch (FileNotFoundException ex) {
+            System.out.println("No se encuentra el fichero eventos.dat");
         } catch (IOException ex) {
             System.out.println("Error al leer los eventos base.");
         }
@@ -201,19 +206,11 @@ public class LeerDatosBase {
             File f = new File(".\\ficheros\\partidas.xml");
             FileInputStream fis = new FileInputStream(f);
 
-            //En este caso no cargaremos objetos, sino la lista entera de las personas (objetos)
+            // Cargamos la lista de partidas
             listaPartidas = (ListaPartidas) xstream.fromXML(fis);
 
-            //System.out.println("Número de partidas cargadas: " + listaPartidas.getLista().size());
-
-            /*
-            //Iremos partida a partida usando "iterator"
-            Iterator iterador = listaPartidas.getLista().listIterator();
-            while(iterador.hasNext()){
-                Partida p = (Partida) iterador.next();
-                System.out.println(p);
-            }
-            */
+        } catch (FileNotFoundException ex) {
+            System.out.println("No se encuentra el fichero partidas.xml");
         } catch (Exception e) {
             System.out.println("Error al cargar la lista de partidas.");
             //e.printStackTrace();

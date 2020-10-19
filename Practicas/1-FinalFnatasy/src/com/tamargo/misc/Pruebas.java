@@ -23,6 +23,10 @@ public class Pruebas {
     public static void main(String[] args) {
 
 
+
+
+
+/*
         String str = "TITULOOOOO\nDescripcion jeje\ndescripcioooon";
         String titulo = str.substring(0, str.indexOf('\n'));
         String descripcion = str.substring((str.indexOf('\n') + 1));
@@ -30,12 +34,10 @@ public class Pruebas {
         System.out.println();
         System.out.println("Título: " + titulo);
         System.out.println("" + descripcion);
-
-
-
+*/
         //System.out.println(new LeerDatosBase().leerFicheroXMLPartidas());
 
-        /*
+/*
         ArrayList<Partida> listaPartidas1 = new LeerDatosBase().leerListaPartidas().getLista();
         System.out.println(listaPartidas1.size());
         Map<LocalDateTime, Partida> listaOrdenada = new TreeMap<LocalDateTime, Partida>();

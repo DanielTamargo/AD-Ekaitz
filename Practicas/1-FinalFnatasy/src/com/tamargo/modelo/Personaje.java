@@ -72,7 +72,7 @@ public class Personaje implements Serializable {
         }
     }
 
-    // INVENTADA MÁXIMA, TOCARÁ BALANCEARLO NEXT LEVEL
+    // TODO INVENTADA MÁXIMA, TOCARÁ BALANCEARLO NEXT LEVEL
     public int danyoTotalRecibido(int danyoFis, int danyoMag) {
         int danyoTotal = 0;
         Random r = new Random();

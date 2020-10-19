@@ -261,7 +261,7 @@
                                 </constraints>
                                 <properties>
                                   <font size="14" style="1"/>
-                                  <text value="Espada Larga"/>
+                                  <text value="0/100"/>
                                 </properties>
                               </component>
                               <component id="f6159" class="javax.swing.JLabel">
