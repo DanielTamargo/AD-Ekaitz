@@ -159,7 +159,6 @@ public class InicioHistorial {
             } catch (NullPointerException | IndexOutOfBoundsException e) {
                 p = null;
             }
-            System.out.println(p);
 
             if (p != null) {
                 Personaje pj1 = p.getGrupo().getPersonajes().get(0);
@@ -218,14 +217,27 @@ public class InicioHistorial {
                 panel.add(label0);
                 label0.setBounds(310, 0, dim.width, dim.height);
 
-                JLabel label1 = new JLabel(String.format("Número: %3d   Ronda: %4d", p.getId(), p.getRonda()));
+                JLabel label01;
+                if (p.getFinalizada())
+                    label01 = new JLabel(String.format("Terminada: %s", "No"));
+                else
+                    label01 = new JLabel(String.format("Terminada: %s", "Sí"));
+                dim.setSize(160, 30);
+                label01.setPreferredSize(dim);
+                label01.setMaximumSize(dim);
+                label01.setMinimumSize(dim);
+                label01.setFont(fuenteLabels);
+                panel.add(label01);
+                label01.setBounds(310, 12, dim.width, dim.height);
+
+                JLabel label1 = new JLabel(String.format("id: %3d       Ronda: %4d", p.getId(), p.getRonda()));
                 dim.setSize(160, 30);
                 label1.setPreferredSize(dim);
                 label1.setMaximumSize(dim);
                 label1.setMinimumSize(dim);
                 label1.setFont(fuenteLabels);
                 panel.add(label1);
-                label1.setBounds(310, 20, dim.width, dim.height);
+                label1.setBounds(310, 24, dim.width, dim.height);
 
                 JLabel label2 = new JLabel(String.format("Enemigos derrotados: %4d", p.getEnemigosDerrotados().size()));
                 dim.setSize(160, 30);
@@ -234,7 +246,7 @@ public class InicioHistorial {
                 label2.setMinimumSize(dim);
                 label2.setFont(fuenteLabels);
                 panel.add(label2);
-                label2.setBounds(310, 30, dim.width, dim.height);
+                label2.setBounds(310, 34, dim.width, dim.height);
 
                 JLabel label3 = new JLabel(String.format("%-12s (Nivel %2d)", pj1.getNombre(), pj1.getAtributos().getNivel()));
                 dim.setSize(160, 30);
@@ -263,10 +275,46 @@ public class InicioHistorial {
                 panel.add(label5);
                 label5.setBounds(310, 75, dim.width, dim.height);
 
+                botonPJ1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        listenerBotonPJs(pj1);
+                    }
+                });
+                botonPJ2.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        listenerBotonPJs(pj2);
+                    }
+                });
+                botonPJ3.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        listenerBotonPJs(pj3);
+                    }
+                });
+
                 panelY += 118;
             }
         }
 
+    }
+
+    public void listenerBotonPJs(Personaje pj) {
+        PlaySound ps = new PlaySound();
+        ps.playSound(nombreSonidos[1], false, volumen);
+
+        JFrame frame = new JFrame("Datos " + pj.getNombre());
+        VentanaRondaDatos vrd = new VentanaRondaDatos(pj.getNombre(), pj.getImagen(), pj.getAtributos(), frame);
+        frame.setContentPane(vrd.getPanel());
+        vrd.setVentanaRonda(ventanaInicioHistorial);
+        vrd.setVentanaRondaDatos(frame);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setAlwaysOnTop(true);
+        ventanaInicioHistorial.setEnabled(false);
     }
 
     public void volver() {
