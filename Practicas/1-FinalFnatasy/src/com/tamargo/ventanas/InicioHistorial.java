@@ -218,7 +218,7 @@ public class InicioHistorial {
                 label0.setBounds(310, 0, dim.width, dim.height);
 
                 JLabel label01;
-                if (p.getFinalizada())
+                if (!p.getFinalizada())
                     label01 = new JLabel(String.format("Terminada: %s", "No"));
                 else
                     label01 = new JLabel(String.format("Terminada: %s", "Sí"));

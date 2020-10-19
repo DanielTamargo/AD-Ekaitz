@@ -203,7 +203,7 @@
                               </component>
                               <component id="7e148" class="javax.swing.JLabel">
                                 <constraints>
-                                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <font size="12"/>
@@ -212,7 +212,7 @@
                               </component>
                               <component id="94017" class="javax.swing.JLabel" binding="l_tipo">
                                 <constraints>
-                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <font size="14" style="1"/>
@@ -221,7 +221,7 @@
                               </component>
                               <component id="79690" class="javax.swing.JLabel">
                                 <constraints>
-                                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <font size="12"/>
@@ -230,7 +230,7 @@
                               </component>
                               <component id="64912" class="javax.swing.JLabel" binding="l_arma">
                                 <constraints>
-                                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
                                 <properties>
                                   <font size="14" style="1"/>
@@ -246,33 +246,34 @@
                                   </grid>
                                 </constraints>
                               </vspacer>
-                              <vspacer id="f2596">
+                              <component id="cff78" class="javax.swing.JLabel">
                                 <constraints>
-                                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                                    <minimum-size width="-1" height="3"/>
-                                    <preferred-size width="-1" height="3"/>
-                                    <maximum-size width="-1" height="3"/>
-                                  </grid>
+                                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
-                              </vspacer>
-                              <vspacer id="31a9">
+                                <properties>
+                                  <font size="12"/>
+                                  <text value="Experiencia:"/>
+                                </properties>
+                              </component>
+                              <component id="7fca2" class="javax.swing.JLabel" binding="l_experiencia">
                                 <constraints>
-                                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                                    <minimum-size width="-1" height="3"/>
-                                    <preferred-size width="-1" height="3"/>
-                                    <maximum-size width="-1" height="3"/>
-                                  </grid>
+                                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
-                              </vspacer>
-                              <vspacer id="eb9ef">
+                                <properties>
+                                  <font size="14" style="1"/>
+                                  <text value="Espada Larga"/>
+                                </properties>
+                              </component>
+                              <component id="f6159" class="javax.swing.JLabel">
                                 <constraints>
-                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
-                                    <minimum-size width="-1" height="3"/>
-                                    <preferred-size width="-1" height="3"/>
-                                    <maximum-size width="-1" height="3"/>
-                                  </grid>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                                 </constraints>
-                              </vspacer>
+                                <properties>
+                                  <font size="12"/>
+                                  <text value="   "/>
+                                  <visible value="true"/>
+                                </properties>
+                              </component>
                             </children>
                           </grid>
                           <grid id="c55c9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

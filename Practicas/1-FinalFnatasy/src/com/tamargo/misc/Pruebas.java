@@ -22,7 +22,18 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
-        System.out.println(new LeerDatosBase().leerFicheroXMLPartidas());
+
+        String str = "TITULOOOOO\nDescripcion jeje\ndescripcioooon";
+        String titulo = str.substring(0, str.indexOf('\n'));
+        String descripcion = str.substring((str.indexOf('\n') + 1));
+
+        System.out.println();
+        System.out.println("Título: " + titulo);
+        System.out.println("" + descripcion);
+
+
+
+        //System.out.println(new LeerDatosBase().leerFicheroXMLPartidas());
 
         /*
         ArrayList<Partida> listaPartidas1 = new LeerDatosBase().leerListaPartidas().getLista();

@@ -80,6 +80,7 @@ public class VentanaPartida {
     private JButton b_previousSong;
     private JLabel l_cancion;
     private JPanel panelJuego;
+    private JLabel l_experiencia;
     private JLabel l_fotoJuego;
 
     // VARIABLES GENERALES
@@ -800,6 +801,7 @@ public class VentanaPartida {
         l_nombre.setText(nombre);
         l_tipo.setText(tipo);
         l_arma.setText(arma);
+        l_experiencia.setText(per.getExperienciaConseguida() + "/" + per.getExperienciaNecesaria());
         l_descripcion.setText(descripcionReconstruida.toString());
 
         // Guardamos los atributos en las variables
