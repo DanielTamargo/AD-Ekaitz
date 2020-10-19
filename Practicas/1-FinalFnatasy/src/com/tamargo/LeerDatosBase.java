@@ -222,5 +222,31 @@ public class LeerDatosBase {
         return listaPartidas;
     }
 
+    /**
+     * Utilizando BufferedReader leeré literalmente el fichero 'ficheros/partidas.xml' para devolverlo como texto
+     */
+    public StringBuilder leerFicheroXMLPartidas() {
+
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            BufferedReader fichero = new BufferedReader(new FileReader(".\\ficheros\\partidas.xml"));
+
+            String linea;
+
+            while ((linea = fichero.readLine()) != null) {
+                //System.out.println(linea);
+                sb.append(linea).append("\n");
+            }
+
+            fichero.close();
+        } catch (FileNotFoundException fn) {
+            System.out.println("No se encuentra el fichero partidas.xml");
+        } catch (IOException io) {
+            System.out.println("Error al leer el fichero partidas.xml");
+        }
+
+        return sb;
+    }
 
 }

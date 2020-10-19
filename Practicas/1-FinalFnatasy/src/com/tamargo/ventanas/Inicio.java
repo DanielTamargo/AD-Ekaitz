@@ -150,6 +150,18 @@ public class Inicio {
             public void actionPerformed(ActionEvent e) {
                 PlaySound ps = new PlaySound();
                 ps.playSound(nombreSonidos[0], false, volumen);
+
+                JFrame frame = new JFrame("Historial");
+                InicioHistorial ih = new InicioHistorial(frame);
+                frame.setContentPane(ih.getPanel());
+                ih.setVolumen(volumen);
+                ih.setVentanaInicio(ventanaInicio);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
+                ventanaInicio.dispose();
             }
         });
         b_continuar.addActionListener(new ActionListener() {

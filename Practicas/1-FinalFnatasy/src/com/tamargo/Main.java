@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
 
         // Métodos para leer y escribir todos los datos base
-        escribirDatosBase();
-        leerDatosBase();
+        //escribirDatosBase();
+        //leerDatosBase();
         //generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto sobreescribirá las partidas guardadas
 
         // Lanzamos la ventana

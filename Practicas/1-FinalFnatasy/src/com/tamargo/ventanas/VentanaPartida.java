@@ -524,7 +524,9 @@ public class VentanaPartida {
                     ps.playSound(nombreSonidos[0], false, volumen);
 
                     Personaje per = grupo.getPersonajes().get(index - 1);
+                    grupo.getInventario().add(per.getArma());
                     per.setArma((Arma) comboBoxArmas.getSelectedItem());
+                    grupo.getInventario().remove((Arma) comboBoxArmas.getSelectedItem());
 
                     per.getAtributos().setVitalidad(vitalidad);
                     per.getAtributos().setFuerza(fuerza);
@@ -534,9 +536,9 @@ public class VentanaPartida {
                     per.getAtributos().setDefensaFis(defensaFis);
                     per.getAtributos().setDefensaMag(defensaMag);
 
+                    actualizarListaArmasDisponibles();
                     actualizarNivelesSubidosPJ();
                     cambiarDatos();
-                    actualizarListaArmasDisponibles();
                     cambiarDatosArma();
                 }
             }

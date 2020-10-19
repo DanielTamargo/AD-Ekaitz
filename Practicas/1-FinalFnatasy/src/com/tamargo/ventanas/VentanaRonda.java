@@ -54,6 +54,7 @@ public class VentanaRonda {
     private PlaySound pmPartida;
     private float volumen;
     String[] cancionesBatalla = AdministradorRutasArchivos.cancionesBatallas;
+    String[] nombreSonidos = AdministradorRutasArchivos.nombreSonidos;
     private Partida partida;
     private ArrayList<Enemigo> enemigos = new ArrayList<>();
     private ArrayList<Enemigo> enemigosVivos = new ArrayList<>();
@@ -341,8 +342,21 @@ public class VentanaRonda {
                     break;
             }
             grupo.addArmaAlInventario(armaDroppeada);
-            JOptionPane.showMessageDialog(null, "¡Has encontrado " + armaDroppeada.getNombre() + "!\n¡Un arma de rareza " + rarezaNombre + "!\n" +
-                    "Se ha añadido a tu inventario.", "Nueva arma encontrada", JOptionPane.INFORMATION_MESSAGE);
+            JButton okButton = new JButton("Ok");
+            okButton.setFocusPainted(false);
+            Object[] options = {okButton};
+            final JOptionPane pane = new JOptionPane("¡Has encontrado " + armaDroppeada.getNombre() + "!\n¡Un arma de rareza " + rarezaNombre + "!\n" +
+                    "Se ha añadido a tu inventario.", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION, null, options);
+            JDialog dialog = pane.createDialog("Nueva arma encontrada");
+            okButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    PlaySound ps = new PlaySound();
+                    ps.playSound(nombreSonidos[1], false, volumen);
+                    dialog.dispose();
+                }
+            });
+            dialog.setVisible(true);
         }
 
     }

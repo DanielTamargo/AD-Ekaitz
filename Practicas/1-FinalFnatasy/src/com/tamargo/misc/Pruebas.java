@@ -22,6 +22,9 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
+        System.out.println(new LeerDatosBase().leerFicheroXMLPartidas());
+
+        /*
         ArrayList<Partida> listaPartidas1 = new LeerDatosBase().leerListaPartidas().getLista();
         System.out.println(listaPartidas1.size());
         Map<LocalDateTime, Partida> listaOrdenada = new TreeMap<LocalDateTime, Partida>();
@@ -41,7 +44,7 @@ public class Pruebas {
         for (Partida p: listaPartidas1) {
             System.out.println(p);
         }
-
+*/
 
 /*
         ArrayList<Personaje> personajes = new LeerDatosBase().leerPersonajesBase();
