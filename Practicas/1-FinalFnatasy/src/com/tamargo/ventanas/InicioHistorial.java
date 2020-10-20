@@ -305,7 +305,7 @@ public class InicioHistorial {
         ps.playSound(nombreSonidos[1], false, volumen);
 
         JFrame frame = new JFrame("Datos " + pj.getNombre());
-        VentanaRondaDatos vrd = new VentanaRondaDatos(pj.getNombre(), pj.getImagen(), pj.getAtributos(), frame);
+        VentanaRondaDatos vrd = new VentanaRondaDatos(pj.getNombre(), pj.getImagen(), pj.getAtributos(), frame, pj.getArma().getNombre());
         frame.setContentPane(vrd.getPanel());
         vrd.setVentanaRonda(ventanaInicioHistorial);
         vrd.setVentanaRondaDatos(frame);

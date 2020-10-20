@@ -103,6 +103,7 @@ public class VentanaRonda {
     private String nombreDatos;
     private String iconoDatos;
     private Atributos atributosDatos;
+    private String armaDatos;
 
     private int controlarRegistroDerrotados = 1;
 
@@ -171,7 +172,7 @@ public class VentanaRonda {
 
     public void lanzarVentanaDatos() {
         JFrame frame = new JFrame("Datos " + nombreDatos);
-        VentanaRondaDatos vrd = new VentanaRondaDatos(nombreDatos, iconoDatos, atributosDatos, frame);
+        VentanaRondaDatos vrd = new VentanaRondaDatos(nombreDatos, iconoDatos, atributosDatos, frame, armaDatos);
         frame.setContentPane(vrd.getPanel());
         vrd.setVentanaRonda(ventanaRonda);
         vrd.setVentanaRondaDatos(frame);
@@ -187,6 +188,7 @@ public class VentanaRonda {
         nombreDatos = grupo.getPersonajes().get(i).getNombre();
         iconoDatos = grupo.getPersonajes().get(i).getImagen();
         atributosDatos = grupo.getPersonajes().get(i).getAtributos();
+        armaDatos = grupo.getPersonajes().get(i).getArma().getNombre();
         lanzarVentanaDatos();
     }
 
@@ -194,6 +196,7 @@ public class VentanaRonda {
         nombreDatos = enemigos.get(i).getNombre();
         iconoDatos = enemigos.get(i).getImagen();
         atributosDatos = enemigos.get(i).getAtributos();
+        armaDatos = "";
         lanzarVentanaDatos();
     }
 

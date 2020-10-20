@@ -14,7 +14,7 @@ public class Main {
         escribirDatosBase(); // Escribimos todos los datos base
         leerDatosBase(); // Leemos todos los datos base
         if (new LeerDatosBase().leerListaPartidas().getLista().size() <= 0)
-            generandoFicheroXMLBase(); //TODO ¡cuidado! descomentar esto sobreescribirá las partidas guardadas
+            generandoFicheroXMLBase(); //TODO ¡cuidado! ejecutar este método fuera de este if sobreescribirá las partidas
 
         // Lanzamos la ventana
         JFrame frame = new JFrame("Inicio");
@@ -91,7 +91,7 @@ public class Main {
         personajesGrupo.add(personajes.get(1));
         personajesGrupo.add(personajes.get(4));
         Grupo grupo = new Grupo(1, personajesGrupo, 3);
-        grupo.setRondasGanadas(5);
+        grupo.setRondasGanadas(0);
 
         ArrayList<Enemigo> enemigosDerrotados = new ArrayList<>();
         enemigosDerrotados.add(enemigos.get(0));
@@ -105,11 +105,11 @@ public class Main {
         partida1.setFecha("19-10-2020 01:23:04");
         // Partida 2
         ArrayList<Personaje> personajesGrupo2 = new ArrayList<>();
-        personajesGrupo2.add(personajes.get(0));
         personajesGrupo2.add(personajes.get(1));
-        personajesGrupo2.add(personajes.get(4));
+        personajesGrupo2.add(personajes.get(2));
+        personajesGrupo2.add(personajes.get(3));
         Grupo grupo2 = new Grupo(1, personajesGrupo2, 3);
-        grupo2.setRondasGanadas(2);
+        grupo2.setRondasGanadas(0);
         ArrayList<Enemigo> enemigosDerrotados2 = new ArrayList<>();
         enemigosDerrotados2.add(enemigos.get(0));
         enemigosDerrotados2.add(enemigos.get(1));

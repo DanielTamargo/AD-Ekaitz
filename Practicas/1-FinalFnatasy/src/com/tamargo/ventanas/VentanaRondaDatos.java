@@ -21,16 +21,19 @@ public class VentanaRondaDatos {
     private JLabel l_defMag;
     private JLabel l_nombre;
     private JLabel l_nivel;
+    private JLabel l_arma;
 
     private String nombre;
     private String icono;
     private Atributos atributos;
+    private String arma;
 
-    public VentanaRondaDatos(String nombre, String icono, Atributos atributos, JFrame ventanaRondaDatos) {
+    public VentanaRondaDatos(String nombre, String icono, Atributos atributos, JFrame ventanaRondaDatos, String arma) {
         this.nombre = nombre;
         this.icono = icono;
         this.atributos = atributos;
         this.ventanaRondaDatos = ventanaRondaDatos;
+        this.arma = arma;
 
         cargarDatos();
 
@@ -47,6 +50,7 @@ public class VentanaRondaDatos {
 
     public void cargarDatos() {
         l_nombre.setText(nombre);
+        l_arma.setText(arma);
         b_icono.setIcon(new ImageIcon("assets/" + icono));
 
         if (atributos != null) {
@@ -76,7 +80,7 @@ public class VentanaRondaDatos {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Datos Lady Sophie");
-        frame.setContentPane(new VentanaRondaDatos("Lady Sophie", "icono-2-mago.png", null, frame).panel);
+        frame.setContentPane(new VentanaRondaDatos("Lady Sophie", "icono-2-mago.png", null, frame, "Espada Larga").panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
