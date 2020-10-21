@@ -10,5 +10,5 @@ public enum TipoPersonaje implements Serializable {
     // Mago = +15% daño mágico (dominan el arte de los elementos woooo)
     // Arquero = +20% probabilidad esquivar (estan lejos, es normal)
     // Asesino = +20% probabilidad de crítico (pinchan por detrás)
-    // Desconocido = %50% experiencia (no hay personajes con este tipo)
+    // Desconocido = +50% experiencia (no hay personajes con este tipo)
 }

@@ -306,18 +306,18 @@ public class VentanaRonda {
 
     public void droppearObjeto() {
         // Calcular la probabilidad de que caiga un objeto, y en caso de caer, calcular cual podria ser
-        int x = 20; // <- probabilidad de que caiga
-        if (x > new Random().nextInt(100) + 1) {
+        int x = 20 + (grupo.getRondasGanadas() / 4); // <- probabilidad de que caiga
+        if (x >= new Random().nextInt(100) + 1) {
             int rarezaArma = 1;
             int probArmaLegendaria = 1 + grupo.getRondasGanadas();
             int probArmaEpica = 5 + grupo.getRondasGanadas();
             int probArmaFuerte = 15 + grupo.getRondasGanadas();
-            if (probArmaLegendaria > new Random().nextInt(100) + 1)
+            if (probArmaLegendaria >= new Random().nextInt(100) + 1)
                 rarezaArma = 4;
-            if (probArmaEpica > new Random().nextInt(100) + 1 && rarezaArma == 1) {
+            if (probArmaEpica >= new Random().nextInt(100) + 1 && rarezaArma == 1) {
                 rarezaArma = 3;
             }
-            if (probArmaFuerte > new Random().nextInt(100) + 1 && rarezaArma == 1) {
+            if (probArmaFuerte >= new Random().nextInt(100) + 1 && rarezaArma == 1) {
                 rarezaArma = 2;
             }
 
@@ -328,21 +328,12 @@ public class VentanaRonda {
                     armasDroppeables.add(a);
             }
             Arma armaDroppeada = armasDroppeables.get(new Random().nextInt(armasDroppeables.size()));
-            String rarezaNombre;
-            switch (rarezaArma) {
-                case 2:
-                    rarezaNombre = "rara";
-                    break;
-                case 3:
-                    rarezaNombre = "épica";
-                    break;
-                case 4:
-                    rarezaNombre = "legendaria";
-                    break;
-                default:
-                    rarezaNombre = "normal";
-                    break;
-            }
+            String rarezaNombre = switch (rarezaArma) {
+                case 2 -> "rara";
+                case 3 -> "épica";
+                case 4 -> "legendaria";
+                default -> "normal";
+            };
             grupo.addArmaAlInventario(armaDroppeada);
             JButton okButton = new JButton("Ok");
             okButton.setFocusPainted(false);
