@@ -9,6 +9,7 @@ import com.tamargo.playlist.PlayPlaylist;
 import com.tamargo.playlist.PlayPlaylistManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -22,7 +23,29 @@ public class Pruebas {
 
     public static void main(String[] args) {
 
+        JButton okButton = new JButton("Entendido");
+        okButton.setFocusPainted(false);
+        Object[] options = {okButton};
+        final JOptionPane pane = new JOptionPane("¡Tienes puntos para subir!\n" +
+                "¡Comprueba tu grupo en la pestaña personajes!", JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION, null, options);
+        JDialog dialog = pane.createDialog("Puntos Disponibles");
+        pane.setRequestFocusEnabled(false);
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
 
+        Dimension windowSize = pane.getSize();
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        Point centerPoint = ge.getCenterPoint();
+
+        int dx = centerPoint.x - windowSize.width / 2;
+        int dy = centerPoint.y - windowSize.height / 2;
+        //dialog.setLocation(dx + (frame.getWidth() / 2) + (int)(pane.getSize().getWidth() / 2), dy);
+
+        dialog.setVisible(true);
 
 
 
