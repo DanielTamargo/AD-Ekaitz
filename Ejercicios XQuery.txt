@@ -1,0 +1,56 @@
+Trabajando con productos.xml
+
+
+• Obtener por cada zona el número de productos que tiene.
+
+	for $zona in distinct-values(/productos/produc/cod_zona)
+	let $count:=count(/productos/produc[cod_zona=$zona])
+	return concat('Zona: ', $zona, ' | Num productos: ', $count)
+-------------------------------------------------------------------------------------------------------------------
+
+• Obtener la denominación de los productos entre las etiquetas <zona10></zona10> si son del código de la zona 10,
+<zona20></zona20> si son de la zona 20, <zona30></zona30> si son de la zona 30, <zona40></zona40> si son de la zona
+40.
+
+	for $producto in /productos/produc
+	return if ($producto[cod_zona=10]) then
+			<zona10>{$producto/denominacion/text()}</zona10>
+		else if ($producto[cod_zona=2]) then
+			<zona20>{$producto/denominacion/text()}</zona20>
+		else if ($producto[cod_zona=2]) then
+			<zona30>{$producto/denominacion/text()}</zona30>
+		else
+			<zona40>{$producto/denominacion/text()}</zona40>
+-------------------------------------------------------------------------------------------------------------------
+
+• Obtener por cada zona la denominación del o de los productos más caros.
+
+
+	for $producto in /productos/produc
+	let $precioMax:= max(/productos/produc[cod_zona=$producto/cod_zona]/precio)
+	return if ($producto[precio>=$precioMax]) then
+				$producto/denominacion
+			else()
+-------------------------------------------------------------------------------------------------------------------
+
+• Obtener la denominación de los productos contenida entre las etiquetas <placa></placa> para los productos en cuya
+denominación aparece la palabra Placa Base, <memoria></memoria> para los que contienen la palabra Memoria,
+<micro></micro> para los que contienen la palabra Micro y <otros></otros> para el resto de productos.
+
+
+	for $pr in /productos/produc/denominacion
+	return 	if (contains(lower-case(data($pr)), 'placa')) then
+				<placa>{$pr/text()}</placa>
+			else if (contains(lower-case(data($pr)), 'memoria')) then
+				<memoria>{$pr/text()}</memoria>
+			else if (contains(lower-case(data($pr)), 'micro')) then
+				<micro>{$pr/text()}</micro>
+			else 
+				<otros>{$pr/text()}</otros>
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
