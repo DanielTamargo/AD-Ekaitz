@@ -16,90 +16,90 @@ import org.xmldb.api.modules.XPathQueryService;
 
 public class PruebasEmpleYDepart {
 
-    public static final String nombrefichero = "AleatorioEmple.dat"; //Si tuviéramos que usar un fichero
-    static Scanner teclado = new Scanner(System.in);
+    static String nombreColeccion = "Practica2DanielTamargo";
+
     static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
-    static String URI = "xmldb:exist://localhost:8083/exist/xmlrpc/db/ColeccionPruebas"; //URI colección   
+    static String URI = "xmldb:exist://localhost:8083/exist/xmlrpc/db/" + nombreColeccion; //URI colección
     static String usu = "admin"; //Usuario
     static String usuPwd = "admin"; //Clave
     static Collection col = null;
 
     public static void main(String[] args) throws XMLDBException {
 
-        pruebas();
+        crearColeccion();
+        System.out.println();
 
+        System.out.println("Antes de insertar los XML:");
+        mostrarRecursosColeccion();
 
-    }//fin main
-////////////////////////////////////////////////////////////////////////////////////
+        System.out.println();
+        insertarXMLPartidas();
+        System.out.println();
 
-    public static void pruebas() {
+        System.out.println("Después de insertar los XML:");
+        mostrarRecursosColeccion();
+
+    }
+
+    public static void mostrarRecursosColeccion() {
         if (conectar() != null) {
             try {
-                XPathQueryService servicio;
-                servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
-                //Preparamos la consulta
-                ResourceSet result = servicio.query("for $partida in /listaPartidas return $partida");
-                // recorrer los datos del recurso.
-                ResourceIterator i;
-                i = result.getIterator();
-                if (!i.hasMoreResources()) {
-                    System.out.println(" LA CONSULTA NO DEVUELVE NADA O ESTÁ MAL ESCRITA");
-                }
-                while (i.hasMoreResources()) {
-                    Resource r = i.nextResource();
-                    System.out.println("--------------------------------------------");
-                    System.out.println((String) r.getContent());
-                }
-                col.close();
-            } catch (XMLDBException e) {
-                System.out.println(" ERROR AL CONSULTAR DOCUMENTO.");
-                e.printStackTrace();
+                // Listamos la colección para ver que en efecto se ha añadido
+                for (String colRe : col.listResources())
+                    System.out.println(colRe);
+            } catch (XMLDBException ignored) {
+                System.out.println("Error al mostrar el listado");
             }
+        } else {
+            System.out.println("Error al conectar con la BBDD");
         }
     }
 
-    private static void dibujamenu() {
-        System.out.println("............................................................\n"
-                + ".  1 Listar todos los departamentos. \n"
-                + ".  2 Insertar un departamento (inserta 21, 'Departamento 21','Vitoria-Gasteiz'.  \n"
-                + ".  3 Consultar un departamento.\n"
-                + ".  4 Modificar un departamento (cambia el nombre por 'NUEVO NOMBRE').\n"
-                + ".  5 Borrar un departamento.\n"
-                + ".  6 Consultas de ejemplo.\n"
-                + ".  0 SALIR.\n"
-                + "............................................................\n");
+    public static void insertarXMLPartidas() {
+        if (conectar() != null) {
+            try {
+                int recursosAntes = col.listResources().length;
+                int recursosDespues;
 
-    } // fin dibujamenu
+                // DOCUMENTACIÓN: http://www.exist-db.org/exist/apps/doc/devguide_xmldb#use-xmldb (storeResource)
+
+                // Inicializamos el recurso
+                XMLResource res = null;
+
+                // Creamos el recurso -> recibe 2 parámetros tipo String:
+                //                          s: nombre.xml (si lo dejamos null, pondrá un nombre aleatorio)
+                //                          s1: tipo recurso (en este caso, siempre será XMLResource)
+                res = (XMLResource) col.createResource("partidas.xml", "XMLResource");
+
+                // Elegimos el fichero .xml que queremos añadir a la colección
+                File f = new File("./partidas.xml");
+
+                // Fijamos como contenido ese archivo .xml elegido
+                res.setContent(f);
+                col.storeResource(res); // Lo añadimos a la colección
+
+                recursosDespues = col.listResources().length;
+
+                System.out.println("Recursos XML añadidos a la colección: " + (recursosDespues - recursosAntes));
+
+            } catch (XMLDBException ignored) {
+                System.out.println("Error al crear el recurso");
+            }
+        } else {
+            System.out.println("Error al conectar con la BBDD");
+        }
+    }
 
     public static Collection conectar() {
 
         try {
-            Class cl = Class.forName(driver); //Cargar del driver 
-            Database database = (Database) cl.newInstance(); //Instancia de la BD
-            DatabaseManager.registerDatabase(database); //Registro del driver
-            col = DatabaseManager.getCollection(URI, usu, usuPwd);
+            // Preparamos, conectamos y cargamos la colección que queramos utilizar
+            Class cl = Class.forName(driver); // Cargar del driver
+            Database database = (Database) cl.newInstance(); // Instanciar la BD
+            DatabaseManager.registerDatabase(database); // Registro del driver
+            col = DatabaseManager.getCollection(URI, usu, usuPwd); // Cargar la colección en cuestión
 
-
-            System.out.println("Antes de añadir:");
-            for (String colRe: col.listResources())
-                System.out.println(colRe);
-            System.out.println();
-
-            // DOCUMENTACIÓN: http://www.exist-db.org/exist/apps/doc/devguide_xmldb#use-xmldb
-            System.out.println("Después de añadir:");
-            XMLResource res = null; // INICIALIZAR RECURSO XML
-            // creamos el recurso -> parámetros necesarios:
-                                        // s: nombre.xml (si lo dejamos null, pondrá un nombre aleatorio)
-                                        // s1: tipo recurso
-            res = (XMLResource)col.createResource("partidas.xml", "XMLResource");
-            File f = new File("./partidas.xml"); // elegimos el fichero .xml a añadir
-            res.setContent(f); // fijamos como contenido ese archivo .xml elegido
-            col.storeResource(res); // lo añadimos a la colección
-            for (String colRe: col.listResources())
-                System.out.println(colRe);
-            System.out.println();
-
-
+            // Devolvemos la conexión
             return col;
         } catch (XMLDBException e) {
             System.out.println("Error al inicializar la BD eXist.");
@@ -107,16 +107,73 @@ public class PruebasEmpleYDepart {
         } catch (ClassNotFoundException e) {
             System.out.println("Error en el driver.");
             e.printStackTrace();
-        } catch (InstantiationException e) {
-            System.out.println("Error al instanciar la BD.");
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             System.out.println("Error al instanciar la BD.");
             e.printStackTrace();
         }
         return null;
     }
 
+    public static void crearColeccion() {
+        if (conectar() == null) {
+            try {
+                System.out.println("La colección '" + nombreColeccion + "' no existe");
+
+                // DOCUMENTACIÓN: https://www.exist-db.org/exist/apps/doc/xmldb
+                // Accedemos a la colección general donde crearemos la colección a usar en la práctica
+                String URI = "xmldb:exist://localhost:8083/exist/xmlrpc/db";
+                Class cl = Class.forName(driver); // Cargar del driver
+                Database database = (Database) cl.newInstance(); // Instanciar la BD
+                DatabaseManager.registerDatabase(database); // Registro del driver
+                col = DatabaseManager.getCollection(URI, usu, usuPwd); // Cargar la colección en cuestión
+
+                XPathQueryService servicio;
+                servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                //Preparamos la creación
+                String crearColeccion = "declare namespace rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\";\n" +
+                        "\n" +
+                        "import module namespace xmldb=\"http://exist-db.org/xquery/xmldb\";\n" +
+                        "\n" +
+                        "let $log-in := xmldb:login(\"/db\", \"" + usu + "\", \"" + usuPwd + "\")\n" +
+                        "let $create-collection := xmldb:create-collection(\"/db\", \"" + nombreColeccion + "\")\n" +
+                        "for $record in doc('/db/" + nombreColeccion + ".rdf')/rdf:RDF/*\n" +
+                        "let $split-record :=\n" +
+                        "    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n" +
+                        "        {$record}\n" +
+                        "    </rdf:RDF>\n" +
+                        "let $about := $record/@rdf:about\n" +
+                        "let $filename := util:hash($record/@rdf:about/string(), \"md5\") || \".xml\"\n" +
+                        "return\n" +
+                        "    xmldb:store(\"/db/" + nombreColeccion + "\", $filename, $split-record)";
+
+                // Ejecutamos la creación de la colección
+                servicio.query(crearColeccion);
+                col.close();
+                System.out.println("Colección '" + nombreColeccion + "' creada");
+
+                //TODO generarDatosBase();
+            } catch (XMLDBException | ClassNotFoundException e) { System.out.println("ERROR AL CONSULTAR DOCUMENTO.");
+            } catch (IllegalAccessException | InstantiationException e) { e.printStackTrace(); }
+        }
+    }
+
+    /*
+    declare namespace rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
+import module namespace xmldb="http://exist-db.org/xquery/xmldb";
+
+let $log-in := xmldb:login("/db", "admin", "")
+let $create-collection := xmldb:create-collection("/db", "output")
+for $record in doc('/db/records.rdf')/rdf:RDF/*
+let $split-record :=
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        {$record}
+    </rdf:RDF>
+let $about := $record/@rdf:about
+let $filename := util:hash($record/@rdf:about/string(), "md5") || ".xml"
+return
+    xmldb:store("/db/output", $filename, $split-record)
+     */
     private static void listardep() {
         if (conectar() != null) {
             try {
