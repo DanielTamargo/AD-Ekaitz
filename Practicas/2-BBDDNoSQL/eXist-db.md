@@ -18,20 +18,20 @@ public static void crearColeccion() {
 			servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
 			//Preparamos la creación
 			String crearColeccion = "declare namespace rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\";\n" +
-					"\n" +
-					"import module namespace xmldb=\"http://exist-db.org/xquery/xmldb\";\n" +
-					"\n" +
-					"let $log-in := xmldb:login(\"/db\", \"" + usu + "\", \"" + usuPwd + "\")\n" +
-					"let $create-collection := xmldb:create-collection(\"/db\", \"" + nombreColeccion + "\")\n" +
-					"for $record in doc('/db/" + nombreColeccion + ".rdf')/rdf:RDF/*\n" +
-					"let $split-record :=\n" +
-					"    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n" +
-					"        {$record}\n" +
-					"    </rdf:RDF>\n" +
-					"let $about := $record/@rdf:about\n" +
-					"let $filename := util:hash($record/@rdf:about/string(), \"md5\") || \".xml\"\n" +
-					"return\n" +
-					"    xmldb:store(\"/db/" + nombreColeccion + "\", $filename, $split-record)";
+				"\n" +
+				"import module namespace xmldb=\"http://exist-db.org/xquery/xmldb\";\n" +
+				"\n" +
+				"let $log-in := xmldb:login(\"/db\", \"" + usu + "\", \"" + usuPwd + "\")\n" +
+				"let $create-collection := xmldb:create-collection(\"/db\", \"" + nombreColeccion + "\")\n" +
+				"for $record in doc('/db/" + nombreColeccion + ".rdf')/rdf:RDF/*\n" +
+				"let $split-record :=\n" +
+				"    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\">\n" +
+				"        {$record}\n" +
+				"    </rdf:RDF>\n" +
+				"let $about := $record/@rdf:about\n" +
+				"let $filename := util:hash($record/@rdf:about/string(), \"md5\") || \".xml\"\n" +
+				"return\n" +
+				"    xmldb:store(\"/db/" + nombreColeccion + "\", $filename, $split-record)";
 
 			// Ejecutamos la creación de la colección
 			servicio.query(crearColeccion);
