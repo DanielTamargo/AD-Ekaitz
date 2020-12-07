@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 public class Main {
 
+    /**
+     * Lanza el juego
+     */
     public static void main(String[] args) {
 
         escribirDatosBase(); // Escribimos todos los datos base
@@ -28,6 +31,9 @@ public class Main {
 
     }
 
+    /**
+     * Escribe los siguientes datos base
+     */
     public static void escribirDatosBase() {
         System.out.println("\n----- Escribiendo todos los datos base:\n");
         EscribirDatosBase escribir = new EscribirDatosBase();
@@ -40,6 +46,9 @@ public class Main {
         System.out.println();
     }
 
+    /**
+     * Lee todos los datos base, simplemente para dar feedback visual de que va bien
+     */
     public static void leerDatosBase() {
         // Los leemos para ver que funciona bien
         System.out.println("----- Leyendo todos los datos base:\n");
@@ -76,6 +85,9 @@ public class Main {
         System.out.println();
     }
 
+    /**
+     * Este método sobreescribirá el fichero partidas insertando dos partidas base
+     */
     public static void generandoFicheroXMLBase() {
 
         EscribirDatosBase escribir = new EscribirDatosBase();
