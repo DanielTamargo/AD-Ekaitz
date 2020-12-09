@@ -52,15 +52,19 @@ public class GenerarFicherosXMLBase {
      * Comprueba que la carpeta xml existe, si no existe, la crea para poder generar dentro los logs
      */
     public static synchronized void comprobarCarpetaXML() {
-        File f = new File(pathFicheros);
-        if (!f.exists()) {
-            System.out.println("[Log] La carpeta xml no existe");
-            System.out.println("[Log] Creando la carpeta xml...");
-            boolean crearCarpeta = f.mkdirs();
-            if (crearCarpeta)
-                System.out.println("[Log] Carpeta xml creada");
-            else
-                System.out.println("[Log] Error al crear la carpeta xml");
+        try {
+            File f = new File(pathFicheros);
+            if (!f.exists()) {
+                System.out.println("[XML] La carpeta xml no existe");
+                System.out.println("[XML] Creando la carpeta xml...");
+                boolean crearCarpeta = f.mkdirs();
+                if (crearCarpeta)
+                    System.out.println("[XML] Carpeta xml creada");
+                else
+                    System.out.println("[XML] Error al crear la carpeta xml");
+            }
+        } catch (Exception e) {
+            System.out.println("[XML] Error al crear la carpeta xml");
         }
     }
 

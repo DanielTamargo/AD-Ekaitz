@@ -7,6 +7,9 @@ public class Empresa implements Serializable {
 
     private LocalDate fechaCreacion;
     private int id;
+    private long salarioDisponible;
+    private long gastosMensuales;
+    private long gananciasMensuales;
     private String nombre;
     private String ciudad;
     private LocalDate fechaActual;
@@ -19,19 +22,10 @@ public class Empresa implements Serializable {
         this.nombre = nombre;
         this.ciudad = ciudad;
 
+        this.salarioDisponible = 5000;
+
         this.fechaCreacion = LocalDate.now();
         this.fechaActual = LocalDate.now();
-    }
-
-    /**
-     * Constructor para generar empresas con fechas ya establecidas
-     */
-    public Empresa(LocalDate fechaCreacion, int id, String nombre, String ciudad, LocalDate fechaActual) {
-        this.fechaCreacion = fechaCreacion;
-        this.id = id;
-        this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.fechaActual = fechaActual;
     }
 
     @Override
@@ -43,6 +37,30 @@ public class Empresa implements Serializable {
                 ", ciudad='" + ciudad + '\'' +
                 ", fechaActual=" + fechaActual +
                 '}';
+    }
+
+    public long getSalarioDisponible() {
+        return salarioDisponible;
+    }
+
+    public void setSalarioDisponible(long salarioDisponible) {
+        this.salarioDisponible = salarioDisponible;
+    }
+
+    public long getGastosMensuales() {
+        return gastosMensuales;
+    }
+
+    public void setGastosMensuales(long gastosMensuales) {
+        this.gastosMensuales = gastosMensuales;
+    }
+
+    public long getGananciasMensuales() {
+        return gananciasMensuales;
+    }
+
+    public void setGananciasMensuales(long gananciasMensuales) {
+        this.gananciasMensuales = gananciasMensuales;
     }
 
     public LocalDate getFechaCreacion() {

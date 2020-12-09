@@ -8,5 +8,14 @@ public class GenerarDatosBase {
     // 3- generar todos los ficheros xml (datos e iniciativas tendran todos los datos base generados)
     // 4- añadirlos a la colección si no existen
 
+    public static void generarDatosBase() {
+        GenerarFicherosDataBase.generarFicherosData();
+
+
+
+    }
+
+
+
 
 }

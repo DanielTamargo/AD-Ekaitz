@@ -2,6 +2,7 @@ package com.tamargo.modelo;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class EmpleadoDisponible implements Serializable {
 
@@ -12,17 +13,20 @@ public class EmpleadoDisponible implements Serializable {
     private int edad;
     private LocalDate fechaNac;
     private int salario;
+    private String avatar;
     private String departamentoDeseado;
 
-    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, int edad, LocalDate fechaNac, int salario, String departamentoDeseado) {
+    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
         this.fechaNac = fechaNac;
         this.salario = salario;
+        this.avatar = avatar;
         this.departamentoDeseado = departamentoDeseado;
+
+        this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
     }
 
     @Override

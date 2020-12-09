@@ -90,15 +90,19 @@ public class GuardarLogs {
      * Comprueba que la carpeta logs existe, si no existe, la crea para poder generar dentro los logs
      */
     public static synchronized void comprobarCarpetaLogs() {
-        File f = new File(pathLogs);
-        if (!f.exists()) {
-            System.out.println("[Log] La carpeta logs no existe");
-            System.out.println("[Log] Creando la carpeta logs...");
-            boolean crearCarpeta = f.mkdirs();
-            if (crearCarpeta)
-                System.out.println("[Log] Carpeta logs creada");
-            else
-                System.out.println("[Log] Error al crear la carpeta logs");
+        try {
+            File f = new File(pathLogs);
+            if (!f.exists()) {
+                System.out.println("[Log] La carpeta logs no existe");
+                System.out.println("[Log] Creando la carpeta logs...");
+                boolean crearCarpeta = f.mkdirs();
+                if (crearCarpeta)
+                    System.out.println("[Log] Carpeta logs creada");
+                else
+                    System.out.println("[Log] Error al crear la carpeta logs");
+            }
+        } catch (Exception e) {
+            System.out.println("[Log] Error al crear la carpeta log");
         }
     }
 

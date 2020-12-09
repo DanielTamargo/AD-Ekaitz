@@ -14,8 +14,9 @@ public class EmpleadoContratado implements Serializable {
     private LocalDate fechaNac;
     private int salario;
     private int depNo;
+    private String avatar;
 
-    public EmpleadoContratado(int empNo, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, int depNo) {
+    public EmpleadoContratado(int empNo, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, int depNo, String avatar) {
         this.empNo = empNo;
         this.dni = dni;
         this.nombre = nombre;
@@ -23,14 +24,14 @@ public class EmpleadoContratado implements Serializable {
         this.fechaNac = fechaNac;
         this.salario = salario;
         this.depNo = depNo;
+        this.avatar = avatar;
 
         this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
     }
 
-
     @Override
     public String toString() {
-        return "Empleado{" +
+        return "EmpleadoContratado{" +
                 "empNo=" + empNo +
                 ", dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
@@ -39,6 +40,7 @@ public class EmpleadoContratado implements Serializable {
                 ", fechaNac=" + fechaNac +
                 ", salario=" + salario +
                 ", depNo=" + depNo +
+                ", avatar='" + avatar + '\'' +
                 '}';
     }
 
@@ -106,4 +108,11 @@ public class EmpleadoContratado implements Serializable {
         this.depNo = depNo;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 }
