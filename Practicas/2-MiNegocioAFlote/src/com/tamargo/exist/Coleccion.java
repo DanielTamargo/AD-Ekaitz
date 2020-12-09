@@ -2,21 +2,23 @@ package com.tamargo.exist;
 
 import com.tamargo.miscelanea.GuardarLogs;
 import org.xmldb.api.DatabaseManager;
-import org.xmldb.api.base.Collection;
-import org.xmldb.api.base.Database;
-import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 public class Coleccion {
 
-    private static final String nombreColeccion = "Practica2DanielTamargo";
+    private final static String nombre = "[Colección] ";
+
+    private final static String nombreColeccion = "Practica2DanielTamargo";
 
     private final static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
 
+    //todo fichero que controle que es la primera vez que se inicia? o que ponga un 0 si da error de intentar conectar con servicio exist
     //todo ventana personalizada para que ponga su puerto, usuario y contraseña y que se almacenen en un fichero?
     private final static String URI = "xmldb:exist://localhost:8083/exist/xmlrpc/db/" + nombreColeccion; //URI colección
     private final static String usu = "admin"; //Usuario
@@ -57,13 +59,10 @@ public class Coleccion {
         return null;
     }
 
-    public static boolean comprobarColeccion() {
-        boolean coleccionExistente = true;
-
+    public static void comprobarColeccion() {
         if (conectar() == null) {
-            coleccionExistente = false;
             try {
-                System.out.println("La colección '" + nombreColeccion + "' no existe");
+                System.out.println(nombre + "La colección '" + nombreColeccion + "' no existe");
 
                 // DOCUMENTACIÓN: https://www.exist-db.org/exist/apps/doc/xmldb
                 // Accedemos a la colección general donde crearemos la colección a usar en la práctica
@@ -95,11 +94,8 @@ public class Coleccion {
                 // Ejecutamos la creación de la colección
                 servicio.query(crearColeccion);
                 coleccion.close();
-                System.out.println("Colección '" + nombreColeccion + "' creada");
+                System.out.println(nombre + "Colección '" + nombreColeccion + "' creada");
 
-                //TODO generarDatosBase();
-
-                coleccionExistente = true;
             } catch (XMLDBException | ClassNotFoundException e) {
                 System.out.println("ERROR AL CONSULTAR DOCUMENTO.");
                 GuardarLogs.logger.log(Level.SEVERE, "Error al crear la colección. Error: " + e.getLocalizedMessage());
@@ -107,19 +103,16 @@ public class Coleccion {
                 e.printStackTrace();
                 GuardarLogs.logger.log(Level.SEVERE, "Error al crear la colección. Error: " + e.getLocalizedMessage());
             }
+        } else {
+            try {
+                coleccion.close();
+            } catch (XMLDBException ignored) { }
         }
-
-        return coleccionExistente;
     }
 
-
-    // TODO RECIBIR NOMBRE DEL XML + ARRAYLIST DE OBJETOS A GUARDAR
-    //  falta por tejerlo bien
-    public static void insertarXML() {
+    public static void insertarXML(File ficheroXML) {
         if (conectar() != null) {
             try {
-                int recursosAntes = coleccion.listResources().length;
-                int recursosDespues;
 
                 // DOCUMENTACIÓN: http://www.exist-db.org/exist/apps/doc/devguide_xmldb#use-xmldb (storeResource)
 
@@ -129,44 +122,180 @@ public class Coleccion {
                 // Creamos el recurso -> recibe 2 parámetros tipo String:
                 //                          s: nombre.xml (si lo dejamos null, pondrá un nombre aleatorio)
                 //                          s1: tipo recurso (en este caso, siempre será XMLResource)
-                res = (XMLResource) coleccion.createResource("partidas.xml", "XMLResource");
-
-                // Elegimos el fichero .xml que queremos añadir a la colección
-                File f = new File("./partidas.xml");
+                res = (XMLResource) coleccion.createResource(ficheroXML.getName(), "XMLResource");
 
                 // Fijamos como contenido ese archivo .xml elegido
-                res.setContent(f);
+                res.setContent(ficheroXML);
                 coleccion.storeResource(res); // Lo añadimos a la colección
 
-                recursosDespues = coleccion.listResources().length;
-
-                System.out.println("Recursos XML añadidos a la colección: " + (recursosDespues - recursosAntes));
+                System.out.println(nombre + "Recurso XML añadido a la colección: " + ficheroXML.getName());
 
             } catch (XMLDBException e) {
-                System.out.println("Error al crear el recurso. Error: " + e.getLocalizedMessage());
+                System.out.println(nombre + "Error al crear el recurso. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE, "Error al crear el recurso. Error: " + e.getLocalizedMessage());
             }
         } else {
-            System.out.println("Error al conectar con la BBDD");
+            System.out.println(nombre + "Error al conectar con la BBDD");
         }
     }
 
     /**
-     * Muestra los recursos (los nombres de los xml) de la colección
+     * Devuelve una lista de nombres de los recursos (los nombres de los xml) de la colección
      */
-    public static void mostrarRecursosColeccion() {
+    public static ArrayList<String> nombresRecursosColeccion() {
+        ArrayList<String> nombres = new ArrayList<>();
         if (conectar() != null) {
             try {
                 // Listamos la colección para ver que en efecto se ha añadido
                 for (String colRe : coleccion.listResources())
-                    System.out.println(colRe);
+                    nombres.add(colRe);
             } catch (XMLDBException e) {
-                System.out.println("Error al mostrar el listado. " + e.getLocalizedMessage());
-                GuardarLogs.logger.log(Level.SEVERE, "Error al mostrar el listado. Error: " + e.getLocalizedMessage());
+                System.out.println(nombre + "Error al generar el listado de nombres de los recursos de la colección. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE, "Error al generar el listado de nombres de los recursos de la colección. Error: " + e.getLocalizedMessage());
+            }
+
+            try {
+                coleccion.close();
+            } catch (XMLDBException ignored) { }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+
+        return nombres;
+    }
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BORRAR EMPRESA + BORRAR LO QUE LE CORRESPONDE (SIMULANDO DELETE CASCADE)
+    public static boolean borrarEmpresa(int id) {
+        boolean eliminado = false;
+
+        if (comprobarEmpresa(id)) {
+            if (conectar() != null) {
+                try {
+                    System.out.println(nombre + "Eliminando la empresa cuyo id es: " + id);
+                    XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+
+                    String query = "update delete /empresas/empresa[id=" + id + "]";  // TODO GUARDAR QUERY
+                    servicio.query(query);
+
+
+                    eliminado = true;
+
+                    // Borramos aquello que va relacionado con la empresa para que no queden datos colgantes que nunca se usarían
+                    borrarEmpleadosDepartamentosEmpresa(id, servicio);
+                    borrarDepartamentosEmpresa(id, servicio);
+                    borrarEmpleadosDisponiblesEmpresa(id, servicio);
+                    borrarIniciativasActivasEmpresa(id, servicio);
+
+                    System.out.println(nombre + "Empresa eliminada.");
+                    coleccion.close();
+                } catch (Exception e) {
+                    System.out.println(nombre + "Error al eliminar la empresa.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println(nombre + "Error al conectar con la BBDD.");
             }
         } else {
-            System.out.println("Error al conectar con la BBDD");
+            System.out.println(nombre + "La empresa no existe.");
         }
+
+        return eliminado;
+    }
+
+    // Borramos las iniciativas activas de una empresa
+    private static void borrarIniciativasActivasEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
+        if (servicio == null)
+            servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+
+        String query = "update delete /iniciativasActivas/iniciativaActiva[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
+        servicio.query(query);
+        System.out.println(nombre + "IniciativasActivas de la empresa " + idEmpresa + " eliminados");
+    }
+
+    // Borramos los empleados disponibles de una empresa
+    private static void borrarEmpleadosDisponiblesEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
+        if (servicio == null)
+            servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+
+        String query = "update delete /empleadosDisponibles/empleadoDisponible[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
+        servicio.query(query);
+        System.out.println(nombre + "EmpleadosDisponibles de la empresa " + idEmpresa + " eliminados");
+    }
+
+    // Borramos los departamentos de una empresa
+    private static void borrarDepartamentosEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
+        if (servicio == null)
+            servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+
+        String query = "update delete /departamentos/departamento[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
+        servicio.query(query);
+        System.out.println(nombre + "Departamentos de la empresa " + idEmpresa + " eliminados");
+    }
+
+    // Borramos los empleados de los departamentos de una empresa
+    private static void borrarEmpleadosDepartamentosEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
+        if (servicio == null)
+            servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+
+        // Sacar el id de cada departamento de una empresa
+        String query = "for $dep in /departamentos/departamento[idEmpresa=" + idEmpresa + "] let $depNo:=$dep/depNo return $depNo/text()"; // TODO GUARDAR QUERY
+
+        ResourceSet result = servicio.query(query);
+        ResourceIterator i = result.getIterator();
+        if (i.hasMoreResources()) {
+            while (i.hasMoreResources()) {
+                try {
+                    // Por cada departamento borrar los empleados
+                    Resource r = i.nextResource();
+                    String depNo = (String) r.getContent();
+                    borrarEmpleadosDepartamento(Integer.parseInt(depNo), servicio);
+                } catch (NumberFormatException ignored) { }
+            }
+        }
+    }
+
+    // Borramos los empleados de un departamento (se usará al eliminar los departamentos de una empresa o al eliminar un departamento concreto)
+    private static void borrarEmpleadosDepartamento(int depNo, XPathQueryService servicio) throws XMLDBException {
+        if (servicio == null)
+            servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+        String query = "update delete /empleadosContratados/empleadoContratado[depNo=" + depNo + "]"; // TODO GUARDAR QUERY
+        servicio.query(query);
+        System.out.println(nombre + "Empleados del departamento " + depNo + " eliminados");
+    }
+
+
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // COMPROBACIONES DE QUE EXISTEN LOS ELEMENTOS A ELIMINAR
+    private static boolean comprobarEmpresa(int id) {
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                //Consulta para consultar la información de un departamento
+                String query = "/empresas/empresa[id=" + id + "]";
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i;
+                i = result.getIterator();
+                coleccion.close();
+
+                // TODO GUARDAR QUERY
+                return i.hasMoreResources();
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al consultar. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE, "Error al consultar. Error: " + e.getLocalizedMessage());
+                // e.printStackTrace();
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD.");
+        }
+
+        return false;
     }
 
 }

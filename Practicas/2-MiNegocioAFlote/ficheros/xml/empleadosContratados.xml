@@ -1,0 +1,12 @@
+<empleadosContratados>
+  <empleadoContratado>
+    <empNo>-1</empNo>
+    <dni>base</dni>
+    <nombre>base</nombre>
+    <apellido>base</apellido>
+    <edad>-1</edad>
+    <salario>-1</salario>
+    <depNo>-1</depNo>
+    <avatar>base</avatar>
+  </empleadoContratado>
+</empleadosContratados>

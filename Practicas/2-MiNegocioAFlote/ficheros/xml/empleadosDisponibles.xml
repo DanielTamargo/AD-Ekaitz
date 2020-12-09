@@ -1,0 +1,13 @@
+<empleadosDisponibles>
+  <empleadoDisponible>
+    <id>-1</id>
+    <dni>base</dni>
+    <nombre>base</nombre>
+    <apellido>base</apellido>
+    <edad>-1</edad>
+    <salario>-1</salario>
+    <avatar>base</avatar>
+    <departamentoDeseado>base</departamentoDeseado>
+    <idEmpresa>-1</idEmpresa>
+  </empleadoDisponible>
+</empleadosDisponibles>

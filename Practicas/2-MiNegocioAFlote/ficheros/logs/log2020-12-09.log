@@ -1,0 +1,272 @@
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 1:53:15 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 2:02:06 P. M. com.tamargo.exist.Coleccion insertarXML
+SEVERE: Error al crear el recurso. Error: Failed to invoke method parse in class org.exist.xmlrpc.RpcConnection: org.xml.sax.SAXException: The XML parser reported a problem: fatal error at (-1,-1) : Premature end of file.
+org.xml.sax.SAXException: fatal error at (-1,-1) : Premature end of file.
+org.xml.sax.SAXParseException; Premature end of file.
+dic. 09, 2020 2:10:16 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 2:10:16 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 2:11:02 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 2:13:14 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 2:15:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:05:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:10:49 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:14:55 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:15:13 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:15:46 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:16:47 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:16:57 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:20:44 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:24:52 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 3:49:06 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 4:23:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 4:26:38 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 4:27:04 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 09, 2020 4:27:23 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito

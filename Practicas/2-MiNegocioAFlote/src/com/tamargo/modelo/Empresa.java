@@ -24,8 +24,10 @@ public class Empresa implements Serializable {
 
         this.salarioDisponible = 5000;
 
-        this.fechaCreacion = LocalDate.now();
-        this.fechaActual = LocalDate.now();
+        if (id != -1) {
+            this.fechaCreacion = LocalDate.now();
+            this.fechaActual = LocalDate.now();
+        }
     }
 
     @Override

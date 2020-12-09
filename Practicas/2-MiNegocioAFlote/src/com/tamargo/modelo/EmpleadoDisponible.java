@@ -15,8 +15,9 @@ public class EmpleadoDisponible implements Serializable {
     private int salario;
     private String avatar;
     private String departamentoDeseado;
+    private int idEmpresa;
 
-    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado) {
+    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado, int idEmpresa) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -25,8 +26,13 @@ public class EmpleadoDisponible implements Serializable {
         this.salario = salario;
         this.avatar = avatar;
         this.departamentoDeseado = departamentoDeseado;
+        this.idEmpresa = idEmpresa;
 
-        this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+        try {
+            this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+        } catch (NullPointerException ignored) {
+            this.edad = -1;
+        }
     }
 
     @Override
@@ -39,10 +45,11 @@ public class EmpleadoDisponible implements Serializable {
                 ", edad=" + edad +
                 ", fechaNac=" + fechaNac +
                 ", salario=" + salario +
+                ", avatar='" + avatar + '\'' +
                 ", departamentoDeseado='" + departamentoDeseado + '\'' +
+                ", idEmpresa=" + idEmpresa +
                 '}';
     }
-
 
     public int getId() {
         return id;
@@ -106,5 +113,21 @@ public class EmpleadoDisponible implements Serializable {
 
     public void setDepartamentoDeseado(String departamentoDeseado) {
         this.departamentoDeseado = departamentoDeseado;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 }

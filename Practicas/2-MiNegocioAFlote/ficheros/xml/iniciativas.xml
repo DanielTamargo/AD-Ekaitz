@@ -1,0 +1,122 @@
+<iniciativas>
+  <iniciativa>
+    <id>1</id>
+    <nombre>Captación de socios básica</nombre>
+    <duracion>90</duracion>
+    <nivelNecesario>1</nivelNecesario>
+    <coste>1000</coste>
+    <ganancias>4000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>2</id>
+    <nombre>Captación de socios intermedia</nombre>
+    <duracion>60</duracion>
+    <nivelNecesario>3</nivelNecesario>
+    <coste>5000</coste>
+    <ganancias>9000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>3</id>
+    <nombre>Captación de socios avanzada</nombre>
+    <duracion>120</duracion>
+    <nivelNecesario>5</nivelNecesario>
+    <coste>15000</coste>
+    <ganancias>100000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>4</id>
+    <nombre>Colaboración con Philips</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>1</nivelNecesario>
+    <coste>500</coste>
+    <ganancias>1500</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>5</id>
+    <nombre>Colaboración con ASUS</nombre>
+    <duracion>60</duracion>
+    <nivelNecesario>2</nivelNecesario>
+    <coste>2000</coste>
+    <ganancias>8000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>6</id>
+    <nombre>Colaboración con CocaCola</nombre>
+    <duracion>360</duracion>
+    <nivelNecesario>5</nivelNecesario>
+    <coste>100000</coste>
+    <ganancias>1000000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>7</id>
+    <nombre>Cursos de formación de empleados básicos</nombre>
+    <duracion>90</duracion>
+    <nivelNecesario>2</nivelNecesario>
+    <coste>4000</coste>
+    <ganancias>5000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>8</id>
+    <nombre>Cursos de formación de empleados intermedios</nombre>
+    <duracion>90</duracion>
+    <nivelNecesario>3</nivelNecesario>
+    <coste>4000</coste>
+    <ganancias>8000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>9</id>
+    <nombre>Cursos de formación de empleados avanzados</nombre>
+    <duracion>90</duracion>
+    <nivelNecesario>4</nivelNecesario>
+    <coste>4000</coste>
+    <ganancias>12000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>10</id>
+    <nombre>Optimización de las oficinas</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>1</nivelNecesario>
+    <coste>200</coste>
+    <ganancias>800</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>11</id>
+    <nombre>Optimización de los dispositivos</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>2</nivelNecesario>
+    <coste>9000</coste>
+    <ganancias>20000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>12</id>
+    <nombre>Optimización del sistema informático</nombre>
+    <duracion>150</duracion>
+    <nivelNecesario>3</nivelNecesario>
+    <coste>10000</coste>
+    <ganancias>36000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>13</id>
+    <nombre>Publicidad local</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>3</nivelNecesario>
+    <coste>30000</coste>
+    <ganancias>60000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>14</id>
+    <nombre>Publicidad nacional</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>4</nivelNecesario>
+    <coste>100000</coste>
+    <ganancias>150000</ganancias>
+  </iniciativa>
+  <iniciativa>
+    <id>15</id>
+    <nombre>Publicidad internacional</nombre>
+    <duracion>30</duracion>
+    <nivelNecesario>5</nivelNecesario>
+    <coste>1000000</coste>
+    <ganancias>1800000</ganancias>
+  </iniciativa>
+</iniciativas>

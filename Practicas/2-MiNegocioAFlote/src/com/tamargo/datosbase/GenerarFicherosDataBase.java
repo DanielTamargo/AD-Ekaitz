@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class GenerarFicherosDataBase {
 
-    public static String pathFicheros = "./ficheros/data";
+    private static final String nombre = "[Data] ";
+    private static final String pathFicheros = "./ficheros/data";
 
     // Solo datos base e iniciativas base porque son los únicos datos fijos que necesitaremos
 
@@ -27,9 +28,9 @@ public class GenerarFicherosDataBase {
             for (Dato dato : listaDatos) {
                 objOS.writeObject(dato);
             }
-            System.out.println("[Data] Fichero datosbase.dat creado con éxito");
+            System.out.println(nombre + "Fichero datosbase.dat creado con éxito");
         } catch (IOException e) {
-            System.out.println("[Data] Error al generar/escribir en el fichero datosbase.dat");
+            System.out.println(nombre + "Error al generar/escribir en el fichero datosbase.dat");
         }
 
         // Iniciativas
@@ -39,16 +40,14 @@ public class GenerarFicherosDataBase {
             for (Iniciativa iniciativa : listaIniciativas) {
                 objOS.writeObject(iniciativa);
             }
-            System.out.println("[Data] Fichero iniciativasbase.dat creado con éxito");
+            System.out.println(nombre + "Fichero iniciativasbase.dat creado con éxito");
         } catch (IOException e) {
-            System.out.println("[Data] Error al generar/escribir en el fichero iniciativasbase.dat");
+            System.out.println(nombre + "Error al generar/escribir en el fichero iniciativasbase.dat");
         }
 
     }
 
-
-
-    public static ArrayList<Iniciativa> listaIniciativas() {
+    private static ArrayList<Iniciativa> listaIniciativas() {
         ArrayList<Iniciativa> iniciativasBase = new ArrayList<>();
 
         Iniciativa ini1 = new Iniciativa(1, "Captación de socios básica", 90, 1, 1000, 4000);
@@ -90,7 +89,7 @@ public class GenerarFicherosDataBase {
         return iniciativasBase;
     }
 
-    public static ArrayList<Dato> listaDatos() {
+    private static ArrayList<Dato> listaDatos() {
         ArrayList<Dato> listaDatos = new ArrayList<>();
         
         String[] nombresMasculinos = { "" +
@@ -175,7 +174,7 @@ public class GenerarFicherosDataBase {
     /**
      * Comprueba que la carpeta data existe, si no existe, la crea para poder generar dentro los logs
      */
-    public static synchronized void comprobarCarpetaData() {
+    private static synchronized void comprobarCarpetaData() {
         try {
             File f = new File(pathFicheros);
             if (!f.exists()) {

@@ -26,7 +26,11 @@ public class EmpleadoContratado implements Serializable {
         this.depNo = depNo;
         this.avatar = avatar;
 
-        this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+        try {
+            this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+        } catch (NullPointerException ignored) {
+            this.edad = -1;
+        }
     }
 
     @Override

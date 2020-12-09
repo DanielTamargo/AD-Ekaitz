@@ -1,0 +1,10 @@
+<empresas>
+  <empresa>
+    <id>-1</id>
+    <salarioDisponible>5000</salarioDisponible>
+    <gastosMensuales>0</gastosMensuales>
+    <gananciasMensuales>0</gananciasMensuales>
+    <nombre>base</nombre>
+    <ciudad>base</ciudad>
+  </empresa>
+</empresas>

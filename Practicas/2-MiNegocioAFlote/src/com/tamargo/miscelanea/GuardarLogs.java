@@ -66,20 +66,27 @@ public class GuardarLogs {
             }
 
             if (logs.size() > numLogsMaximos) {
-                File f = logs.get(0);
-                boolean borrado = false;
-                borrado = f.delete();
+                while (logs.size() > numLogsMaximos) {
+                    File f = logs.get(0);
+                    boolean borrado = false;
+                    borrado = f.delete();
 
-                if (borrado) {
-                    System.out.println("[Log] Para evitar un excesivo número de logs se ha eliminado el log más antiguo: " + f.getName());
-                    borrarLogsSobrantes();
-                } else
-                    System.out.println("[Log] Se ha intentado eliminar sin éxito");
+                    if (borrado) {
+                        System.out.println("[Log] Para evitar un excesivo número de logs se ha eliminado el log más antiguo: " + f.getName());
+                        logs.remove(0);
+                    } else {
+                        System.out.println("[Log] Se ha intentado eliminar sin éxito");
+                        break;
+                    }
+                }
             }
 
             if (logsLCK.size() > 1) {
                 while (logsLCK.size() > 1) {
-                    logsLCK.get(0).delete();
+                    if (logsLCK.get(0).delete())
+                        logsLCK.remove(0);
+                    else
+                        break;
                 }
             }
 
