@@ -7,6 +7,7 @@ import com.thoughtworks.xstream.XStream;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.time.LocalDate;
 import java.util.logging.Level;
 
 public class GenerarFicherosXMLBase {
@@ -86,7 +87,7 @@ public class GenerarFicherosXMLBase {
 
     private static void generarXMLEmpresas(Empresas empresas) {
 
-        Empresa empresa = new Empresa(-1, "base", "base");
+        Empresa empresa = new Empresa(-1, "base", "base", "logo1.png");
         empresas.addEmpresa(empresa);
 
         try {
@@ -115,7 +116,7 @@ public class GenerarFicherosXMLBase {
     private static void generarXMLEmpleadosDisponibles(EmpleadosDisponibles empleadosDisponibles) {
 
         EmpleadoDisponible empleadoDisponible = new EmpleadoDisponible(-1, "base", "base", "base",
-                null, -1, "base", "base", -1);
+                null, -1, "base", "base", -1, LocalDate.now());
         empleadosDisponibles.addEmpleadoDisponible(empleadoDisponible);
 
         try {
@@ -144,7 +145,7 @@ public class GenerarFicherosXMLBase {
     private static void generarXMLEmpleadosContratados(EmpleadosContratados empleadosContratados) {
 
         EmpleadoContratado empleadoContratado = new EmpleadoContratado(-1, "base", "base", "base",
-                null, -1, -1, "base");
+                null, -1, -1, "base", LocalDate.now());
         empleadosContratados.addEmpleadoContratado(empleadoContratado);
 
         try {
@@ -182,6 +183,7 @@ public class GenerarFicherosXMLBase {
 
             xstream.alias("departamentos", Departamentos.class);
             xstream.alias("departamento", Departamento.class);
+            xstream.aliasAttribute(Departamento.class, "idEmpresa", "idEmpresa");
 
             // Quitamos etiqueta lista (atributo de la clase ListaPartidas)
             xstream.addImplicitCollection(Departamentos.class, "lista");

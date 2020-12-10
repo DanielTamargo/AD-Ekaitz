@@ -91,8 +91,8 @@ public class GenerarFicherosDataBase {
 
     private static ArrayList<Dato> listaDatos() {
         ArrayList<Dato> listaDatos = new ArrayList<>();
-        
-        String[] nombresMasculinos = { "" +
+
+        String[] nombresMasculinos = {"" +
                 "Daniel", "Ander", "Mario", "Ramón", "Alejandro", "Aitor", "Diego", "Leo", "Hugo", "Martín",
                 "Pablo", "Manuel", "Álvaro", "David", "Marcos", "Javier", "Alex", "Bruno", "Miguel", "Antonio",
                 "Oliver", "Rodrigo", "Ekaitz", "Luis", "Rafael", "Pau", "Unai", "Joel", "Alberto", "Pedro",
@@ -130,14 +130,41 @@ public class GenerarFicherosDataBase {
         String[] profesiones = {
                 "RRHH", "Estudio de Mercado", "Ventas", "Administrativo", "Marketing", "Salud"
         };
+        String[] dnis = {
+                "56222252V", "44466675Q", "89282070A", "70375995C", "66658964L", "60134720R", "99104460J", "83172635N",
+                "32683215P", "44075315R", "26224225Q", "72302083L", "76854945P", "27224044W", "36140340A", "47491949P",
+                "51886339H", "38905884G", "18740942J", "52474766J", "43979277B", "12023651X", "72210385E", "84405539R",
+                "36643974Y", "70613695S", "28073463P", "19871987X", "01750751Z", "86790422Z", "56033918F", "53363525Y",
+                "77083983N", "00719371T", "16642487D", "58906975L", "22832305K", "12556715A", "07904201K", "93523489S",
+                "92951552L", "14253035G", "90686622Z", "82013177F", "67848028Y", "34963033C", "28317836Y", "73397128B",
+                "65345934J", "64429026T", "03397040D", "82242204T", "15948001P", "80893681J", "67711513L", "00475596W",
+                "98212451J", "43536998E", "01241725R", "48279607P", "47664543X", "99350515Z", "19970075A", "98434321W",
+                "93778630V", "55203043F", "96529377X", "14074568V", "08224364R", "03207072K", "15361711B", "60617088J",
+                "96753068A", "31375180Y", "23393339Q", "55439723V", "66456399S", "98512901Z", "23825743C", "17014325Y",
+                "57856058H", "38588494Z", "86295871D", "58228053B", "99850235J", "81689214E", "33901575N", "46747692P",
+                "42450585Z", "50579755H", "38699372D", "78854747Y", "64185154C", "65797694F", "05038871P", "62194285P",
+                "34074684T", "75478908S", "37474232X", "52236437X", "23684264Z", "05033564Z", "82290682V", "68780371K",
+                "26338756F", "49424179P", "32657184J", "26896375Z", "73383889C", "14254095Y", "72613272H", "69925333C",
+                "44410069J", "21922814L", "35752483H", "81282385V", "90702224E", "48233132Q", "79809733D", "17440937Z",
+                "40267442P", "81454690Y", "42627096T", "57471140M", "57126352X", "62473431A", "76812571T", "38009142D",
+                "12654365H", "70134302B", "51877256C", "68605105S", "77165779C", "53165577L", "72104567G", "92186804K",
+                "98123944X", "19709024W", "38589748A", "14269898P", "78380550T", "19256323X", "02969224Q", "68942718B",
+                "71331507C", "90847552J", "93367500N", "03274434Q", "29443749T", "20826763X", "34509228M", "39376730V",
+                "69944276B", "91510389J", "60392873W", "55560535X", "61507183P", "33142441Q", "77802627K", "17676779Z",
+                "74181962Q", "75592551S", "95648666S", "78127978Z", "85758790R", "59567678R", "94254117W", "80504868S",
+                "44337960D", "22392534X", "19094955X", "80408245S", "12823102G", "46395062Z", "33957799R", "18922378W",
+                "88643461N", "58833966N", "83290286H", "17359035S", "35005100C", "43705959W", "96204552Z", "37083407R",
+                "49389835A", "89317045H", "66518712K", "43124600Z", "89688813Z", "41184737V", "24888689K", "29296126Z",
+                "20029766D", "25269558X", "76842014A", "27103060K", "85356394J", "90317994F", "60284127T", "51774146L"
+        };
         int id = 1;
-        
+
         // Añadimos los nombres masculinos
         for (String nombreMasc : nombresMasculinos) {
             listaDatos.add(new Dato("nombreMasculino", nombreMasc, id));
             id++;
         }
-        
+
         // Añadimos los nombres femeninos
         for (String nombreFem : nombresFemeninos) {
             listaDatos.add(new Dato("nombreFemulino", nombreFem, id));
@@ -161,10 +188,16 @@ public class GenerarFicherosDataBase {
             listaDatos.add(new Dato("avatarFemenino", avatarFem, id));
             id++;
         }
-        
+
         // Añadimos las profesiones
         for (String profesion : profesiones) {
             listaDatos.add(new Dato("profesion", profesion, id));
+            id++;
+        }
+
+        // Añadimos los dnis
+        for (String dni : dnis) {
+            listaDatos.add(new Dato("dni", dni, id));
             id++;
         }
 
@@ -190,5 +223,5 @@ public class GenerarFicherosDataBase {
             System.out.println("[Data] Error al crear la carpeta data");
         }
     }
-    
+
 }

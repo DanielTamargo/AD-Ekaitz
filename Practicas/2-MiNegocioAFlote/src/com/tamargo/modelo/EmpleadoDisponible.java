@@ -3,6 +3,7 @@ package com.tamargo.modelo;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class EmpleadoDisponible implements Serializable {
 
@@ -17,7 +18,7 @@ public class EmpleadoDisponible implements Serializable {
     private String departamentoDeseado;
     private int idEmpresa;
 
-    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado, int idEmpresa) {
+    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado, int idEmpresa, LocalDate fechaActual) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -29,10 +30,23 @@ public class EmpleadoDisponible implements Serializable {
         this.idEmpresa = idEmpresa;
 
         try {
-            this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+            this.edad = Period.between(fechaNac, fechaActual).getYears();
         } catch (NullPointerException ignored) {
             this.edad = -1;
         }
+    }
+
+    public EmpleadoDisponible(int id, String dni, String nombre, String apellido, int edad, LocalDate fechaNac, int salario, String avatar, String departamentoDeseado, int idEmpresa) {
+        this.id = id;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.fechaNac = fechaNac;
+        this.salario = salario;
+        this.avatar = avatar;
+        this.departamentoDeseado = departamentoDeseado;
+        this.idEmpresa = idEmpresa;
     }
 
     @Override
@@ -49,6 +63,30 @@ public class EmpleadoDisponible implements Serializable {
                 ", departamentoDeseado='" + departamentoDeseado + '\'' +
                 ", idEmpresa=" + idEmpresa +
                 '}';
+    }
+
+    public String queryUpdateInsert() {
+        if (fechaNac == null)
+            fechaNac = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        String fechaNacStr = fechaNac.format(formatter);
+
+        return "update insert " +
+                "<empleadoDisponible>" +
+                "<id>" + id + "</id>" +
+                "<dni>" + dni + "</dni>" +
+                "<nombre>" + nombre + "</nombre>" +
+                "<apellido>" + apellido + "</apellido>" +
+                "<edad>" + edad + "</edad>" +
+                "<fechaNac>" + fechaNacStr + "</fechaNac>" +
+                "<salario>" + salario + "</salario>" +
+                "<avatar>" + avatar + "</avatar>" +
+                "<departamentoDeseado>" + departamentoDeseado + "</departamentoDeseado>" +
+                "<idEmpresa>" + idEmpresa + "</idEmpresa>" +
+                "</empleadoDisponible>" +
+                " into /empleadosDisponibles";
+
     }
 
     public int getId() {

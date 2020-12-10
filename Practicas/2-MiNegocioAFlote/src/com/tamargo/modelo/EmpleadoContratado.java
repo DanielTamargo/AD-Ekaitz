@@ -3,6 +3,7 @@ package com.tamargo.modelo;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class EmpleadoContratado implements Serializable {
 
@@ -16,7 +17,7 @@ public class EmpleadoContratado implements Serializable {
     private int depNo;
     private String avatar;
 
-    public EmpleadoContratado(int empNo, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, int depNo, String avatar) {
+    public EmpleadoContratado(int empNo, String dni, String nombre, String apellido, LocalDate fechaNac, int salario, int depNo, String avatar, LocalDate fechaActual) {
         this.empNo = empNo;
         this.dni = dni;
         this.nombre = nombre;
@@ -27,10 +28,35 @@ public class EmpleadoContratado implements Serializable {
         this.avatar = avatar;
 
         try {
-            this.edad = Period.between(fechaNac, LocalDate.now()).getYears();
+            this.edad = calcularEdad(fechaActual);
         } catch (NullPointerException ignored) {
             this.edad = -1;
         }
+    }
+
+    public EmpleadoContratado(int empNo, String dni, String nombre, String apellido, int edad, LocalDate fechaNac, int salario, int depNo, String avatar) {
+        this.empNo = empNo;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.fechaNac = fechaNac;
+        this.salario = salario;
+        this.depNo = depNo;
+        this.avatar = avatar;
+    }
+
+    public int calcularEdad(LocalDate fechaActual) {
+        return Period.between(fechaNac, fechaActual).getYears();
+    }
+
+    public boolean haCumplidoAnyos(LocalDate fechaActual) {
+        int edadActual = calcularEdad(fechaActual);
+        if (edad < edadActual) {
+            edad = edadActual;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -46,6 +72,36 @@ public class EmpleadoContratado implements Serializable {
                 ", depNo=" + depNo +
                 ", avatar='" + avatar + '\'' +
                 '}';
+    }
+
+    public String queryUpdateInsert() {
+        if (fechaNac == null)
+            fechaNac = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        String fechaNacStr = fechaNac.format(formatter);
+
+        return "update insert " +
+                "<empleadoContratado>" +
+                "<empNo>" + empNo + "</empNo>" +
+                "<dni>" + dni + "</dni>" +
+                "<nombre>" + nombre + "</nombre>" +
+                "<apellido>" + apellido + "</apellido>" +
+                "<edad>" + edad + "</edad>" +
+                "<fechaNac>" + fechaNacStr + "</fechaNac>" +
+                "<salario>" + salario + "</salario>" +
+                "<depNo>" + depNo + "</depNo>" +
+                "<avatar>" + avatar + "</avatar>" +
+                "</empleadoContratado>" +
+                " into /empleadosContratados";
+
+    }
+
+    public String queryUpdateReplaceEdad() {
+        return "update replace " +
+                "/empleadosContratados/empleadoContratado[empNo=" + empNo + "]/edad " +
+                "with " +
+                "<edad>" + edad + "</edad>";
     }
 
     public int getEmpNo() {

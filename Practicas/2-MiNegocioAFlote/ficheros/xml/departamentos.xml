@@ -1,6 +1,5 @@
 <departamentos>
-  <departamento>
-    <idEmpresa>-1</idEmpresa>
+  <departamento idEmpresa="-1">
     <depNo>-1</depNo>
     <nombre>base</nombre>
     <nivel>-1</nivel>

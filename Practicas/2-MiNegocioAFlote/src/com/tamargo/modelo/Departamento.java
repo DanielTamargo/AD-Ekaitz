@@ -19,15 +19,6 @@ public class Departamento implements Serializable {
         this.nivel = nivel;
     }
 
-    /**
-     * Constructor sin el idEmpresa por si fuese necesario
-     */
-    public Departamento(int depNo, String nombre, int nivel) {
-        this.depNo = depNo;
-        this.nombre = nombre;
-        this.nivel = nivel;
-    }
-
     @Override
     public String toString() {
         return "Departamento{" +
@@ -36,6 +27,23 @@ public class Departamento implements Serializable {
                 ", nombre='" + nombre + '\'' +
                 ", nivel=" + nivel +
                 '}';
+    }
+    
+    public String queryUpdateInsert() {
+        return "update insert " +
+                "<departamento idEmpresa=\"" + idEmpresa + "\">" +
+                "<depNo>" + depNo + "</depNo>" +
+                "<nombre>" + nombre + "</nombre>" +
+                "<nivel>" + nivel + "</nivel>" +
+                "</departamento>" +
+                " into /departamentos";
+    }
+
+    public String queryUpdateReplaceNivel() {
+        return "update replace " +
+                "/departamentos/departamento[depNo=" + depNo + "]/nivel " +
+                "with " +
+                "<nivel>" + nivel + "</nivel>";
     }
 
     public int getIdEmpresa() {
