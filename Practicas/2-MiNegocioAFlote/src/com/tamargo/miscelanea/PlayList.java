@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class PlayList extends Thread {
 
+    String nombre = "[Music] ";
     Clip clip;
     FloatControl controladorVolumen;
     float volumen = -40;
@@ -38,7 +39,7 @@ public class PlayList extends Thread {
             String nombreCancion = nombresCancionesPlayLists.get(indexPlayList)[indexCancion];
 
             try {
-                File cancion = new File("./canciones/" + nombreArchivoCancion);
+                File cancion = new File("./ficheros/canciones/" + nombreArchivoCancion);
 
                 if (cancion.exists()) {
                     AudioInputStream audioInput = AudioSystem.getAudioInputStream(cancion);
@@ -49,36 +50,36 @@ public class PlayList extends Thread {
                     controladorVolumen.setValue(volumen);
 
                     clip.start();
-                    System.out.println("Reproduciendo: " + nombreCancion);
+                    System.out.println(nombre + "Reproduciendo: " + nombreCancion);
 
                     try {
                         sleep(clip.getMicrosecondLength() / 1000);
                         sigueReproduciendo();
                     } catch (InterruptedException ex) {
                         switch (accion) {
-                            case 0 -> System.out.println("¿Error?");
-                            case 1 -> System.out.println("Reproduciendo la siguiente canción...");
-                            case 2 -> System.out.println("Reproduciendo la canción anterior...");
+                            case 0 -> System.out.println(nombre + "¿Error?");
+                            case 1 -> System.out.println(nombre + "Reproduciendo la siguiente canción...");
+                            case 2 -> System.out.println(nombre + "Reproduciendo la canción anterior...");
                             case 3 -> {
-                                System.out.println("Parando la playlist...");
+                                System.out.println(nombre + "Parando la playlist...");
                                 reproduciendo = false;
                             }
-                            case 4 -> System.out.println("Cambiando la playlist...");
-                            case 5 -> System.out.println("Reproduciendo la siguiente playlist...");
-                            case 6 -> System.out.println("Reproduciendo la playlist anterior...");
-                            case 7 -> System.out.println("Cambiando la playlist y eligiendo '" + nombresCancionesPlayLists.get(indexPlayList)[indexCancion] + "'");
-                            default -> System.out.println("¿¿¿Error???");
+                            case 4 -> System.out.println(nombre + "Cambiando la playlist...");
+                            case 5 -> System.out.println(nombre + "Reproduciendo la siguiente playlist...");
+                            case 6 -> System.out.println(nombre + "Reproduciendo la playlist anterior...");
+                            case 7 -> System.out.println(nombre + "Cambiando la playlist y eligiendo '" + nombresCancionesPlayLists.get(indexPlayList)[indexCancion] + "'");
+                            default -> System.out.println(nombre + "¿¿¿Error???");
                         }
                         accion = 0;
                     }
 
                 } else {
-                    System.out.println("No existe la canción: " + nombreArchivoCancion);
+                    System.out.println(nombre + "No existe la canción: " + nombreArchivoCancion);
                     reproduciendo = false;
                 }
 
             } catch (Exception ex) {
-                System.out.println("Error al reproducir la canción: " + nombreArchivoCancion);
+                System.out.println(nombre + "Error al reproducir la canción: " + nombreArchivoCancion);
                 reproduciendo = false;
             }
         }
@@ -86,7 +87,7 @@ public class PlayList extends Thread {
 
     public void sigueReproduciendo() {
         indexCancion++;
-        System.out.println("Reproduciendo la siguiente canción...");
+        System.out.println(nombre + "Reproduciendo la siguiente canción...");
         if (indexCancion >= playlists.get(indexPlayList).length)
             indexCancion = 0;
     }
@@ -184,7 +185,7 @@ public class PlayList extends Thread {
         return volumen;
     }
 
-    public void setVolumenDelControladorVolumen(float volumen) {
+    public void setVolumen(float volumen) {
         volumen = ajustarLimitesVolumen(volumen);
         try {
             controladorVolumen.setValue(volumen);

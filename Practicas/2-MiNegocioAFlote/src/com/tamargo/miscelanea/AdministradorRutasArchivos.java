@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class AdministradorRutasArchivos {
 
-    public static String[] titulosPlaylists = { "Mentalidad Calmada", "Mentalidad Tiburón", "Mentalidad Anime" };
+    public static String[] titulosPlaylists = { "Mentalidad Calmada", "Mentalidad Tiburón" };
 
-    public static String[] cancionesPlaylist1 = { "p1-1-dbz.wav", "p1-2-dbgt.wav" };
-    public static String[] cancionesPlaylist2 = { "p2-1-unravel.wav", "p2-2-haikyuu-3.wav" };
+    public static String[] cancionesPlaylist1 = { "1-1-ayasake.wav", "1-2-emptycrown.wav", "1-3-buttercup.wav" };
+    public static String[] cancionesPlaylist2 = { "2-1-challenges.wav", "2-2-desecreation.wav", "2-3-postmortem.wav" };
 
-    public static String[] nombresPlaylist1 = { "Opening - DBZ", "Opening - DBGT" };
-    public static String[] nombresPlaylist2 = { "Unravel - Tokyo Ghoul", "Quick Freak - Haikyuu"};
+    public static String[] nombresPlaylist1 = { "Ayasake no Starmine", "Empty Crown", "Buttercup (Mix)" };
+    public static String[] nombresPlaylist2 = { "Challenges", "Desecreation", "Postmortem"};
 
     public static ArrayList<String[]> playLists() {
         ArrayList<String[]> playLists = new ArrayList<>();

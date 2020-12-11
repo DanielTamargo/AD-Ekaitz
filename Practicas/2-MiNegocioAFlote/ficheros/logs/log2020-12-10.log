@@ -1,0 +1,549 @@
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 10, 2020 11:57:51 A. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 10, 2020 1:42:27 P. M. com.tamargo.exist.Coleccion borrarDepartamento
+INFO: El departamento 1 se intenta eliminar pero no existe no existe.
+dic. 10, 2020 1:50:14 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado.
+dic. 10, 2020 2:11:09 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado.
+dic. 10, 2020 2:11:52 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado.
+dic. 10, 2020 2:16:08 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:16:55 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:16:58 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:17:07 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:17:19 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:18:08 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: El empleado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 2:18:30 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: El empleado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 2:18:39 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 3 insertado
+dic. 10, 2020 2:18:42 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 2 insertado
+dic. 10, 2020 2:18:45 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 4 insertado
+dic. 10, 2020 2:18:59 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 10, 2020 2:57:05 P. M. com.tamargo.exist.Coleccion borrarEmpresa
+FINEST: Empresa -1 eliminada
+dic. 10, 2020 2:57:51 P. M. com.tamargo.exist.Coleccion borrarDepartamento
+FINEST: Departamento -1 eliminado
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 10, 2020 3:01:26 P. M. com.tamargo.exist.Coleccion borrarEmpresa
+FINEST: Empresa -1 eliminada
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDatos
+FINE: Fichero datos.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLDepartamentos
+FINE: Fichero departamentos.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosContratados
+FINE: Fichero empleadosContratados.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpleadosDisponibles
+FINE: Fichero empleadosDisponibles.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLEmpresas
+FINE: Fichero empresas.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativas
+FINE: Fichero iniciativas.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.datosbase.GenerarFicherosXMLBase generarXMLIniciativasActivas
+FINE: Fichero iniciativasActivas.xml generado con éxito
+dic. 10, 2020 3:02:09 P. M. com.tamargo.exist.Coleccion borrarEmpresa
+INFO: La empresa -1 se intenta eliminar pero no existe no existe
+dic. 10, 2020 5:19:28 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+FINEST: Nueva empresa 1 insertada
+dic. 10, 2020 5:19:28 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+FINEST: Nuevo departamento  1 insertado
+dic. 10, 2020 5:19:28 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+FINEST: Nueva iniciativaActiva insertada
+dic. 10, 2020 5:19:28 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 5:19:28 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+FINEST: Nuevo empleado disponible 1 insertado
+dic. 10, 2020 5:19:53 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: El empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:19:53 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:19:53 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: El iniciativaActiva pero ya existe una iniciativaActiva con ese id
+dic. 10, 2020 5:19:53 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:19:53 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:21:06 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:21:07 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:21:07 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:21:07 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:21:07 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:29:16 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:29:16 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:29:16 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:29:16 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:29:16 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:29:54 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 5:29:54 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 5:29:54 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 5:29:54 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 5:31:05 P. M. com.tamargo.exist.Coleccion borrarEmpresa
+FINEST: Empresa 1 eliminada
+dic. 10, 2020 5:31:24 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+FINEST: Nueva empresa 1 insertada
+dic. 10, 2020 5:31:24 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+FINEST: Nuevo departamento  1 insertado
+dic. 10, 2020 5:31:24 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+FINEST: Nueva iniciativaActiva insertada
+dic. 10, 2020 5:31:24 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 5:31:24 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:45:02 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:45:02 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:45:02 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:45:02 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:45:02 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:53:34 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:53:34 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:53:34 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:53:34 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:53:34 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:53:44 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:53:44 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:53:44 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:53:44 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:53:44 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:53:59 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:53:59 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:53:59 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:53:59 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:53:59 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:54:09 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:54:09 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:54:09 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:54:09 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:54:09 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:54:15 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:54:15 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:54:15 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:54:15 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:54:15 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:54:27 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:54:27 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:54:27 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:54:27 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:54:27 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:54:34 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:54:34 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:54:34 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:54:34 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:54:34 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:54:44 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:54:44 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:54:44 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:54:44 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:54:44 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:58:35 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:58:35 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:58:35 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:58:35 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:58:35 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:58:39 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 5:58:39 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 5:58:39 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 5:58:39 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 5:59:02 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:59:02 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:59:02 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:59:02 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:59:02 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:59:04 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 5:59:04 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 5:59:04 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 5:59:04 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 5:59:26 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 5:59:26 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 5:59:26 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 5:59:26 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 5:59:26 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 5:59:31 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 5:59:31 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 5:59:32 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 5:59:32 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 5:59:32 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 6:00:37 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:00:37 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 6:00:37 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:00:37 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 1 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:00:37 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 6:00:39 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:00:42 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 6:00:42 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 6:00:42 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 6:00:42 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 6:00:43 P. M. com.tamargo.exist.Coleccion borrarDepartamento
+FINEST: Departamento 1 eliminado
+dic. 10, 2020 6:00:43 P. M. com.tamargo.exist.Coleccion borrarEmpleadoContratado
+INFO: El empleadoContratado 1 se intenta eliminar pero no existe no existe
+dic. 10, 2020 6:01:35 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:01:35 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+FINEST: Nuevo departamento  1 insertado
+dic. 10, 2020 6:01:35 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:01:35 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 6:01:35 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 6:01:38 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:01:38 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 6:01:38 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 6:01:38 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 6:01:38 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 6:01:43 P. M. com.tamargo.exist.Coleccion borrarEmpleadoContratado
+FINEST: EmpleadoContratado 1 eliminado
+dic. 10, 2020 6:04:51 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:04:51 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 1 pero ya existe un departamento con ese id
+dic. 10, 2020 6:04:51 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:04:51 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 1 insertado
+dic. 10, 2020 6:04:51 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 1 pero ya existe un empleado con ese id
+dic. 10, 2020 6:04:55 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:04:55 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 6:04:55 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 6:04:55 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 1 editado
+dic. 10, 2020 6:04:55 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 1 editada
+dic. 10, 2020 6:04:56 P. M. com.tamargo.exist.Coleccion borrarIniciativaActiva
+FINEST: IniciativaActiva eliminada
+dic. 10, 2020 6:24:46 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:24:46 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+FINEST: Nuevo departamento  0 insertado
+dic. 10, 2020 6:24:46 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+FINEST: Nueva iniciativaActiva insertada
+dic. 10, 2020 6:24:46 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 0 insertado
+dic. 10, 2020 6:24:46 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+FINEST: Nuevo empleado disponible 0 insertado
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Error al leer las iniciativas. Error: Failed to invoke method queryP in class org.exist.xmlrpc.RpcConnection: org.exist.xquery.StaticXQueryException: exerr:ERROR org.exist.xquery.XPathException: err:XPST0003 expecting dollar sign '$', found 'return' [at line 1, column 196]
+
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 1 editada
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 1 editada
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 0 editado
+dic. 10, 2020 6:24:50 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 0 editada
+dic. 10, 2020 6:25:36 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:25:36 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 6:25:36 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:25:36 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:25:36 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 6:25:37 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:25:37 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:29:52 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 1 pero ya existe una empresa con ese id
+dic. 10, 2020 6:29:52 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 6:29:52 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:29:52 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:29:52 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 6:29:54 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:29:54 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:29:54 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 2
+dic. 10, 2020 6:30:18 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+FINEST: Nueva empresa 0 insertada
+dic. 10, 2020 6:30:18 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 6:30:18 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:30:18 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:30:18 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 6:30:19 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 2
+dic. 10, 2020 6:30:19 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:30:19 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 2
+dic. 10, 2020 6:37:55 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 0 pero ya existe una empresa con ese id
+dic. 10, 2020 6:37:55 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 6:37:55 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:37:55 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:37:55 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 6:37:56 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 2
+dic. 10, 2020 6:37:56 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:37:56 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 2
+dic. 10, 2020 6:37:56 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+SEVERE: Empleados contratados leídos: 2
+dic. 10, 2020 6:42:36 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 0 pero ya existe una empresa con ese id
+dic. 10, 2020 6:42:36 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 6:42:36 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 6:42:36 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 6:42:36 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 6:42:38 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 2
+dic. 10, 2020 6:42:38 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:42:38 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 2
+dic. 10, 2020 6:42:38 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+SEVERE: Empleados contratados leídos: 2
+dic. 10, 2020 6:42:38 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+SEVERE: Error al leer los empleados disponibles. Error: Index 9 out of bounds for length 9
+dic. 10, 2020 6:46:05 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+FINEST: Nueva empresa 0 insertada
+dic. 10, 2020 6:46:05 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+FINEST: Nuevo departamento  0 insertado
+dic. 10, 2020 6:46:05 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+FINEST: Nueva iniciativaActiva insertada
+dic. 10, 2020 6:46:05 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+FINEST: Nuevo empleado contratado 0 insertado
+dic. 10, 2020 6:46:05 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+FINEST: Nuevo empleado disponible 0 insertado
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 1
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+SEVERE: Empleados contratados leídos: 1
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+SEVERE: Empleados disponibles leídos: 1
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion editarEmpresa
+FINEST: Empresa 0 editada
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion editarFechaEmpresa
+FINEST: Fecha actual de la empresa 0 editada
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion editarNivelDepartamento
+FINEST: Nivel del departamento 0 editado
+dic. 10, 2020 6:46:07 P. M. com.tamargo.exist.Coleccion editarEdadEmpleadoContratado
+FINEST: Edad del empleado 0 editada
+dic. 10, 2020 7:22:19 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 0 pero ya existe una empresa con ese id
+dic. 10, 2020 7:22:19 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 7:22:19 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 7:22:19 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 7:22:19 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerIniciativasActivas
+SEVERE: Iniciativas activas leídas: 1
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 1
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+SEVERE: Empleados contratados leídos: 1
+dic. 10, 2020 7:22:21 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+SEVERE: Empleados disponibles leídos: 1
+dic. 10, 2020 7:29:10 P. M. com.tamargo.exist.Coleccion insertarEmpresa
+INFO: Se ha intentado insertar la empresa 0 pero ya existe una empresa con ese id
+dic. 10, 2020 7:29:10 P. M. com.tamargo.exist.Coleccion insertarDepartamento
+INFO: Se ha intentado insertar el departamento 0 pero ya existe un departamento con ese id
+dic. 10, 2020 7:29:10 P. M. com.tamargo.exist.Coleccion insertarIniciativaActiva
+INFO: Se ha intentado insertar la iniciativa activa pero ya existe esa iniciativa en esa empresa
+dic. 10, 2020 7:29:10 P. M. com.tamargo.exist.Coleccion insertarEmpleadoContratado
+INFO: Se ha intentado insertar el empleado contratado 0 pero ya existe un empleado con ese empNo
+dic. 10, 2020 7:29:10 P. M. com.tamargo.exist.Coleccion insertarEmpleadoDisponible
+INFO: Se ha intentado insertar el empleado disponible 0 pero ya existe un empleado con ese id
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+SEVERE: Empresas leídas: 1
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerIniciativas
+SEVERE: Iniciativas leídas: 15
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerIniciativasActivas
+SEVERE: Iniciativas activas leídas: 1
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+SEVERE: Departamentos leídos: 1
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+SEVERE: Empleados contratados leídos: 1
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+SEVERE: Empleados disponibles leídos: 1
+dic. 10, 2020 7:29:12 P. M. com.tamargo.exist.Coleccion recogerDatos
+SEVERE: Datos leídos: 416

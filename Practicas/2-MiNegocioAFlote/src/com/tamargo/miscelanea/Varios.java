@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Varios {
 
-    private final static Empresa empresa = new Empresa(0, "Prueba", "Prueba", "prueba.png");
+    private final static Empresa empresa = new Empresa(0, "To the Sky", "Vitoria", "logo1.png");
     private final static IniciativaActiva iniciativaActiva = new IniciativaActiva(1, 0, LocalDate.now());
     private final static Departamento departamento = new Departamento(0, 0, "PruebaDep", 1);
     private final static EmpleadoContratado emp1 = new EmpleadoContratado(0, "dni", "Nombre", "Ape", LocalDate.now().minusYears(19), 1000, 0, "avatar", LocalDate.now());
@@ -116,7 +116,7 @@ public class Varios {
 
     private static void editarDatos() {
         empresa.setCiudad("Vitoria");
-        empresa.setNombre("Cambiando el nombre");
+        empresa.setNombre("Shark Business");
         Coleccion.editarEmpresa(empresa);
 
         empresa.setFechaActual(LocalDate.now().plusDays(30));
