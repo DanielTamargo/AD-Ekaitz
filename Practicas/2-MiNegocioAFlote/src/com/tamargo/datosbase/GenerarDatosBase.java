@@ -37,6 +37,8 @@ public class GenerarDatosBase {
             }
         }
 
+        Coleccion.borrarEmpresa(-1);
+
     }
 
     private static ArrayList<String> nombresRecursosObligatorios() {

@@ -1,5 +1,6 @@
 package com.tamargo.miscelanea;
 
+import com.tamargo.datosbase.GenerarDatosBase;
 import com.tamargo.exist.Coleccion;
 import com.tamargo.modelo.*;
 import org.xmldb.api.base.XMLDBException;
@@ -19,6 +20,10 @@ public class Varios {
 
 
     public static void main(String[] args) throws XMLDBException {
+
+        GenerarDatosBase.generarDatosBase();
+        Coleccion.borrarEmpresa(-1);
+
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Inserciones:");

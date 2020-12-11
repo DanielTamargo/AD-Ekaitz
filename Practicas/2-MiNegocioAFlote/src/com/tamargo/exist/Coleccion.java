@@ -1,5 +1,6 @@
 package com.tamargo.exist;
 
+import com.tamargo.datosbase.GenerarDatosBase;
 import com.tamargo.miscelanea.GuardarLogs;
 import com.tamargo.modelo.*;
 import org.xmldb.api.DatabaseManager;
@@ -7,6 +8,7 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
 
+import javax.swing.*;
 import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,7 +26,8 @@ public class Coleccion {
 
     //todo fichero que controle que es la primera vez que se inicia? o que ponga un 0 si da error de intentar conectar con servicio exist
     //todo ventana personalizada para que ponga su puerto, usuario y contraseña y que se almacenen en un fichero?
-    private final static String URI = "xmldb:exist://localhost:8083/exist/xmlrpc/db/" + nombreColeccion; //URI colección
+    private final static String puerto = "8083";
+    private final static String URI = "xmldb:exist://localhost:" + puerto + "/exist/xmlrpc/db/" + nombreColeccion; //URI colección
     private final static String usu = "admin"; //Usuario
     private final static String usuPwd = "admin"; //Clave
 
@@ -46,6 +49,7 @@ public class Coleccion {
             Database database = (Database) cl.newInstance(); // Instanciar la BD
             DatabaseManager.registerDatabase(database); // Registro del driver
             coleccion = DatabaseManager.getCollection(URI, usu, usuPwd); // Cargar la colección en cuestión
+
 
             // Devolvemos la conexión
             return coleccion;
@@ -100,9 +104,25 @@ public class Coleccion {
                 coleccion.close();
                 System.out.println(nombre + "Colección '" + nombreColeccion + "' creada");
 
+                GenerarDatosBase.generarDatosBase();
+
             } catch (XMLDBException | ClassNotFoundException e) {
-                System.out.println("ERROR AL CONSULTAR DOCUMENTO.");
+                System.out.println("Error al conectar con la BBDD.");
+                mostrarJOptionPane("Error con eXist", String.format("""
+                        Imposible conectar con eXist.
+                        
+                        ¿Te faltan librerías?
+                        ¿Has arrancado el servidor?
+                        
+                        O puede que tus credenciales no sean:
+                        - Puerto: %s
+                        - Admin: %s
+                        - Password: %s
+                        
+                        Comprueba lo mencionado y vuelve a arrancar la aplicación
+                        """, puerto, usu, usuPwd), 0);
                 GuardarLogs.logger.log(Level.SEVERE, "Error al crear la colección. Error: " + e.getLocalizedMessage());
+                System.exit(0);
             } catch (IllegalAccessException | InstantiationException e) {
                 e.printStackTrace();
                 GuardarLogs.logger.log(Level.SEVERE, "Error al crear la colección. Error: " + e.getLocalizedMessage());
@@ -112,6 +132,16 @@ public class Coleccion {
                 coleccion.close();
             } catch (XMLDBException ignored) { }
         }
+    }
+
+    private static void mostrarJOptionPane(String titulo, String mensaje, int tipo) {
+        JButton okButton = new JButton("Ok");
+        okButton.setFocusPainted(false);
+        Object[] options = {okButton};
+        final JOptionPane pane = new JOptionPane(mensaje, tipo, JOptionPane.YES_NO_OPTION, null, options);
+        JDialog dialog = pane.createDialog(titulo);
+        okButton.addActionListener(e -> dialog.dispose());
+        dialog.setVisible(true);
     }
 
     /**
@@ -173,7 +203,299 @@ public class Coleccion {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // RETRIEVES
+    // RETRIEVES PARTICULARES
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public ArrayList<String> informe(int idEmpresa) {
+        ArrayList<String> informe = new ArrayList<>();
+
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                // TODO numero de empleados totales
+                //  numero de empleados por departamento
+                //  empleado con mayor salario + departamento al que pertenece
+                //  departamento que mas salario genera
+                //  empresa que mas empleados tiene, que mas salario genera, etc..... <- no hacer
+                String queryNumEmpleadosEmpresa = "for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=(for $depNo in /departamentos/departamento[@idEmpresa=\"" + idEmpresa + "\"" +
+                        "]/depNo return $depNo)]) return $cuenta"; // TODO GUARDAR QUERY
+                String queryEmpMaxSalario = "for $maxSalario in /empleadosContratados/max(empleadoContratado[depNo=(for $depNo in /departamentos/departamento[@idEmpresa=\"" + idEmpresa +
+                        "\"]/depNo return $depNo)]/salario) return $maxSalario";
+
+
+
+
+                coleccion.close();
+                System.out.println("Informe de la empresa " + idEmpresa + " generado");
+                GuardarLogs.logger.log(Level.INFO,  "Informe de la empresa " + idEmpresa + " generado");
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al generar el informe. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer generar el informe. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+
+        return informe;
+    }
+
+    public static int idEmpleadoDisponibleMasAlto() {
+        int idEmpleadoDisponible = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando el id de empleadoDisponible más alto");
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $id in /empleadosDisponibles/max(empleadoDisponible/id) return $id"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            idEmpleadoDisponible = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "Id de empleadoDisponible más alto: " + idEmpleadoDisponible);
+                GuardarLogs.logger.log(Level.INFO,  "Id de empleadoDisponible más alto: " + idEmpleadoDisponible);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el id de empleadoDisponible más alto. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el id de empleadoDisponible más alto. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return idEmpleadoDisponible;
+    }
+    public static int idEmpresaMasAlto() {
+        int idEmpresa = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando el id de empresa más alto");
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $id in /empresas/max(empresa/id) return $id"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            idEmpresa = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "Id de empresa más alto: " + idEmpresa);
+                GuardarLogs.logger.log(Level.INFO,  "Id de empresa más alto: " + idEmpresa);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el id de empresa más alto. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el id de empresa más alto. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return idEmpresa;
+    }
+    public static int depNoDepartamentoMasAlto() {
+        int depNoDepartamento = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando el depNo de departamento más alto");
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $depNo in /departamentos/max(departamento/depNo) return $depNo"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            depNoDepartamento = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "DepNo de departamento más alto: " + depNoDepartamento);
+                GuardarLogs.logger.log(Level.INFO,  "DepNo de departamento más alto: " + depNoDepartamento);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el depNo de departamento más alto. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el depNo de departamento más alto. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return depNoDepartamento;
+    }
+    public static int empNoEmpleadoContratadoMasAlto() {
+        int empNoEmpleadoContratado = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando el empNo de empleadoContratado más alto");
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $empNo in /empleadosContratados/max(empleadoContratado/empNo) return $empNo"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            empNoEmpleadoContratado = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "EmpNo de empleadoContratado más alto: " + empNoEmpleadoContratado);
+                GuardarLogs.logger.log(Level.INFO,  "EmpNo de empleadoContratado más alto: " + empNoEmpleadoContratado);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el empNo de empleadoContratado más alto. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el empNo de empleadoContratado más alto. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return empNoEmpleadoContratado;
+    }
+    public static int numDepartamentos() {
+        int numDepartamentos = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando número de departamentos");
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $cuenta in /departamentos/count(departamento) " +
+                        " return $cuenta"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            numDepartamentos = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "Número de departamentos: " + numDepartamentos);
+                GuardarLogs.logger.log(Level.INFO,  "Número de departamentos: " + numDepartamentos);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el número de departamentos. Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el número de departamentos. Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return numDepartamentos;
+    }
+    public static int numEmpleadosDepartamento(int depNo) {
+        int numEmps = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando número de empleados del departamento " + depNo);
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=" + depNo + "]) " +
+                        " return $cuenta"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            numEmps = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "Número de empleados del departamento " + depNo + ": " + numEmps);
+                GuardarLogs.logger.log(Level.INFO,  "Número de empleados del departamento " + depNo + ": " + numEmps);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el número de empleados del departamento " + depNo + ". Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el número de empleados del departamento " + depNo + ". Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return numEmps;
+    }
+    public static long salarioTotalDepartamento(int depNo) {
+        long salarioTotal = 0;
+        if (conectar() != null) {
+            try {
+                System.out.println(nombre + "Sacando salario total del departamento " + depNo);
+                XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+                String query = "" +
+                        "for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=" + depNo + "]/salario) " +
+                        " return $cuenta"; // TODO GUARDAR QUERY
+
+                ResourceSet result = servicio.query(query);
+                ResourceIterator i = result.getIterator();
+                if (i.hasMoreResources()) {
+                    while (i.hasMoreResources()) {
+                        try {
+                            // Por cada departamento borrar los empleados
+                            Resource r = i.nextResource();
+                            String resultado = (String) r.getContent();
+                            salarioTotal = Integer.parseInt(resultado);
+
+                        } catch (NumberFormatException | PatternSyntaxException | ClassCastException ignored) {
+                            ignored.printStackTrace();
+                        }
+                    }
+                }
+                coleccion.close();
+                System.out.println(nombre + "Salario total del departamento " + depNo + ": " + salarioTotal);
+                GuardarLogs.logger.log(Level.INFO,  "Número de empleados del departamento " + depNo + ": " + salarioTotal);
+            } catch (Exception e) {
+                System.out.println(nombre + "Error al leer el salario total del departamento " + depNo + ". Error: " + e.getLocalizedMessage());
+                GuardarLogs.logger.log(Level.SEVERE,  "Error al leer el salario total del departamento " + depNo + ". Error: " + e.getLocalizedMessage());
+            }
+        } else {
+            System.out.println(nombre + "Error al conectar con la BBDD");
+        }
+        return salarioTotal;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // RETRIEVES LISTAS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static ArrayList<Empresa> recogerEmpresas() {
         ArrayList<Empresa> empresas = new ArrayList<>();
@@ -225,9 +547,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Empresas leídas: " + empresas.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Empresas leídas: " + empresas.size());
+                GuardarLogs.logger.log(Level.INFO,  "Empresas leídas: " + empresas.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer las empresas. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer las empresas. Error: " + e.getLocalizedMessage());
@@ -246,9 +568,9 @@ public class Coleccion {
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
                         "for $dato in /datos/dato " +
-                        " let $tipoDato:=$dato/tipoDato, " +
+                        " let $tipo:=$dato/tipo, " +
                         " $dato:=$dato/dato " +
-                        " return concat($tipoDato, '|', $dato)"; // TODO GUARDAR QUERY
+                        " return concat($tipo, '|', $dato)"; // TODO GUARDAR QUERY
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -268,9 +590,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Datos leídos: " + datos.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Datos leídos: " + datos.size());
+                GuardarLogs.logger.log(Level.INFO,  "Datos leídos: " + datos.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer los datos. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer los datos. Error: " + e.getLocalizedMessage());
@@ -321,9 +643,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Iniciativas leídas: " + iniciativas.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Iniciativas leídas: " + iniciativas.size());
+                GuardarLogs.logger.log(Level.INFO,  "Iniciativas leídas: " + iniciativas.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer las iniciativas. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer las iniciativas. Error: " + e.getLocalizedMessage());
@@ -369,9 +691,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Iniciativas activas leídas: " + iniciativasActivas.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Iniciativas activas leídas: " + iniciativasActivas.size());
+                GuardarLogs.logger.log(Level.INFO,  "Iniciativas activas leídas: " + iniciativasActivas.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer las iniciativas activas. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer las iniciativas activas. Error: " + e.getLocalizedMessage());
@@ -417,9 +739,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Departamentos leídos: " + departamentos.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Departamentos leídos: " + departamentos.size());
+                GuardarLogs.logger.log(Level.INFO,  "Departamentos leídos: " + departamentos.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer los departamentos. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer los departamentos. Error: " + e.getLocalizedMessage());
@@ -478,9 +800,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Empleados contratados leídos: " + empleadosContratados.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Empleados contratados leídos: " + empleadosContratados.size());
+                GuardarLogs.logger.log(Level.INFO,  "Empleados contratados leídos: " + empleadosContratados.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer los empleados contratados. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer los empleados contratados. Error: " + e.getLocalizedMessage());
@@ -540,9 +862,9 @@ public class Coleccion {
                         }
                     }
                 }
-
+                coleccion.close();
                 System.out.println(nombre + "Empleados disponibles leídos: " + empleadosDisponibles.size());
-                GuardarLogs.logger.log(Level.SEVERE,  "Empleados disponibles leídos: " + empleadosDisponibles.size());
+                GuardarLogs.logger.log(Level.INFO,  "Empleados disponibles leídos: " + empleadosDisponibles.size());
             } catch (Exception e) {
                 System.out.println(nombre + "Error al leer los empleados disponibles. Error: " + e.getLocalizedMessage());
                 GuardarLogs.logger.log(Level.SEVERE,  "Error al leer los empleados disponibles. Error: " + e.getLocalizedMessage());
@@ -914,7 +1236,7 @@ public class Coleccion {
     }
 
     // BORRAR LOS EMPLEADOS DISPONIBLES DE UNA EMPRESA
-    private static void borrarEmpleadosDisponiblesEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
+    public static void borrarEmpleadosDisponiblesEmpresa(int idEmpresa, XPathQueryService servicio) throws XMLDBException {
         if (servicio == null) {
             conectar();
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
@@ -922,6 +1244,19 @@ public class Coleccion {
         String query = "update delete /empleadosDisponibles/empleadoDisponible[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
         servicio.query(query);
         System.out.println(nombre + "EmpleadosDisponibles de la empresa " + idEmpresa + " eliminados");
+    }
+
+    // BORRAR EMPLEADO DISPONIBLE DIRECTAMENTE
+    public static void borrarEmpleadoDisponible(int idEmpleado, XPathQueryService servicio) {
+        try {
+            if (servicio == null) {
+                conectar();
+                servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
+            }
+            String query = "update delete /empleadosDisponibles/empleadoDisponible[id=" + idEmpleado + "]"; // TODO GUARDAR QUERY
+            servicio.query(query);
+            System.out.println(nombre + "Empleado Disponible " + idEmpleado + " eliminado");
+        } catch (XMLDBException ignored) {}
     }
 
     // BORRAR LOS DEPARTAMENTOS DE UNA EMPRESA

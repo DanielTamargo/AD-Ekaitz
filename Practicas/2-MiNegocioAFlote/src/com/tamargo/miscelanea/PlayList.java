@@ -4,6 +4,12 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
+import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -16,6 +22,10 @@ public class PlayList extends Thread {
     int indexCancion = 0;
     int indexPlayList = 0;
 
+    JLabel tituloPlaylist;
+    JLabel tituloCancion;
+    JTextPane cancionesPlaylist;
+
     ArrayList<String[]> playlists = AdministradorRutasArchivos.playLists();
     ArrayList<String[]> nombresCancionesPlayLists = AdministradorRutasArchivos.nombresCancionesPlayLists();
 
@@ -25,15 +35,20 @@ public class PlayList extends Thread {
 
     public PlayList() {}
 
-    public PlayList(int indexPlaylist, int indexCancion, float volumen) {
+    public PlayList(int indexPlaylist, int indexCancion, float volumen, JLabel tituloPlaylist, JLabel tituloCancion, JTextPane cancionesPlaylist) {
         this.indexPlayList = indexPlaylist;
         this.indexCancion = indexCancion;
         this.volumen = volumen;
+
+        this.tituloPlaylist = tituloPlaylist;
+        this.tituloCancion = tituloCancion;
+        this.cancionesPlaylist = cancionesPlaylist;
     }
 
     @Override
     public void run() {
         while (reproduciendo) {
+            volcarDatosPlayList();
             volumen = ajustarLimitesVolumen(volumen);
             String nombreArchivoCancion = playlists.get(indexPlayList)[indexCancion];
             String nombreCancion = nombresCancionesPlayLists.get(indexPlayList)[indexCancion];
@@ -83,6 +98,51 @@ public class PlayList extends Thread {
                 reproduciendo = false;
             }
         }
+    }
+
+    public void setDatos(JLabel tituloPlaylist, JLabel tituloCancion, JTextPane cancionesPlaylist) {
+        this.tituloPlaylist = tituloPlaylist;
+        this.tituloCancion = tituloCancion;
+        this.cancionesPlaylist = cancionesPlaylist;
+        volcarDatosPlayList();
+    }
+
+    private void volcarDatosPlayList() {
+        // Nombres
+        String[] listaNombres;
+        if (indexPlayList == 0)
+            listaNombres = AdministradorRutasArchivos.nombresPlaylist1;
+        else
+            listaNombres = AdministradorRutasArchivos.nombresPlaylist2;
+        String[] listaTitulosPlaylist = AdministradorRutasArchivos.titulosPlaylists;
+
+        tituloPlaylist.setText(listaTitulosPlaylist[indexPlayList]);
+        tituloCancion.setText(listaNombres[indexCancion]);
+
+        // Text pane
+        cancionesPlaylist.setText("");
+        StyledDocument doc = cancionesPlaylist.getStyledDocument();
+
+        Style style = cancionesPlaylist.addStyle("PlaylistStyle", null);
+        StyleConstants.setForeground(style, Color.DARK_GRAY);
+
+        try {
+            boolean resetearColor = false;
+            for (String str : listaNombres) {
+                if (str.equalsIgnoreCase(listaNombres[indexCancion])) {
+                    StyleConstants.setForeground(style, Color.BLUE);
+                    resetearColor = true;
+                }
+
+                doc.insertString(doc.getLength(), str, style);
+                doc.insertString(doc.getLength(), "\n", style);
+
+                if (resetearColor) {
+                    StyleConstants.setForeground(style, Color.DARK_GRAY);
+                    resetearColor = false;
+                }
+            }
+        } catch (BadLocationException | IndexOutOfBoundsException ignored) {}
     }
 
     public void sigueReproduciendo() {
@@ -186,9 +246,9 @@ public class PlayList extends Thread {
     }
 
     public void setVolumen(float volumen) {
-        volumen = ajustarLimitesVolumen(volumen);
+        this.volumen = ajustarLimitesVolumen(volumen);
         try {
-            controladorVolumen.setValue(volumen);
+            controladorVolumen.setValue(this.volumen);
         } catch (Exception ignored) { }
     }
 

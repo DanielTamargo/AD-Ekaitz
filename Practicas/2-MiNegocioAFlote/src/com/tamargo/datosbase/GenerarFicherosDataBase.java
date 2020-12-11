@@ -167,7 +167,7 @@ public class GenerarFicherosDataBase {
 
         // Añadimos los nombres femeninos
         for (String nombreFem : nombresFemeninos) {
-            listaDatos.add(new Dato("nombreFemulino", nombreFem, id));
+            listaDatos.add(new Dato("nombreFemenino", nombreFem, id));
             id++;
         }
 
