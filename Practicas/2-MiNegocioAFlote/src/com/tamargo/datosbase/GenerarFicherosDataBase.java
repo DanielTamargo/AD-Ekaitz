@@ -128,7 +128,7 @@ public class GenerarFicherosDataBase {
                 "avatar-fem6.png", "avatar-fem7.png"
         };
         String[] profesiones = {
-                "RRHH", "Estudio de Mercado", "Ventas", "Administrativo", "Marketing", "Salud"
+                "RRHH", "Estudio de Mercado", "Ventas", "Marketing", "Salud"
         };
         String[] dnis = {
                 "56222252V", "44466675Q", "89282070A", "70375995C", "66658964L", "60134720R", "99104460J", "83172635N",

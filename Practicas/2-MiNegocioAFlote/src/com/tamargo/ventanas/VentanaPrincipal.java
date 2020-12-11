@@ -198,7 +198,7 @@ public class VentanaPrincipal {
 
         posY += 20;
 
-        int heighTotal = 350 + 350 * ((empresas.size() - 1) / 4);
+        int heighTotal = 350 + 350 * ((empresas.size()) / 4);
 
 
         panelEmpresas = new JPanel();
@@ -597,6 +597,13 @@ public class VentanaPrincipal {
         panelPrincipal.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 4, false));
 
 
+        JLabel fechaActual = new JLabel();
+        configurarLabel(fechaActual, fuenteMYHUI, Font.BOLD, 14);
+        fechaActual.setForeground(Color.GRAY);
+        panelPrincipal.add(fechaActual);
+        fechaActual.setBounds(700, 10, 200, 20);
+        fechaActual.setText("Fecha Actual: " + empresa.getFechaActual().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
         int posY = 18;
 
         JLabel cabecera = new JLabel("Recursos", SwingConstants.LEFT);
@@ -713,62 +720,36 @@ public class VentanaPrincipal {
         iniciativa.setBounds(720, 750, 165, 40);
         iniciativa.setEnabled(false);
 
+        JButton borrarEmpresa = new JButton("Borrar Empresa");
+        configurarButton(borrarEmpresa, fuenteMYHUI, Font.BOLD, 14);
+        panelPrincipal.add(borrarEmpresa);
+        borrarEmpresa.setBounds(720, 700, 165, 40);
+
         JButton informe = new JButton("Imprimir Informe");
         configurarButton(informe, fuenteMYHUI, Font.BOLD, 14);
         panelPrincipal.add(informe);
         informe.setBounds(720, 450, 165, 40);
 
+        borrarEmpresa.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Coleccion.borrarEmpresa(empresa.getId());
+                JFrame frame = new JFrame("Inicio");
+                //VentanaPrincipal vc = new VentanaPrincipal(frame);
+                frame.setContentPane(new VentanaPrincipal(frame, pm).panel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setResizable(false);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
+                ventana.dispose();
+            }
+        });
         informe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO numero de empleados totales
-                //  numero de empleados por departamento
-                //  empleado con mayor salario + departamento al que pertenece
-                //  departamento que mas salario genera
-
-                long salarioDepRRHH = 0;
-                long salarioDepSalud = 0;
-                long salarioDepMarketing = 0;
-                long salarioDepEstudioMercado = 0;
-                long salarioDepVentas = 0;
-
-                int numEmpRRHH = 0;
-                int numEmpSalud = 0;
-                int numEmpMarketing = 0;
-                int numEmpEstudioMercado = 0;
-                int numEmpVentas = 0;
-
-                int maxSalario = 0;
-                String nombreDepMaxSalarioDestinado = "";
-                String nombreEmpMaxSalario = "";
-                String nombreDepMasEmpleados = "";
-
-                for (EmpleadoContratado empleadoContratado : empleadosEmpresa) {
-                    if (empleadoContratado.getSalario() > maxSalario) {
-                        maxSalario = empleadoContratado.getSalario();
-                        nombreEmpMaxSalario = empleadoContratado.getNombre() + " " + empleadoContratado.getApellido();
-                    }
-                    for (Departamento departamento : departamentosEmpresa) {
-                        if (empleadoContratado.getDepNo() == departamento.getDepNo()) {
-                            if (departamento.getNombre().equalsIgnoreCase("RRHH")) {
-                                salarioDepRRHH += empleadoContratado.getSalario();
-                                numEmpRRHH += 1;
-                            } else if (departamento.getNombre().equalsIgnoreCase("Salud")) {
-                                salarioDepSalud += empleadoContratado.getSalario();
-                                numEmpSalud += 1;
-                            } else if (departamento.getNombre().equalsIgnoreCase("Marketing")) {
-                                salarioDepMarketing += empleadoContratado.getSalario();
-                                numEmpMarketing += 1;
-                            } else if (departamento.getNombre().equalsIgnoreCase("Estudio de Mercado")) {
-                                salarioDepEstudioMercado += empleadoContratado.getSalario();
-                                numEmpEstudioMercado += 1;
-                            } else if (departamento.getNombre().equalsIgnoreCase("Ventas")) {
-                                salarioDepVentas += empleadoContratado.getSalario();
-                                numEmpVentas += 1;
-                            }
-                        }
-                    }
-                }
+                //TODO sacar ventana que lea las querys insertadas y ya
 
             }
         });
@@ -909,7 +890,7 @@ public class VentanaPrincipal {
     private void pasarMes() {
         mesPasado = true;
 
-        lineasRegistro = new ArrayList<>();
+        //lineasRegistro = new ArrayList<>();
 
         try {
             Coleccion.borrarEmpleadosDisponiblesEmpresa(empresa.getId(), null);
@@ -922,7 +903,7 @@ public class VentanaPrincipal {
 
         for (EmpleadoContratado empleadoContratado : empleadosEmpresa) {
             if (empleadoContratado.haCumplidoAnyos(empresa.getFechaActual())) {
-                lineasRegistro.add(empleadoContratado.getNombre() + " ¡Ha cumplido años!");
+                lineasRegistro.add(0, empleadoContratado.getNombre() + " ¡Ha cumplido años!");
                 Coleccion.editarEdadEmpleadoContratado(empleadoContratado);
             }
         }
@@ -1119,7 +1100,7 @@ public class VentanaPrincipal {
             b_despedirEmpleado.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(empleadoContratado.getEmpNo());
+                    System.out.println(empleadoContratado);
                     //Coleccion.borrarEmpleadoContratado(empleadoContratado.getEmpNo());
                     //empleadosEmpresa.remove(empleadoContratado);
                     //cargarVentanaPartida();
@@ -1222,10 +1203,10 @@ public class VentanaPrincipal {
         }
 
         if (nivelAntes > nivel) {
-            lineasRegistro.add(departamento.getNombre() + " ha bajado al nivel " + nivel);
+            lineasRegistro.add(0, departamento.getNombre() + " ha bajado al nivel " + nivel);
             volcarDatosTextPaneRegistro();
         } else if (nivelAntes < nivel) {
-            lineasRegistro.add(departamento.getNombre() + " ha subido al nivel " + nivel);
+            lineasRegistro.add(0, departamento.getNombre() + " ha subido al nivel " + nivel);
             volcarDatosTextPaneRegistro();
         }
     }
@@ -1516,9 +1497,9 @@ public class VentanaPrincipal {
     private void volcarDatosTextPaneRegistro() {
         // Text pane
         registro.setText("");
-        StyledDocument doc = cancionesPlaylist.getStyledDocument();
+        StyledDocument doc = registro.getStyledDocument();
 
-        Style style = cancionesPlaylist.addStyle("PlaylistStyle", null);
+        Style style = registro.addStyle("PlaylistStyle", null);
         StyleConstants.setForeground(style, Color.DARK_GRAY);
 
         try {

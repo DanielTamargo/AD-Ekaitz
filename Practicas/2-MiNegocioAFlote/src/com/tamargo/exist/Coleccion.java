@@ -24,7 +24,7 @@ public class Coleccion {
 
     private final static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
 
-    //todo fichero que controle que es la primera vez que se inicia? o que ponga un 0 si da error de intentar conectar con servicio exist
+    //todo fichero que controle que es la primera vez que se inicia?
     //todo ventana personalizada para que ponga su puerto, usuario y contraseña y que se almacenen en un fichero?
     private final static String puerto = "8083";
     private final static String URI = "xmldb:exist://localhost:" + puerto + "/exist/xmlrpc/db/" + nombreColeccion; //URI colección
