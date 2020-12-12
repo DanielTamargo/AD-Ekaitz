@@ -1,12 +1,9 @@
 package com.tamargo;
 
-import com.tamargo.datosbase.GenerarDatosBase;
 import com.tamargo.exist.Coleccion;
 import com.tamargo.ventanas.VentanaPrincipal;
 
 import javax.swing.*;
-import java.time.LocalDate;
-import java.util.Random;
 
 public class Main {
 

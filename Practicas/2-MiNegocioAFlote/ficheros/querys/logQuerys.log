@@ -1,0 +1,100 @@
+dic. 12, 2020 3:52:30 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:30 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=1])  return $cuenta
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=1]/salario)  return $cuenta
+dic. 12, 2020 3:52:35 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:37 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:37 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=1])  return $cuenta
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=1]/salario)  return $cuenta
+dic. 12, 2020 3:52:38 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:39 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:39 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=21])  return $cuenta
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=21]/salario)  return $cuenta
+dic. 12, 2020 3:52:40 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:41 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:41 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=16])  return $cuenta
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=16]/salario)  return $cuenta
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:42 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=6])  return $cuenta
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=6]/salario)  return $cuenta
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:43 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerDepartamentos
+INFO: for $dep in /departamentos/departamento  let $idEmpresa:=$dep/@idEmpresa,  $depNo:=$dep/depNo,  $nombre:=$dep/nombre,  $nivel:=$dep/nivel  return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerEmpleadosContratados
+INFO: for $emp in /empleadosContratados/empleadoContratado  let  $empNo:=$emp/empNo,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $depNo:=$emp/depNo,  $avatar:=$emp/avatar  return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion numEmpleadosDepartamento
+INFO: for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=11])  return $cuenta
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion salarioTotalDepartamento
+INFO: for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=11]/salario)  return $cuenta
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerEmpleadosDisponibles
+INFO: for $emp in /empleadosDisponibles/empleadoDisponible  let  $id:=$emp/id,  $dni:=$emp/dni,  $nombre:=$emp/nombre,  $apellido:=$emp/apellido,  $edad:=$emp/edad,  $fechaNac:=$emp/fechaNac,  $salario:=$emp/salario,  $avatar:=$emp/avatar,  $departamentoDeseado:=$emp/departamentoDeseado,  $idEmpresa:=$emp/idEmpresa  return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerEmpresas
+INFO: for $empr in /empresas/empresa  let $id:=$empr/id,  $salario:=$empr/salarioDisponible,  $gastos:=$empr/gastosMensuales,  $ganancias:=$empr/gananciasMensuales,  $nombre:=$empr/nombre,  $ciudad:=$empr/ciudad,  $logo:=$empr/logo,  $fechaActual:=$empr/fechaActual,  $fechaCreacion:=$empr/fechaCreacion  return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', $ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)
+dic. 12, 2020 3:52:44 P. M. com.tamargo.exist.Coleccion recogerDatos
+INFO: for $dato in /datos/dato  let $tipo:=$dato/tipo,  $dato:=$dato/dato  return concat($tipo, '|', $dato)

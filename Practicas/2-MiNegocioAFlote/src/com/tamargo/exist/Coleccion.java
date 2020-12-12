@@ -245,8 +245,8 @@ public class Coleccion {
                 System.out.println(nombre + "Sacando el id de empleadoDisponible más alto");
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
-                        "for $id in /empleadosDisponibles/max(empleadoDisponible/id) return $id"; // TODO GUARDAR QUERY
-
+                        "for $id in /empleadosDisponibles/max(empleadoDisponible/id) return $id";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
                 if (i.hasMoreResources()) {
@@ -281,7 +281,8 @@ public class Coleccion {
                 System.out.println(nombre + "Sacando el id de empresa más alto");
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
-                        "for $id in /empresas/max(empresa/id) return $id"; // TODO GUARDAR QUERY
+                        "for $id in /empresas/max(empresa/id) return $id";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -317,7 +318,8 @@ public class Coleccion {
                 System.out.println(nombre + "Sacando el depNo de departamento más alto");
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
-                        "for $depNo in /departamentos/max(departamento/depNo) return $depNo"; // TODO GUARDAR QUERY
+                        "for $depNo in /departamentos/max(departamento/depNo) return $depNo";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -353,7 +355,8 @@ public class Coleccion {
                 System.out.println(nombre + "Sacando el empNo de empleadoContratado más alto");
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
-                        "for $empNo in /empleadosContratados/max(empleadoContratado/empNo) return $empNo"; // TODO GUARDAR QUERY
+                        "for $empNo in /empleadosContratados/max(empleadoContratado/empNo) return $empNo";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -390,7 +393,8 @@ public class Coleccion {
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
                         "for $cuenta in /departamentos/count(departamento) " +
-                        " return $cuenta"; // TODO GUARDAR QUERY
+                        " return $cuenta";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -427,7 +431,8 @@ public class Coleccion {
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
                         "for $cuenta in /empleadosContratados/count(empleadoContratado[depNo=" + depNo + "]) " +
-                        " return $cuenta"; // TODO GUARDAR QUERY
+                        " return $cuenta";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -464,7 +469,8 @@ public class Coleccion {
                 XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
                 String query = "" +
                         "for $cuenta in /empleadosContratados/sum(empleadoContratado[depNo=" + depNo + "]/salario) " +
-                        " return $cuenta"; // TODO GUARDAR QUERY
+                        " return $cuenta";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -515,7 +521,8 @@ public class Coleccion {
                         " $fechaActual:=$empr/fechaActual, " +
                         " $fechaCreacion:=$empr/fechaCreacion " +
                         " return concat($id, '|', $salario, '|', $gastos, '|', $ganancias, '|', $nombre, '|', " +
-                        "$ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)"; // TODO GUARDAR QUERY
+                        "$ciudad, '|', $logo, '|', $fechaActual, '|', $fechaCreacion)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -570,7 +577,8 @@ public class Coleccion {
                         "for $dato in /datos/dato " +
                         " let $tipo:=$dato/tipo, " +
                         " $dato:=$dato/dato " +
-                        " return concat($tipo, '|', $dato)"; // TODO GUARDAR QUERY
+                        " return concat($tipo, '|', $dato)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -618,7 +626,8 @@ public class Coleccion {
                         " $coste:=$ini/coste, " +
                         " $ganancias:=$ini/ganancias " +
                         " return concat($id, '|', $nombre, '|', $duracion, '|', " +
-                        "$nivelNecesario, '|', $coste, '|', $ganancias)"; // TODO GUARDAR QUERY
+                        "$nivelNecesario, '|', $coste, '|', $ganancias)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -667,7 +676,8 @@ public class Coleccion {
                         " let $idIniciativa:=$ini/idIniciativa, " +
                         " $idEmpresa:=$ini/idEmpresa, " +
                         " $fechaInicio:=$ini/fechaInicio " +
-                        " return concat($idIniciativa, '|', $idEmpresa, '|', $fechaInicio)"; // TODO GUARDAR QUERY
+                        " return concat($idIniciativa, '|', $idEmpresa, '|', $fechaInicio)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -716,7 +726,8 @@ public class Coleccion {
                         " $depNo:=$dep/depNo, " +
                         " $nombre:=$dep/nombre, " +
                         " $nivel:=$dep/nivel " +
-                        " return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)"; // TODO GUARDAR QUERY
+                        " return concat($idEmpresa, '|', $depNo, '|', $nombre, '|', $nivel)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -770,7 +781,8 @@ public class Coleccion {
                         " $salario:=$emp/salario, " +
                         " $depNo:=$emp/depNo, " +
                         " $avatar:=$emp/avatar " +
-                        " return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)"; // TODO GUARDAR QUERY
+                        " return concat($empNo, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $depNo, '|', $avatar)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -832,7 +844,8 @@ public class Coleccion {
                         " $avatar:=$emp/avatar, " +
                         " $departamentoDeseado:=$emp/departamentoDeseado, " +
                         " $idEmpresa:=$emp/idEmpresa " +
-                        " return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)"; // TODO GUARDAR QUERY
+                        " return concat($id, '|', $dni, '|', $nombre, '|', $apellido, '|', $edad, '|', $fechaNac, '|', $salario, '|', $avatar, '|', $departamentoDeseado, '|', $idEmpresa)";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i = result.getIterator();
@@ -889,7 +902,8 @@ public class Coleccion {
                     System.out.println(nombre + "Insertando nuevo empleado contratado: " + empNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empleado.queryUpdateInsert(); // TODO GUARDAR QUERY
+                    String query = empleado.queryUpdateInsert();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     insertado = true;
@@ -922,7 +936,8 @@ public class Coleccion {
                     System.out.println(nombre + "Insertando nuevo empleado disponible: " + id);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empleado.queryUpdateInsert(); // TODO GUARDAR QUERY
+                    String query = empleado.queryUpdateInsert();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     insertado = true;
@@ -955,7 +970,8 @@ public class Coleccion {
                     System.out.println(nombre + "Insertando nuevo departamento: " + depNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = departamento.queryUpdateInsert(); // TODO GUARDAR QUERY
+                    String query = departamento.queryUpdateInsert();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     insertado = true;
@@ -988,7 +1004,8 @@ public class Coleccion {
                     System.out.println(nombre + "Insertando nuevo empresa disponible: " + id);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empresa.queryUpdateInsert(); // TODO GUARDAR QUERY
+                    String query = empresa.queryUpdateInsert();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     insertado = true;
@@ -1022,7 +1039,8 @@ public class Coleccion {
                     System.out.println(nombre + "Insertando nuevo iniciativaActiva disponible.");
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = iniciativaActiva.queryUpdateInsert(); // TODO GUARDAR QUERY
+                    String query = iniciativaActiva.queryUpdateInsert();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     insertado = true;
@@ -1058,7 +1076,8 @@ public class Coleccion {
                     System.out.println(nombre + "Editando la edad del empleado: " + empNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empleado.queryUpdateReplaceEdad(); // TODO GUARDAR QUERY
+                    String query = empleado.queryUpdateReplaceEdad();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     editado = true;
@@ -1091,7 +1110,8 @@ public class Coleccion {
                     System.out.println(nombre + "Editando la edad del departamento: " + empNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = departamento.queryUpdateReplaceNivel(); // TODO GUARDAR QUERY
+                    String query = departamento.queryUpdateReplaceNivel();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     editado = true;
@@ -1125,7 +1145,8 @@ public class Coleccion {
                     System.out.println(nombre + "Editando la empresa cuyo id es: " + id);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empresa.queryUpdateReplace(); // TODO GUARDAR QUERY
+                    String query = empresa.queryUpdateReplace();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     editado = true;
@@ -1159,7 +1180,8 @@ public class Coleccion {
                     System.out.println(nombre + "Editando la fecha actual de la empresa cuyo id es: " + id);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = empresa.queryUpdateReplaceFecha(); // TODO GUARDAR QUERY
+                    String query = empresa.queryUpdateReplaceFecha();
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     editado = true;
@@ -1195,7 +1217,8 @@ public class Coleccion {
                     System.out.println(nombre + "Eliminando la empresa cuyo id es: " + id);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = "update delete /empresas/empresa[id=" + id + "]";  // TODO GUARDAR QUERY
+                    String query = "update delete /empresas/empresa[id=" + id + "]";
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     eliminado = true;
@@ -1230,7 +1253,8 @@ public class Coleccion {
             conectar();
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
         }
-        String query = "update delete /iniciativasActivas/iniciativaActiva[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
+        String query = "update delete /iniciativasActivas/iniciativaActiva[idEmpresa=" + idEmpresa + "]";
+        GuardarLogs.loggerQuerys.log(Level.INFO, query);
         servicio.query(query);
         System.out.println(nombre + "IniciativasActivas de la empresa " + idEmpresa + " eliminados");
     }
@@ -1241,7 +1265,8 @@ public class Coleccion {
             conectar();
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
         }
-        String query = "update delete /empleadosDisponibles/empleadoDisponible[idEmpresa=" + idEmpresa + "]"; // TODO GUARDAR QUERY
+        String query = "update delete /empleadosDisponibles/empleadoDisponible[idEmpresa=" + idEmpresa + "]";
+        GuardarLogs.loggerQuerys.log(Level.INFO, query);
         servicio.query(query);
         System.out.println(nombre + "EmpleadosDisponibles de la empresa " + idEmpresa + " eliminados");
     }
@@ -1253,7 +1278,8 @@ public class Coleccion {
                 conectar();
                 servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
             }
-            String query = "update delete /empleadosDisponibles/empleadoDisponible[id=" + idEmpleado + "]"; // TODO GUARDAR QUERY
+            String query = "update delete /empleadosDisponibles/empleadoDisponible[id=" + idEmpleado + "]";
+            GuardarLogs.loggerQuerys.log(Level.INFO, query);
             servicio.query(query);
             System.out.println(nombre + "Empleado Disponible " + idEmpleado + " eliminado");
         } catch (XMLDBException ignored) {}
@@ -1265,7 +1291,8 @@ public class Coleccion {
             conectar();
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
         }
-        String query = "update delete /departamentos/departamento[@idEmpresa=\"" + idEmpresa + "\"]"; // TODO GUARDAR QUERY
+        String query = "update delete /departamentos/departamento[@idEmpresa=\"" + idEmpresa + "\"]";
+        GuardarLogs.loggerQuerys.log(Level.INFO, query);
         servicio.query(query);
         System.out.println(nombre + "Departamentos de la empresa " + idEmpresa + " eliminados");
     }
@@ -1277,7 +1304,8 @@ public class Coleccion {
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
         }
         // Sacar el id de cada departamento de una empresa
-        String query = "for $dep in /departamentos/departamento[@idEmpresa=\"" + idEmpresa + "\"] let $depNo:=$dep/depNo return $depNo/text()"; // TODO GUARDAR QUERY
+        String query = "for $dep in /departamentos/departamento[@idEmpresa=\"" + idEmpresa + "\"] let $depNo:=$dep/depNo return $depNo/text()";
+        GuardarLogs.loggerQuerys.log(Level.INFO, query);
 
         ResourceSet result = servicio.query(query);
         ResourceIterator i = result.getIterator();
@@ -1299,7 +1327,8 @@ public class Coleccion {
             conectar();
             servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
         }
-        String query = "update delete /empleadosContratados/empleadoContratado[depNo=" + depNo + "]"; // TODO GUARDAR QUERY
+        String query = "update delete /empleadosContratados/empleadoContratado[depNo=" + depNo + "]";
+        GuardarLogs.loggerQuerys.log(Level.INFO, query);
         servicio.query(query);
         System.out.println(nombre + "Empleados del departamento " + depNo + " eliminados");
     }
@@ -1314,7 +1343,8 @@ public class Coleccion {
                     System.out.println(nombre + "Eliminando el departamento cuyo depNo es: " + depNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = "update delete /departamentos/departamento[depNo=" + depNo + "]";  // TODO GUARDAR QUERY
+                    String query = "update delete /departamentos/departamento[depNo=" + depNo + "]";
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
                     
                     eliminado = true;
@@ -1350,7 +1380,8 @@ public class Coleccion {
                     System.out.println(nombre + "Eliminando el empleadoContratado cuyo empNo es: " + empNo);
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = "update delete /empleadosContratados/empleadoContratado[empNo=" + empNo + "]";  // TODO GUARDAR QUERY
+                    String query = "update delete /empleadosContratados/empleadoContratado[empNo=" + empNo + "]";
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     eliminado = true;
@@ -1382,7 +1413,8 @@ public class Coleccion {
                     System.out.println(nombre + "Eliminando la iniciativa activa");
                     XPathQueryService servicio = (XPathQueryService) coleccion.getService("XPathQueryService", "1.0");
 
-                    String query = "update delete /iniciativasActivas/iniciativaActiva[idIniciativa=" + idIniciativa + " and idEmpresa=" + idEmpresa + "]";  // TODO GUARDAR QUERY
+                    String query = "update delete /iniciativasActivas/iniciativaActiva[idIniciativa=" + idIniciativa + " and idEmpresa=" + idEmpresa + "]";
+                    GuardarLogs.loggerQuerys.log(Level.INFO, query);
                     servicio.query(query);
 
                     eliminado = true;
@@ -1421,7 +1453,8 @@ public class Coleccion {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un departamento
-                String query = "/empresas/empresa[id=" + id + "]"; // TODO GUARDAR QUERY
+                String query = "/empresas/empresa[id=" + id + "]";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i;
                 i = result.getIterator();
@@ -1454,7 +1487,8 @@ public class Coleccion {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un departamento
-                String query = "/departamentos/departamento[depNo=" + depNo + "]"; // TODO GUARDAR QUERY
+                String query = "/departamentos/departamento[depNo=" + depNo + "]";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i;
                 i = result.getIterator();
@@ -1487,7 +1521,8 @@ public class Coleccion {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un empleadoContratado
-                String query = "/empleadosContratados/empleadoContratado[empNo=" + empNo + "]"; // TODO GUARDAR QUERY
+                String query = "/empleadosContratados/empleadoContratado[empNo=" + empNo + "]";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i;
                 i = result.getIterator();
@@ -1520,7 +1555,8 @@ public class Coleccion {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un empleadoDisponible
-                String query = "/empleadosDisponibles/empleadoDisponible[id=" + id + "]"; // TODO GUARDAR QUERY
+                String query = "/empleadosDisponibles/empleadoDisponible[id=" + id + "]";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i;
                 i = result.getIterator();
@@ -1553,7 +1589,8 @@ public class Coleccion {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Consulta para consultar la información de un iniciativaActiva
-                String query = "/iniciativasActivas/iniciativaActiva[idIniciativa=" + idIniciativa + " and idEmpresa=" + idEmpresa +"]"; // TODO GUARDAR QUERY
+                String query = "/iniciativasActivas/iniciativaActiva[idIniciativa=" + idIniciativa + " and idEmpresa=" + idEmpresa +"]";
+                GuardarLogs.loggerQuerys.log(Level.INFO, query);
                 ResourceSet result = servicio.query(query);
                 ResourceIterator i;
                 i = result.getIterator();

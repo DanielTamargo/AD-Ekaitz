@@ -1,7 +1,6 @@
 package com.tamargo.ventanas;
 
 import com.tamargo.exist.Coleccion;
-import com.tamargo.miscelanea.AdministradorRutasArchivos;
 import com.tamargo.miscelanea.JTextFieldLimit;
 import com.tamargo.miscelanea.PlayList;
 import com.tamargo.modelo.*;
@@ -571,7 +570,7 @@ public class VentanaPrincipal {
 
     }
     private boolean comprobarDatos(JTextField nombre, JTextField ciudad) {
-        Pattern patronNombre = Pattern.compile("[a-zA-Z0-9]{3,16}");
+        Pattern patronNombre = Pattern.compile("[a-z A-Z0-9'!¡¿?]{3,16}");
         Pattern patronCiudad = Pattern.compile("[a-zA-Z]{3,16}");
         if (patronNombre.matcher(nombre.getText()).matches() &&
         patronCiudad.matcher(ciudad.getText()).matches()) {
@@ -890,15 +889,12 @@ public class VentanaPrincipal {
     private void pasarMes() {
         mesPasado = true;
 
-        //lineasRegistro = new ArrayList<>();
-
         try {
             Coleccion.borrarEmpleadosDisponiblesEmpresa(empresa.getId(), null);
         } catch (XMLDBException ignored) {}
 
         empresa.setFechaActual(empresa.getFechaActual().plusMonths(1));
         empresa.setSalarioDisponible(empresa.getSalarioDisponible() + (empresa.getGananciasMensuales() - empresa.getGastosMensuales()));
-
         Coleccion.editarEmpresa(empresa);
 
         for (EmpleadoContratado empleadoContratado : empleadosEmpresa) {
@@ -1558,15 +1554,4 @@ public class VentanaPrincipal {
         return panel;
     }
 
-    // LANZAR VENTANA
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Inicio");
-        //VentanaPrincipal vc = new VentanaPrincipal(frame);
-        frame.setContentPane(new VentanaPrincipal(frame, null).panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
 }

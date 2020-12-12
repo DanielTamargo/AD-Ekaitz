@@ -19,7 +19,7 @@ public class Varios {
     private final static EmpleadoDisponible emp2 = new EmpleadoDisponible(0, "dni", "nombre", "ape", LocalDate.now().minusYears(19), 1000, "avatar", "RRHH", 0, LocalDate.now());
 
 
-    public static void main(String[] args) throws XMLDBException {
+    public static void main() throws XMLDBException {
 
         GenerarDatosBase.generarDatosBase();
         Coleccion.borrarEmpresa(-1);

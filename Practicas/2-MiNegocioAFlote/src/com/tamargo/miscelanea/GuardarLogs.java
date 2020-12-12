@@ -17,6 +17,10 @@ public class GuardarLogs {
     public static final Logger logger = inicializarLog();
     private static final int numLogsMaximos = 12;
 
+    private static final String pathLogsQuerys = "./ficheros/querys";
+    public static final Logger loggerQuerys = inicializarLogQuery();
+
+
     /**
      * Inicializa el log, le genera un FileHandler y configura los niveles que aceptará
      * Este método llamará a comprobarCarpetaLogs() y borrarLogsSobrantes()
@@ -110,6 +114,45 @@ public class GuardarLogs {
             }
         } catch (Exception e) {
             System.out.println("[Log] Error al crear la carpeta log");
+        }
+    }
+
+
+    public static synchronized Logger inicializarLogQuery() {
+        Logger logger = Logger.getLogger("ProyectoBBDDNoSQLQuery");
+        FileHandler fh;
+        try {
+            comprobarCarpetaLogsQuerys();
+
+            String rutaLog = pathLogsQuerys + "/logQuerys.log";
+            fh = new FileHandler(rutaLog, true);
+            logger.setLevel(Level.ALL);
+            logger.setUseParentHandlers(false);
+
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+
+            logger.addHandler(fh);
+        } catch (IOException e) {
+            System.out.println("Error con el log");
+        }
+        return logger;
+    }
+
+    public static synchronized void comprobarCarpetaLogsQuerys() {
+        try {
+            File f = new File(pathLogsQuerys);
+            if (!f.exists()) {
+                System.out.println("[Log] La carpeta querys no existe");
+                System.out.println("[Log] Creando la carpeta querys...");
+                boolean crearCarpeta = f.mkdirs();
+                if (crearCarpeta)
+                    System.out.println("[Log] Carpeta querys creada");
+                else
+                    System.out.println("[Log] Error al crear la carpeta querys");
+            }
+        } catch (Exception e) {
+            System.out.println("[Log] Error al crear la carpeta querys");
         }
     }
 
